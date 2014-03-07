@@ -197,7 +197,7 @@
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.UserNameTextBox);
-            this.Name = "Salary_Rates_Panel";
+           // this.Name = "Salary_Rates_Panel";
             this.Text = "Salary_Rates_Panel";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
