@@ -18,6 +18,10 @@ namespace PredatorUI2
 
         private void LogIn_Load(object sender, EventArgs e)
         {
+            string username = UserNameTextBox.Text;
+            string password = PasswordTextBox.Text;
+            
+
 
         }
     }
