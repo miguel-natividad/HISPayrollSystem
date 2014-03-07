@@ -1,0 +1,373 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D3301B64-4F9D-48F5-A7A2-BF0ECFB5CA6F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PredatorUI2</RootNamespace>
+    <AssemblyName>PredatorUI2</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccountingReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccountingReport.Designer.cs">
+      <DependentUpon>AccountingReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BankReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BankReport.Designer.cs">
+      <DependentUpon>BankReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee Panel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee Panel.Designer.cs">
+      <DependentUpon>Employee Panel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FCAccounting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FCAccounting.Designer.cs">
+      <DependentUpon>FCAccounting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FCBankReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FCBankReport.Designer.cs">
+      <DependentUpon>FCBankReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FCPayslip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FCPayslip.Designer.cs">
+      <DependentUpon>FCPayslip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FCSalaryReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FCSalaryReport.Designer.cs">
+      <DependentUpon>FCSalaryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FCTimesheet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FCTimesheet.Designer.cs">
+      <DependentUpon>FCTimesheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FullScreenTemplate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FullScreenTemplate.Designer.cs">
+      <DependentUpon>FullScreenTemplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoadingPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoadingPage.Designer.cs">
+      <DependentUpon>LoadingPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Payslip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payslip.Designer.cs">
+      <DependentUpon>Payslip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Projects Panel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Projects Panel.Designer.cs">
+      <DependentUpon>Projects Panel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Salary Rates Panel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Salary Rates Panel.Designer.cs">
+      <DependentUpon>Salary Rates Panel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SalaryReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalaryReport.Designer.cs">
+      <DependentUpon>SalaryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings User Management.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings User Management.Designer.cs">
+      <DependentUpon>Settings User Management.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SettingsCompanyProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SettingsCompanyProfile.Designer.cs">
+      <DependentUpon>SettingsCompanyProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimesheetReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TimesheetReport.Designer.cs">
+      <DependentUpon>TimesheetReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimesheetTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TimesheetTime.Designer.cs">
+      <DependentUpon>TimesheetTime.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AccountingReport.resx">
+      <DependentUpon>AccountingReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BankReport.resx">
+      <DependentUpon>BankReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee Panel.resx">
+      <DependentUpon>Employee Panel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FCAccounting.resx">
+      <DependentUpon>FCAccounting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FCBankReport.resx">
+      <DependentUpon>FCBankReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FCPayslip.resx">
+      <DependentUpon>FCPayslip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FCSalaryReport.resx">
+      <DependentUpon>FCSalaryReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FCTimesheet.resx">
+      <DependentUpon>FCTimesheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FullScreenTemplate.resx">
+      <DependentUpon>FullScreenTemplate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoadingPage.resx">
+      <DependentUpon>LoadingPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payslip.resx">
+      <DependentUpon>Payslip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Projects Panel.resx">
+      <DependentUpon>Projects Panel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Salary Rates Panel.resx">
+      <DependentUpon>Salary Rates Panel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalaryReport.resx">
+      <DependentUpon>SalaryReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings User Management.resx">
+      <DependentUpon>Settings User Management.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsCompanyProfile.resx">
+      <DependentUpon>SettingsCompanyProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimesheetReport.resx">
+      <DependentUpon>TimesheetReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Settings Company Profile BG.psd.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Settings Company Profile Template.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tasks.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OrganizationalInformation.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OrganizationalInformation1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Settings User Management.psd.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlackChangeButton.psd.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhiteChangeButton.psd.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhiteSaveButton.psd.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhiteCancelButton.psd.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Settings User Management.psd1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhiteChangePasswordButton.psd.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhiteSaveChangesButton.psd.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhiteCancelChangesButton.psd.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhiteAddButton.psd.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhiteEditButton.psd.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhiteDeleteButton.psd.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OrganizationalInformation2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OrganizationalInformation3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OrganizationalInformation4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UserManagement.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Projects.psd.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhiteCreateProjectButton.psd.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhiteCloseProjectButton.psd.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Employee.psd.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Salary Rates Panel.psd.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FullScreenTemplate.psd.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FullScreenTemplate.psd1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhitePrintButton.psd.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhiteZoomInButton.psd.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhiteZoomOutButton.psd.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhiteEditButton.psd1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Timesheet Report.psd.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Salary Report.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bank Report.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Accounting Report.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Payslip.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Loading Page3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ProjectsButton.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EmployeesButton.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ReportsButton.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SettingsButton.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
