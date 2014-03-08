@@ -14,7 +14,8 @@ using MySql.Data.MySqlClient;
 {
     public partial class LogIn : Form
     {
-        public static string login = "server=localhost;database=his_payroll_db;uid=root;password=verisiminitude0908;";
+        //creates a static string that contains login credentials for mySQL that can be accessed in any class
+        public static string login = "server=localhost;database=his;uid=root;password=verisiminitude0908;";
        
 
         public LogIn()
@@ -25,13 +26,14 @@ using MySql.Data.MySqlClient;
 
         private void LogInButton_Click(object sender, EventArgs e)
         {
-           
+           //This part will get the User Name and Password data from the MYSQL database
             MySqlConnection conn = new MySqlConnection(login);
             conn.Open();
             MySqlCommand cmd = conn.CreateCommand();
             cmd.CommandText = "SELECT username, password FROM user_table";
             MySqlDataReader reader = cmd.ExecuteReader();
          
+            //This part checks if what the user has inputted MATCHES what is inputted in the HIS MySQL database
             while (reader.Read())
             {
                 if (UserNameTextBox.Text == reader[0].ToString() && PasswordTextBox.Text == reader[1].ToString())
@@ -43,6 +45,7 @@ using MySql.Data.MySqlClient;
                 }
                 else
                 {
+                    //User has inputted wrong credentials. He has to start over. Text Boxes are cleared. 
                     MessageBox.Show("Login Failed. Please input correct username and/or password");
                     UserNameTextBox.Clear();
                     PasswordTextBox.Clear();
@@ -55,6 +58,7 @@ using MySql.Data.MySqlClient;
             this.Close();
         }
 
+        //This just does exactly the same thing as the Login Button, but ...uses the "Enter" key 
         private void PasswordTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
@@ -62,7 +66,7 @@ using MySql.Data.MySqlClient;
                 MySqlConnection conn = new MySqlConnection(login);
                 conn.Open();
                 MySqlCommand cmd = conn.CreateCommand();
-                cmd.CommandText = "SELECT username, password FROM user_table";
+                cmd.CommandText = "SELECT username, password FROM user_accounts_table";
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read())
