@@ -10,11 +10,11 @@ using MySql.Data;
 using MySql.Data.MySqlClient;
 
 
-namespace PredatorUI2
+ namespace PredatorUI2
 {
     public partial class LogIn : Form
     {
-        string login = "server=localhost;database=his_payroll_db;uid=root;password=verisiminitude0908;";
+        public static string login = "server=localhost;database=his_payroll_db;uid=root;password=verisiminitude0908;";
        
 
         public LogIn()
