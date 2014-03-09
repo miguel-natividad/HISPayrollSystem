@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Projects_Panel));
             this.projectsDataGrid = new System.Windows.Forms.DataGridView();
             this.projectNameTB = new System.Windows.Forms.TextBox();
             this.projectLocationTB = new System.Windows.Forms.TextBox();
@@ -35,7 +36,6 @@
             this.deleteProjectBtn = new System.Windows.Forms.Button();
             this.editProjectBtn = new System.Windows.Forms.Button();
             this.CancelChangesButton = new System.Windows.Forms.Button();
-            this.CloseProjectButton = new System.Windows.Forms.Button();
             this.CreateProjectButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.projectsDataGrid)).BeginInit();
             this.SuspendLayout();
@@ -50,6 +50,7 @@
             this.projectsDataGrid.Name = "projectsDataGrid";
             this.projectsDataGrid.Size = new System.Drawing.Size(702, 132);
             this.projectsDataGrid.TabIndex = 1;
+            this.projectsDataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.projectsDataGrid_CellContentClick);
             // 
             // projectNameTB
             // 
@@ -86,53 +87,45 @@
             this.deleteProjectBtn.BackgroundImage = global::PredatorUI2.Properties.Resources.WhiteDeleteButton_psd;
             this.deleteProjectBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.deleteProjectBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deleteProjectBtn.Location = new System.Drawing.Point(908, 481);
+            this.deleteProjectBtn.Location = new System.Drawing.Point(837, 481);
             this.deleteProjectBtn.Name = "deleteProjectBtn";
-            this.deleteProjectBtn.Size = new System.Drawing.Size(65, 20);
+            this.deleteProjectBtn.Size = new System.Drawing.Size(121, 20);
             this.deleteProjectBtn.TabIndex = 26;
             this.deleteProjectBtn.UseVisualStyleBackColor = true;
+            this.deleteProjectBtn.Click += new System.EventHandler(this.deleteProjectBtn_Click);
             // 
             // editProjectBtn
             // 
             this.editProjectBtn.BackgroundImage = global::PredatorUI2.Properties.Resources.WhiteEditButton_psd;
             this.editProjectBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.editProjectBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editProjectBtn.Location = new System.Drawing.Point(837, 481);
+            this.editProjectBtn.Location = new System.Drawing.Point(685, 481);
             this.editProjectBtn.Name = "editProjectBtn";
-            this.editProjectBtn.Size = new System.Drawing.Size(65, 20);
+            this.editProjectBtn.Size = new System.Drawing.Size(131, 20);
             this.editProjectBtn.TabIndex = 25;
             this.editProjectBtn.UseVisualStyleBackColor = true;
+            this.editProjectBtn.Click += new System.EventHandler(this.editProjectBtn_Click);
             // 
             // CancelChangesButton
             // 
             this.CancelChangesButton.BackgroundImage = global::PredatorUI2.Properties.Resources.WhiteCancelChangesButton_psd;
             this.CancelChangesButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelChangesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CancelChangesButton.Location = new System.Drawing.Point(803, 255);
+            this.CancelChangesButton.Location = new System.Drawing.Point(837, 255);
             this.CancelChangesButton.Name = "CancelChangesButton";
-            this.CancelChangesButton.Size = new System.Drawing.Size(160, 25);
+            this.CancelChangesButton.Size = new System.Drawing.Size(121, 25);
             this.CancelChangesButton.TabIndex = 29;
             this.CancelChangesButton.UseVisualStyleBackColor = true;
-            // 
-            // CloseProjectButton
-            // 
-            this.CloseProjectButton.BackgroundImage = global::PredatorUI2.Properties.Resources.WhiteCloseProjectButton_psd;
-            this.CloseProjectButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.CloseProjectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CloseProjectButton.Location = new System.Drawing.Point(624, 255);
-            this.CloseProjectButton.Name = "CloseProjectButton";
-            this.CloseProjectButton.Size = new System.Drawing.Size(160, 25);
-            this.CloseProjectButton.TabIndex = 28;
-            this.CloseProjectButton.UseVisualStyleBackColor = true;
+            this.CancelChangesButton.Click += new System.EventHandler(this.CancelChangesButton_Click);
             // 
             // CreateProjectButton
             // 
             this.CreateProjectButton.BackgroundImage = global::PredatorUI2.Properties.Resources.WhiteCreateProjectButton_psd;
             this.CreateProjectButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CreateProjectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CreateProjectButton.Location = new System.Drawing.Point(435, 255);
+            this.CreateProjectButton.Location = new System.Drawing.Point(685, 255);
             this.CreateProjectButton.Name = "CreateProjectButton";
-            this.CreateProjectButton.Size = new System.Drawing.Size(160, 25);
+            this.CreateProjectButton.Size = new System.Drawing.Size(131, 25);
             this.CreateProjectButton.TabIndex = 27;
             this.CreateProjectButton.UseVisualStyleBackColor = true;
             this.CreateProjectButton.Click += new System.EventHandler(this.CreateProjectButton_Click);
@@ -141,11 +134,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::PredatorUI2.Properties.Resources.Projects_psd;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(984, 661);
             this.Controls.Add(this.CancelChangesButton);
-            this.Controls.Add(this.CloseProjectButton);
             this.Controls.Add(this.CreateProjectButton);
             this.Controls.Add(this.deleteProjectBtn);
             this.Controls.Add(this.editProjectBtn);
@@ -170,7 +162,6 @@
         private System.Windows.Forms.Button deleteProjectBtn;
         private System.Windows.Forms.Button editProjectBtn;
         private System.Windows.Forms.Button CancelChangesButton;
-        private System.Windows.Forms.Button CloseProjectButton;
         private System.Windows.Forms.Button CreateProjectButton;
     }
 }

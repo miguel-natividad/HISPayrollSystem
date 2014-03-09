@@ -15,7 +15,16 @@ namespace PredatorUI2
     {
         //Initializes a Data Table which will hold the data from projects_table from the HIS MySQL database
         DataTable projectsDT = new DataTable();
+        //String to hold the query that will get the projectID of the currently selected row's entity
         String projectIDquery = "";
+
+        //String to hold the projectID after running projectIDquery
+        String currentSelectedProjectID = "";
+
+        //String to hold the project name BEFORE ANY EDITS ARE MADE
+        String initialProjectName = "";
+
+
         public Projects_Panel()
         {
             InitializeComponent();
@@ -128,7 +137,132 @@ namespace PredatorUI2
             cmd.ExecuteNonQuery();
             conn.Close();
 
+            //refreshes the datagrid;
             loadDataGrid();
         }
+
+        private void projectsDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int columnIndex = projectsDataGrid.CurrentCell.ColumnIndex;
+            int rowIndex = projectsDataGrid.CurrentCell.RowIndex;
+
+            //So that when you click a cell, the entire row is selected
+            projectsDataGrid.Rows[rowIndex].Selected = true;
+
+            //When you click a cell, that entity's information will be placed on the textBoxes.
+            List<String> stringValues = new List<String>();
+
+            for (int k = 0; k < projectsDataGrid.ColumnCount; k++)
+            {
+                 stringValues.Add(projectsDataGrid.Rows[rowIndex].Cells[k].Value.ToString());
+            }
+
+            projectNameTB.Text = stringValues[0];
+            projectLocationTB.Text = stringValues[1];
+            statusComboBox.Text = stringValues[2];
+
+            initialProjectName = projectNameTB.Text;
+          
+            /** MySqlConnection conn = new MySqlConnection(LogIn.login);
+            conn.Open();
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT project_ID FROM projects_table WHERE project_name = @project_name";
+            cmd.Parameters.AddWithValue(@"project_name", projectNameTB.Text);
+            MySqlDataReader reader = cmd.ExecuteReader();
+           
+            while (reader.Read())
+            {
+                currentSelectedProjectID = reader[0].ToString();
+            }*/
+          
+        }
+
+        private void CancelChangesButton_Click(object sender, EventArgs e)
+        {
+            projectNameTB.Clear();
+            projectLocationTB.Clear();
+            statusComboBox.Text = "";
+        }
+
+        private void editProjectBtn_Click(object sender, EventArgs e)
+        {
+            //gets the project ID of the currently selected row's entity 
+            MySqlConnection conn = new MySqlConnection(LogIn.login);
+            conn.Open();
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT project_ID FROM projects_table WHERE project_name = @project_name";
+            cmd.Parameters.AddWithValue(@"project_name", initialProjectName);
+            MySqlDataReader reader = cmd.ExecuteReader();
+           
+            while (reader.Read())
+            {
+                currentSelectedProjectID = reader[0].ToString();
+            }
+            reader.Close();
+
+            //initializes strings to hold the new values
+            String newProjName = projectNameTB.Text;
+            String newProjLocation = projectLocationTB.Text;
+            String newStatus = statusComboBox.Text;
+
+      
+            //Will update databaes with new values
+            cmd = conn.CreateCommand();
+
+            cmd.CommandText = "UPDATE projects_table SET project_name =@project_name, project_location=@project_location, project_status=@project_status WHERE project_ID=@project_ID";
+
+            cmd.Parameters.AddWithValue("@project_name", newProjName);
+            cmd.Parameters.AddWithValue("@project_location", newProjLocation);
+            cmd.Parameters.AddWithValue("@project_status", newStatus);
+            cmd.Parameters.AddWithValue("@project_ID", currentSelectedProjectID);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+
+            //refreshes the datagrid;
+            loadDataGrid();
+            MessageBox.Show("Edit Successful");
+        }
+
+        private void deleteProjectBtn_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(this, "Are you sure you want to delete selected row?", "Close?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.No)
+            {
+                DialogResult = DialogResult.Cancel;
+            }
+            else
+            {
+                //gets the project ID of the currently selected row's entity 
+                MySqlConnection conn = new MySqlConnection(LogIn.login);
+                conn.Open();
+                MySqlCommand cmd = conn.CreateCommand();
+                cmd.CommandText = "SELECT project_ID FROM projects_table WHERE project_name = @project_name";
+                cmd.Parameters.AddWithValue(@"project_name", initialProjectName);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    currentSelectedProjectID = reader[0].ToString();
+                }
+                reader.Close();
+
+
+               
+                cmd = conn.CreateCommand();
+                cmd.CommandText = "DELETE FROM projects_table WHERE project_ID =@project_ID";
+                cmd.Parameters.AddWithValue("@project_ID", currentSelectedProjectID);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                loadDataGrid();
+                MessageBox.Show("Delete Successful");
+
+                projectNameTB.Clear();
+                projectLocationTB.Clear();
+                statusComboBox.Text = "";
+            }
+        }
+
+      
     }
 }

@@ -42,7 +42,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(194, 119);
+            this.pictureBox1.Location = new System.Drawing.Point(174, 128);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(632, 288);
             this.pictureBox1.TabIndex = 10;
@@ -51,7 +51,7 @@
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.SystemColors.Window;
-            this.pictureBox2.Location = new System.Drawing.Point(-2, 95);
+            this.pictureBox2.Location = new System.Drawing.Point(2, 98);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(245, 546);
             this.pictureBox2.TabIndex = 11;
@@ -59,11 +59,12 @@
             // 
             // settingsBtn
             // 
+            this.settingsBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.settingsBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("settingsBtn.BackgroundImage")));
             this.settingsBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.settingsBtn.FlatAppearance.BorderSize = 0;
             this.settingsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.settingsBtn.Location = new System.Drawing.Point(668, 476);
+            this.settingsBtn.Location = new System.Drawing.Point(648, 476);
             this.settingsBtn.Name = "settingsBtn";
             this.settingsBtn.Size = new System.Drawing.Size(102, 80);
             this.settingsBtn.TabIndex = 9;
@@ -72,11 +73,12 @@
             // 
             // reportsBtn
             // 
+            this.reportsBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.reportsBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("reportsBtn.BackgroundImage")));
             this.reportsBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.reportsBtn.FlatAppearance.BorderSize = 0;
             this.reportsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.reportsBtn.Location = new System.Drawing.Point(522, 476);
+            this.reportsBtn.Location = new System.Drawing.Point(502, 476);
             this.reportsBtn.Name = "reportsBtn";
             this.reportsBtn.Size = new System.Drawing.Size(103, 80);
             this.reportsBtn.TabIndex = 8;
@@ -85,11 +87,12 @@
             // 
             // employeesBtn
             // 
+            this.employeesBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.employeesBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("employeesBtn.BackgroundImage")));
             this.employeesBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.employeesBtn.FlatAppearance.BorderSize = 0;
             this.employeesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.employeesBtn.Location = new System.Drawing.Point(388, 476);
+            this.employeesBtn.Location = new System.Drawing.Point(368, 476);
             this.employeesBtn.Name = "employeesBtn";
             this.employeesBtn.Size = new System.Drawing.Size(102, 80);
             this.employeesBtn.TabIndex = 7;
@@ -98,12 +101,13 @@
             // 
             // projectsBtn
             // 
+            this.projectsBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.projectsBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("projectsBtn.BackgroundImage")));
             this.projectsBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.projectsBtn.FlatAppearance.BorderSize = 0;
             this.projectsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.projectsBtn.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.projectsBtn.Location = new System.Drawing.Point(245, 476);
+            this.projectsBtn.Location = new System.Drawing.Point(225, 476);
             this.projectsBtn.Name = "projectsBtn";
             this.projectsBtn.Size = new System.Drawing.Size(101, 80);
             this.projectsBtn.TabIndex = 6;
@@ -129,14 +133,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(966, 681);
-            this.Controls.Add(this.timeLabel);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.settingsBtn);
             this.Controls.Add(this.reportsBtn);
             this.Controls.Add(this.employeesBtn);
             this.Controls.Add(this.projectsBtn);
+            this.Controls.Add(this.timeLabel);
+            this.Controls.Add(this.pictureBox2);
             this.Name = "ControlPanel";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ControlPanel";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
