@@ -53,7 +53,8 @@
             this.projectsDataGrid.Name = "projectsDataGrid";
             this.projectsDataGrid.Size = new System.Drawing.Size(702, 132);
             this.projectsDataGrid.TabIndex = 1;
-            this.projectsDataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.projectsDataGrid_CellContentClick);
+            this.projectsDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.projectsDataGrid_CellClick);
+            //this.projectsDataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.projectsDataGrid_CellContentClick);
             // 
             // projectNameTB
             // 

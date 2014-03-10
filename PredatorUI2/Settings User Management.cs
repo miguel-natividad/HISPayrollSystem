@@ -145,30 +145,7 @@ namespace PredatorUI2
             }
         }
 
-        private void usermgtDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int columnIndex = usermgtDataGrid.CurrentCell.ColumnIndex;
-            int rowIndex = usermgtDataGrid.CurrentCell.RowIndex;
-
-            //So that when you click a cell, the entire row is selected
-            usermgtDataGrid.Rows[rowIndex].Selected = true;
-
-            //When you click a cell, that entity's information will be placed on the textBoxes.
-            List<String> stringValues = new List<String>();
-
-            for (int k = 0; k < usermgtDataGrid.ColumnCount; k++)
-            {
-                stringValues.Add(usermgtDataGrid.Rows[rowIndex].Cells[k].Value.ToString());
-            }
-
-            userNameTB.Text = stringValues[0];
-           // passwordTB.Text = stringValues[1];
-            firstNameTB.Text = stringValues[1];
-            lastNameTB.Text = stringValues[2];
-
-            initialUserName = userNameTB.Text;
-        }
-
+      
         public void passBack(bool b)
         {
             this.PasswordEntered = b;
@@ -190,7 +167,7 @@ namespace PredatorUI2
                 currentPass = reader[0].ToString();
             }
 
-            MessageBox.Show(currentPass);
+          
             using (ChangePassForm cpf = new ChangePassForm())
             {
                 // passing this in ShowDialog will set the .Owner 
@@ -203,6 +180,124 @@ namespace PredatorUI2
 
 
             
+        }
+
+        private void saveChangesBtn_Click(object sender, EventArgs e)
+        {
+            if (passwordEntered == false)
+            {
+                if (firstNameTB.Text == "" || lastNameTB.Text == "" || userNameTB.Text == "")
+                {
+                    MessageBox.Show("Please fill out all the fields.");
+                }
+                else
+                {
+                    //gets the user ID of the currently selected row's entity 
+                    MySqlConnection conn = new MySqlConnection(LogIn.login);
+                    conn.Open();
+                    MySqlCommand cmd = conn.CreateCommand();
+                    cmd.CommandText = "SELECT user_ID FROM user_accounts_table WHERE username = @username";
+                    cmd.Parameters.AddWithValue(@"username", initialUserName);
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    
+                    while (reader.Read())
+                    {
+                        currentSelectedUserMgt = reader[0].ToString();
+                    }
+                    reader.Close();
+
+                    //initializes strings to hold the new values
+                    String newUserName = userNameTB.Text;
+                    String newFirstName = firstNameTB.Text;
+                    String newLastName = lastNameTB.Text;
+
+                    //Will update databaes with new values
+                    cmd = conn.CreateCommand();
+
+                    cmd.CommandText = "UPDATE user_accounts_table SET username=@username, first_name=@first_name, last_name=@last_name WHERE user_ID=@user_ID";
+                    cmd.Parameters.AddWithValue("@user_ID", currentSelectedUserMgt); 
+                    cmd.Parameters.AddWithValue("@username", newUserName);
+                    cmd.Parameters.AddWithValue("@first_name", newFirstName);
+                    cmd.Parameters.AddWithValue("@last_name", newLastName);
+
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                   
+                    //refreshes the datagrid;
+                    loadDataGrid();
+                    MessageBox.Show("Edit Successful");
+                }
+            }
+            else
+            {
+                if (firstNameTB.Text == "" || lastNameTB.Text == "" || userNameTB.Text == "" || passwordTB.Text == "")
+                {
+                    MessageBox.Show("Please fill out all the fields.");
+                }
+                else
+                {
+                    //gets the user ID of the currently selected row's entity 
+                    MySqlConnection conn = new MySqlConnection(LogIn.login);
+                    conn.Open();
+                    MySqlCommand cmd = conn.CreateCommand();
+                    cmd.CommandText = "SELECT user_ID FROM user_accounts_table WHERE username = @user_name";
+                    cmd.Parameters.AddWithValue(@"user_name", initialUserName);
+                    MySqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        currentSelectedUserMgt = reader[0].ToString();
+                    }
+                    reader.Close();
+
+                    //initializes strings to hold the new values
+                    String newUserName = userNameTB.Text;
+                    String newFirstName = firstNameTB.Text;
+                    String newLastName = lastNameTB.Text;
+                    String newPass = passwordTB.Text;
+
+                    //Will update databaes with new values
+                    cmd = conn.CreateCommand();
+
+                    cmd.CommandText = "UPDATE user_accounts_table SET username=@user_name, first_name=@first_name, last_name=@last_name, password=@password WHERE user_ID=@user_ID";
+                    cmd.Parameters.AddWithValue("@user_ID", currentSelectedUserMgt); 
+                    cmd.Parameters.AddWithValue("@user_name", newUserName);
+                    cmd.Parameters.AddWithValue("@first_name", newFirstName);
+                    cmd.Parameters.AddWithValue("@last_name", newLastName);
+                    cmd.Parameters.AddWithValue("@password", newPass);
+
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+
+                    //refreshes the datagrid;
+                    loadDataGrid();
+                    MessageBox.Show("Edit Successful");
+                }
+            }
+        }
+
+        private void usermgtDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int columnIndex = usermgtDataGrid.CurrentCell.ColumnIndex;
+            int rowIndex = usermgtDataGrid.CurrentCell.RowIndex;
+
+            //So that when you click a cell, the entire row is selected
+            usermgtDataGrid.Rows[rowIndex].Selected = true;
+
+            //When you click a cell, that entity's information will be placed on the textBoxes.
+            List<String> stringValues = new List<String>();
+
+            for (int k = 0; k < usermgtDataGrid.ColumnCount; k++)
+            {
+                stringValues.Add(usermgtDataGrid.Rows[rowIndex].Cells[k].Value.ToString());
+            }
+
+            firstNameTB.Text = stringValues[0];
+            // passwordTB.Text = stringValues[1];
+            lastNameTB.Text = stringValues[1];
+            userNameTB.Text = stringValues[2];
+
+            initialUserName = userNameTB.Text;
         }
     }
 }

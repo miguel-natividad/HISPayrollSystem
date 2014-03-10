@@ -62,7 +62,8 @@
             this.usermgtDataGrid.Name = "usermgtDataGrid";
             this.usermgtDataGrid.Size = new System.Drawing.Size(702, 132);
             this.usermgtDataGrid.TabIndex = 0;
-            this.usermgtDataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.usermgtDataGrid_CellContentClick);
+            this.usermgtDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.usermgtDataGrid_CellClick);
+           // this.usermgtDataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.usermgtDataGrid_CellContentClick);
             // 
             // changePassBtn
             // 
@@ -86,6 +87,7 @@
             this.saveChangesBtn.Size = new System.Drawing.Size(160, 25);
             this.saveChangesBtn.TabIndex = 2;
             this.saveChangesBtn.UseVisualStyleBackColor = true;
+            this.saveChangesBtn.Click += new System.EventHandler(this.saveChangesBtn_Click);
             // 
             // cancelChangesBtn
             // 

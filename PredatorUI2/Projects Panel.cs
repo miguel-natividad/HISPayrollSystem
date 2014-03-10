@@ -148,41 +148,7 @@ namespace PredatorUI2
             }
         }
 
-        private void projectsDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int columnIndex = projectsDataGrid.CurrentCell.ColumnIndex;
-            int rowIndex = projectsDataGrid.CurrentCell.RowIndex;
-
-            //So that when you click a cell, the entire row is selected
-            projectsDataGrid.Rows[rowIndex].Selected = true;
-
-            //When you click a cell, that entity's information will be placed on the textBoxes.
-            List<String> stringValues = new List<String>();
-
-            for (int k = 0; k < projectsDataGrid.ColumnCount; k++)
-            {
-                 stringValues.Add(projectsDataGrid.Rows[rowIndex].Cells[k].Value.ToString());
-            }
-
-            projectNameTB.Text = stringValues[0];
-            projectLocationTB.Text = stringValues[1];
-            statusComboBox.Text = stringValues[2];
-
-            initialProjectName = projectNameTB.Text;
-          
-            /** MySqlConnection conn = new MySqlConnection(LogIn.login);
-            conn.Open();
-            MySqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT project_ID FROM projects_table WHERE project_name = @project_name";
-            cmd.Parameters.AddWithValue(@"project_name", projectNameTB.Text);
-            MySqlDataReader reader = cmd.ExecuteReader();
-           
-            while (reader.Read())
-            {
-                currentSelectedProjectID = reader[0].ToString();
-            }*/
-          
-        }
+    
 
         private void CancelChangesButton_Click(object sender, EventArgs e)
         {
@@ -274,6 +240,29 @@ namespace PredatorUI2
                 projectLocationTB.Clear();
                 statusComboBox.Text = "";
             }
+        }
+
+        private void projectsDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int columnIndex = projectsDataGrid.CurrentCell.ColumnIndex;
+            int rowIndex = projectsDataGrid.CurrentCell.RowIndex;
+
+            //So that when you click a cell, the entire row is selected
+            projectsDataGrid.Rows[rowIndex].Selected = true;
+
+            //When you click a cell, that entity's information will be placed on the textBoxes.
+            List<String> stringValues = new List<String>();
+
+            for (int k = 0; k < projectsDataGrid.ColumnCount; k++)
+            {
+                stringValues.Add(projectsDataGrid.Rows[rowIndex].Cells[k].Value.ToString());
+            }
+
+            projectNameTB.Text = stringValues[0];
+            projectLocationTB.Text = stringValues[1];
+            statusComboBox.Text = stringValues[2];
+
+            initialProjectName = projectNameTB.Text;
         }
 
       
