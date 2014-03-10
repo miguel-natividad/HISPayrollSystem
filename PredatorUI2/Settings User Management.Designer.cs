@@ -28,126 +28,98 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LogInButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.ChangeButton = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Settings_User_Management));
+            this.usermgtDataGrid = new System.Windows.Forms.DataGridView();
+            this.changePassBtn = new System.Windows.Forms.Button();
+            this.saveChangesBtn = new System.Windows.Forms.Button();
+            this.cancelChangesBtn = new System.Windows.Forms.Button();
+            this.addUserBtn = new System.Windows.Forms.Button();
+            this.delUserBtn = new System.Windows.Forms.Button();
             this.Tasks = new System.Windows.Forms.PictureBox();
             this.OrganizationalInformation = new System.Windows.Forms.PictureBox();
             this.UserManagement = new System.Windows.Forms.PictureBox();
-            this.UserNameTextBox = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.firstNameTB = new System.Windows.Forms.TextBox();
+            this.lastNameTB = new System.Windows.Forms.TextBox();
+            this.userNameTB = new System.Windows.Forms.TextBox();
+            this.passwordTB = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.usermgtDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Tasks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OrganizationalInformation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UserManagement)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // usermgtDataGrid
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
-            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.FirstName,
-            this.LastName,
-            this.UserName});
-            this.dataGridView1.Location = new System.Drawing.Point(270, 348);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(702, 132);
-            this.dataGridView1.TabIndex = 0;
+            this.usermgtDataGrid.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.usermgtDataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
+            this.usermgtDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            this.usermgtDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.usermgtDataGrid.Location = new System.Drawing.Point(247, 348);
+            this.usermgtDataGrid.Name = "usermgtDataGrid";
+            this.usermgtDataGrid.Size = new System.Drawing.Size(702, 132);
+            this.usermgtDataGrid.TabIndex = 0;
+            this.usermgtDataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.usermgtDataGrid_CellContentClick);
             // 
-            // FirstName
+            // changePassBtn
             // 
-            this.FirstName.HeaderText = "First Name";
-            this.FirstName.Name = "FirstName";
-            this.FirstName.Width = 220;
+            this.changePassBtn.BackgroundImage = global::PredatorUI2.Properties.Resources.WhiteChangePasswordButton_psd;
+            this.changePassBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.changePassBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.changePassBtn.Location = new System.Drawing.Point(247, 293);
+            this.changePassBtn.Name = "changePassBtn";
+            this.changePassBtn.Size = new System.Drawing.Size(160, 25);
+            this.changePassBtn.TabIndex = 1;
+            this.changePassBtn.UseVisualStyleBackColor = true;
+            this.changePassBtn.Click += new System.EventHandler(this.changePassBtn_Click);
             // 
-            // LastName
+            // saveChangesBtn
             // 
-            this.LastName.HeaderText = "Last Name";
-            this.LastName.Name = "LastName";
-            this.LastName.Width = 220;
+            this.saveChangesBtn.BackgroundImage = global::PredatorUI2.Properties.Resources.WhiteSaveChangesButton_psd;
+            this.saveChangesBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.saveChangesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveChangesBtn.Location = new System.Drawing.Point(438, 293);
+            this.saveChangesBtn.Name = "saveChangesBtn";
+            this.saveChangesBtn.Size = new System.Drawing.Size(160, 25);
+            this.saveChangesBtn.TabIndex = 2;
+            this.saveChangesBtn.UseVisualStyleBackColor = true;
             // 
-            // UserName
+            // cancelChangesBtn
             // 
-            this.UserName.HeaderText = "User Name";
-            this.UserName.Name = "UserName";
-            this.UserName.Width = 220;
+            this.cancelChangesBtn.BackgroundImage = global::PredatorUI2.Properties.Resources.WhiteCancelChangesButton_psd;
+            this.cancelChangesBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.cancelChangesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancelChangesBtn.Location = new System.Drawing.Point(613, 293);
+            this.cancelChangesBtn.Name = "cancelChangesBtn";
+            this.cancelChangesBtn.Size = new System.Drawing.Size(160, 25);
+            this.cancelChangesBtn.TabIndex = 3;
+            this.cancelChangesBtn.UseVisualStyleBackColor = true;
             // 
-            // LogInButton
+            // addUserBtn
             // 
-            this.LogInButton.BackgroundImage = global::PredatorUI2.Properties.Resources.WhiteChangePasswordButton_psd;
-            this.LogInButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.LogInButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LogInButton.Location = new System.Drawing.Point(480, 271);
-            this.LogInButton.Name = "LogInButton";
-            this.LogInButton.Size = new System.Drawing.Size(160, 25);
-            this.LogInButton.TabIndex = 1;
-            this.LogInButton.UseVisualStyleBackColor = true;
+            this.addUserBtn.BackgroundImage = global::PredatorUI2.Properties.Resources.WhiteAddButton_psd;
+            this.addUserBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.addUserBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addUserBtn.Location = new System.Drawing.Point(742, 514);
+            this.addUserBtn.Name = "addUserBtn";
+            this.addUserBtn.Size = new System.Drawing.Size(65, 20);
+            this.addUserBtn.TabIndex = 14;
+            this.addUserBtn.UseVisualStyleBackColor = true;
+            this.addUserBtn.Click += new System.EventHandler(this.addUserBtn_Click);
             // 
-            // button1
+            // delUserBtn
             // 
-            this.button1.BackgroundImage = global::PredatorUI2.Properties.Resources.WhiteSaveChangesButton_psd;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(646, 271);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(160, 25);
-            this.button1.TabIndex = 2;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.BackgroundImage = global::PredatorUI2.Properties.Resources.WhiteCancelChangesButton_psd;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(812, 271);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(160, 25);
-            this.button2.TabIndex = 3;
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // ChangeButton
-            // 
-            this.ChangeButton.BackgroundImage = global::PredatorUI2.Properties.Resources.WhiteAddButton_psd;
-            this.ChangeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ChangeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ChangeButton.Location = new System.Drawing.Point(765, 496);
-            this.ChangeButton.Name = "ChangeButton";
-            this.ChangeButton.Size = new System.Drawing.Size(65, 20);
-            this.ChangeButton.TabIndex = 14;
-            this.ChangeButton.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.BackgroundImage = global::PredatorUI2.Properties.Resources.WhiteEditButton_psd;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(836, 496);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(65, 20);
-            this.button3.TabIndex = 15;
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.BackgroundImage = global::PredatorUI2.Properties.Resources.WhiteDeleteButton_psd;
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(907, 496);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(65, 20);
-            this.button4.TabIndex = 16;
-            this.button4.UseVisualStyleBackColor = true;
+            this.delUserBtn.BackgroundImage = global::PredatorUI2.Properties.Resources.WhiteDeleteButton_psd;
+            this.delUserBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.delUserBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.delUserBtn.Location = new System.Drawing.Point(851, 514);
+            this.delUserBtn.Name = "delUserBtn";
+            this.delUserBtn.Size = new System.Drawing.Size(65, 20);
+            this.delUserBtn.TabIndex = 16;
+            this.delUserBtn.UseVisualStyleBackColor = true;
             // 
             // Tasks
             // 
@@ -179,61 +151,113 @@
             this.UserManagement.TabIndex = 19;
             this.UserManagement.TabStop = false;
             // 
-            // UserNameTextBox
+            // firstNameTB
             // 
-            this.UserNameTextBox.BackColor = System.Drawing.Color.DimGray;
-            this.UserNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.UserNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserNameTextBox.ForeColor = System.Drawing.Color.White;
-            this.UserNameTextBox.Location = new System.Drawing.Point(373, 196);
-            this.UserNameTextBox.Name = "UserNameTextBox";
-            this.UserNameTextBox.Size = new System.Drawing.Size(230, 26);
-            this.UserNameTextBox.TabIndex = 20;
+            this.firstNameTB.BackColor = System.Drawing.Color.DimGray;
+            this.firstNameTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.firstNameTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.firstNameTB.ForeColor = System.Drawing.Color.White;
+            this.firstNameTB.Location = new System.Drawing.Point(353, 177);
+            this.firstNameTB.Name = "firstNameTB";
+            this.firstNameTB.Size = new System.Drawing.Size(230, 26);
+            this.firstNameTB.TabIndex = 20;
             // 
-            // textBox1
+            // lastNameTB
             // 
-            this.textBox1.BackColor = System.Drawing.Color.DimGray;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(732, 196);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(230, 26);
-            this.textBox1.TabIndex = 21;
+            this.lastNameTB.BackColor = System.Drawing.Color.DimGray;
+            this.lastNameTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lastNameTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lastNameTB.ForeColor = System.Drawing.Color.White;
+            this.lastNameTB.Location = new System.Drawing.Point(704, 177);
+            this.lastNameTB.Name = "lastNameTB";
+            this.lastNameTB.Size = new System.Drawing.Size(230, 26);
+            this.lastNameTB.TabIndex = 21;
             // 
-            // textBox2
+            // userNameTB
             // 
-            this.textBox2.BackColor = System.Drawing.Color.DimGray;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.Color.White;
-            this.textBox2.Location = new System.Drawing.Point(373, 230);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(230, 26);
-            this.textBox2.TabIndex = 22;
+            this.userNameTB.BackColor = System.Drawing.Color.DimGray;
+            this.userNameTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.userNameTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userNameTB.ForeColor = System.Drawing.Color.White;
+            this.userNameTB.Location = new System.Drawing.Point(353, 211);
+            this.userNameTB.Name = "userNameTB";
+            this.userNameTB.Size = new System.Drawing.Size(230, 26);
+            this.userNameTB.TabIndex = 22;
+            // 
+            // passwordTB
+            // 
+            this.passwordTB.BackColor = System.Drawing.Color.DimGray;
+            this.passwordTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.passwordTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordTB.ForeColor = System.Drawing.Color.White;
+            this.passwordTB.Location = new System.Drawing.Point(704, 211);
+            this.passwordTB.Name = "passwordTB";
+            this.passwordTB.PasswordChar = '*';
+            this.passwordTB.Size = new System.Drawing.Size(230, 26);
+            this.passwordTB.TabIndex = 23;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(260, 189);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 13);
+            this.label1.TabIndex = 24;
+            this.label1.Text = "First Name";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(265, 230);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(60, 13);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "User Name";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(640, 190);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(58, 13);
+            this.label3.TabIndex = 26;
+            this.label3.Text = "Last Name";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(645, 224);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(53, 13);
+            this.label4.TabIndex = 27;
+            this.label4.Text = "Password";
             // 
             // Settings_User_Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::PredatorUI2.Properties.Resources.Settings_User_Management1;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(984, 661);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.UserNameTextBox);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.passwordTB);
+            this.Controls.Add(this.userNameTB);
+            this.Controls.Add(this.lastNameTB);
+            this.Controls.Add(this.firstNameTB);
             this.Controls.Add(this.Tasks);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.ChangeButton);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.LogInButton);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.delUserBtn);
+            this.Controls.Add(this.addUserBtn);
+            this.Controls.Add(this.cancelChangesBtn);
+            this.Controls.Add(this.saveChangesBtn);
+            this.Controls.Add(this.changePassBtn);
+            this.Controls.Add(this.usermgtDataGrid);
             this.Controls.Add(this.OrganizationalInformation);
             this.Controls.Add(this.UserManagement);
             this.Name = "Settings_User_Management";
             this.Text = "Settings_User_Management";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usermgtDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Tasks)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.OrganizationalInformation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.UserManagement)).EndInit();
@@ -244,21 +268,22 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button LogInButton;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button ChangeButton;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UserName;
+        private System.Windows.Forms.DataGridView usermgtDataGrid;
+        private System.Windows.Forms.Button changePassBtn;
+        private System.Windows.Forms.Button saveChangesBtn;
+        private System.Windows.Forms.Button cancelChangesBtn;
+        private System.Windows.Forms.Button addUserBtn;
+        private System.Windows.Forms.Button delUserBtn;
         private System.Windows.Forms.PictureBox Tasks;
         private System.Windows.Forms.PictureBox OrganizationalInformation;
         private System.Windows.Forms.PictureBox UserManagement;
-        private System.Windows.Forms.TextBox UserNameTextBox;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox firstNameTB;
+        private System.Windows.Forms.TextBox lastNameTB;
+        private System.Windows.Forms.TextBox userNameTB;
+        private System.Windows.Forms.TextBox passwordTB;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

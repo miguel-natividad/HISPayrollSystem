@@ -122,23 +122,30 @@ namespace PredatorUI2
         //Creates a new project
         private void CreateProjectButton_Click(object sender, EventArgs e)
         {
-            getNextProjectID();
+            if (projectNameTB.Text == ""|| projectLocationTB.Text == ""  || statusComboBox.Text == "")
+            {
+                MessageBox.Show("Please fill out all the fields.");
+            }
+            else
+            {
+                getNextProjectID();
 
-            MySqlConnection conn = new MySqlConnection(LogIn.login);
-            conn.Open();
-            MySqlCommand cmd = conn.CreateCommand();
+                MySqlConnection conn = new MySqlConnection(LogIn.login);
+                conn.Open();
+                MySqlCommand cmd = conn.CreateCommand();
 
-            cmd.CommandText = "INSERT INTO projects_table(project_ID, project_name, project_location, project_status) VALUES (@project_ID, @project_name, @project_location, @project_status)";
-            cmd.Parameters.AddWithValue("@project_ID", projectIDquery);
-            cmd.Parameters.AddWithValue("@project_name", projectNameTB.Text);
-            cmd.Parameters.AddWithValue("@project_location", projectLocationTB.Text);
-            cmd.Parameters.AddWithValue("@project_status", statusComboBox.Text);
+                cmd.CommandText = "INSERT INTO projects_table(project_ID, project_name, project_location, project_status) VALUES (@project_ID, @project_name, @project_location, @project_status)";
+                cmd.Parameters.AddWithValue("@project_ID", projectIDquery);
+                cmd.Parameters.AddWithValue("@project_name", projectNameTB.Text);
+                cmd.Parameters.AddWithValue("@project_location", projectLocationTB.Text);
+                cmd.Parameters.AddWithValue("@project_status", statusComboBox.Text);
 
-            cmd.ExecuteNonQuery();
-            conn.Close();
+                cmd.ExecuteNonQuery();
+                conn.Close();
 
-            //refreshes the datagrid;
-            loadDataGrid();
+                //refreshes the datagrid;
+                loadDataGrid();
+            }
         }
 
         private void projectsDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -186,43 +193,49 @@ namespace PredatorUI2
 
         private void editProjectBtn_Click(object sender, EventArgs e)
         {
-            //gets the project ID of the currently selected row's entity 
-            MySqlConnection conn = new MySqlConnection(LogIn.login);
-            conn.Open();
-            MySqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT project_ID FROM projects_table WHERE project_name = @project_name";
-            cmd.Parameters.AddWithValue(@"project_name", initialProjectName);
-            MySqlDataReader reader = cmd.ExecuteReader();
-           
-            while (reader.Read())
+            if (projectNameTB.Text == "" || projectLocationTB.Text == "" || statusComboBox.Text == "")
             {
-                currentSelectedProjectID = reader[0].ToString();
+                MessageBox.Show("Please fill out all the fields.");
             }
-            reader.Close();
+            else
+            {
+                //gets the project ID of the currently selected row's entity 
+                MySqlConnection conn = new MySqlConnection(LogIn.login);
+                conn.Open();
+                MySqlCommand cmd = conn.CreateCommand();
+                cmd.CommandText = "SELECT project_ID FROM projects_table WHERE project_name = @project_name";
+                cmd.Parameters.AddWithValue(@"project_name", initialProjectName);
+                MySqlDataReader reader = cmd.ExecuteReader();
 
-            //initializes strings to hold the new values
-            String newProjName = projectNameTB.Text;
-            String newProjLocation = projectLocationTB.Text;
-            String newStatus = statusComboBox.Text;
+                while (reader.Read())
+                {
+                    currentSelectedProjectID = reader[0].ToString();
+                }
+                reader.Close();
 
-      
-            //Will update databaes with new values
-            cmd = conn.CreateCommand();
+                //initializes strings to hold the new values
+                String newProjName = projectNameTB.Text;
+                String newProjLocation = projectLocationTB.Text;
+                String newStatus = statusComboBox.Text;
 
-            cmd.CommandText = "UPDATE projects_table SET project_name =@project_name, project_location=@project_location, project_status=@project_status WHERE project_ID=@project_ID";
 
-            cmd.Parameters.AddWithValue("@project_name", newProjName);
-            cmd.Parameters.AddWithValue("@project_location", newProjLocation);
-            cmd.Parameters.AddWithValue("@project_status", newStatus);
-            cmd.Parameters.AddWithValue("@project_ID", currentSelectedProjectID);
-            cmd.ExecuteNonQuery();
-            conn.Close();
+                //Will update databaes with new values
+                cmd = conn.CreateCommand();
 
-            //refreshes the datagrid;
-            loadDataGrid();
-            MessageBox.Show("Edit Successful");
+                cmd.CommandText = "UPDATE projects_table SET project_name =@project_name, project_location=@project_location, project_status=@project_status WHERE project_ID=@project_ID";
+
+                cmd.Parameters.AddWithValue("@project_name", newProjName);
+                cmd.Parameters.AddWithValue("@project_location", newProjLocation);
+                cmd.Parameters.AddWithValue("@project_status", newStatus);
+                cmd.Parameters.AddWithValue("@project_ID", currentSelectedProjectID);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+
+                //refreshes the datagrid;
+                loadDataGrid();
+                MessageBox.Show("Edit Successful");
+            }
         }
-
         private void deleteProjectBtn_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show(this, "Are you sure you want to delete selected row?", "Close?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);

@@ -37,6 +37,9 @@
             this.editProjectBtn = new System.Windows.Forms.Button();
             this.CancelChangesButton = new System.Windows.Forms.Button();
             this.CreateProjectButton = new System.Windows.Forms.Button();
+            this.projectsNameLabel = new System.Windows.Forms.Label();
+            this.projectLocationLabel = new System.Windows.Forms.Label();
+            this.projectStatusLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.projectsDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,7 +61,7 @@
             this.projectNameTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.projectNameTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.projectNameTB.ForeColor = System.Drawing.Color.White;
-            this.projectNameTB.Location = new System.Drawing.Point(422, 185);
+            this.projectNameTB.Location = new System.Drawing.Point(422, 160);
             this.projectNameTB.Name = "projectNameTB";
             this.projectNameTB.Size = new System.Drawing.Size(173, 26);
             this.projectNameTB.TabIndex = 21;
@@ -69,7 +72,7 @@
             this.projectLocationTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.projectLocationTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.projectLocationTB.ForeColor = System.Drawing.Color.White;
-            this.projectLocationTB.Location = new System.Drawing.Point(422, 217);
+            this.projectLocationTB.Location = new System.Drawing.Point(422, 192);
             this.projectLocationTB.Name = "projectLocationTB";
             this.projectLocationTB.Size = new System.Drawing.Size(173, 26);
             this.projectLocationTB.TabIndex = 22;
@@ -77,58 +80,99 @@
             // statusComboBox
             // 
             this.statusComboBox.FormattingEnabled = true;
-            this.statusComboBox.Location = new System.Drawing.Point(685, 189);
+            this.statusComboBox.Location = new System.Drawing.Point(422, 231);
             this.statusComboBox.Name = "statusComboBox";
-            this.statusComboBox.Size = new System.Drawing.Size(121, 21);
+            this.statusComboBox.Size = new System.Drawing.Size(173, 21);
             this.statusComboBox.TabIndex = 23;
             // 
             // deleteProjectBtn
             // 
-            this.deleteProjectBtn.BackgroundImage = global::PredatorUI2.Properties.Resources.WhiteDeleteButton_psd;
+            this.deleteProjectBtn.BackColor = System.Drawing.Color.Transparent;
             this.deleteProjectBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.deleteProjectBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deleteProjectBtn.Location = new System.Drawing.Point(837, 481);
+            this.deleteProjectBtn.Font = new System.Drawing.Font("Lucida Fax", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteProjectBtn.Location = new System.Drawing.Point(807, 481);
             this.deleteProjectBtn.Name = "deleteProjectBtn";
-            this.deleteProjectBtn.Size = new System.Drawing.Size(121, 20);
+            this.deleteProjectBtn.Size = new System.Drawing.Size(165, 35);
             this.deleteProjectBtn.TabIndex = 26;
-            this.deleteProjectBtn.UseVisualStyleBackColor = true;
+            this.deleteProjectBtn.Text = "DELETE PROJECT";
+            this.deleteProjectBtn.UseVisualStyleBackColor = false;
             this.deleteProjectBtn.Click += new System.EventHandler(this.deleteProjectBtn_Click);
             // 
             // editProjectBtn
             // 
-            this.editProjectBtn.BackgroundImage = global::PredatorUI2.Properties.Resources.WhiteEditButton_psd;
+            this.editProjectBtn.BackColor = System.Drawing.Color.Transparent;
             this.editProjectBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.editProjectBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editProjectBtn.Location = new System.Drawing.Point(685, 481);
+            this.editProjectBtn.Font = new System.Drawing.Font("Lucida Fax", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editProjectBtn.Location = new System.Drawing.Point(670, 481);
             this.editProjectBtn.Name = "editProjectBtn";
-            this.editProjectBtn.Size = new System.Drawing.Size(131, 20);
+            this.editProjectBtn.Size = new System.Drawing.Size(131, 35);
             this.editProjectBtn.TabIndex = 25;
-            this.editProjectBtn.UseVisualStyleBackColor = true;
+            this.editProjectBtn.Text = "EDIT PROJECT";
+            this.editProjectBtn.UseVisualStyleBackColor = false;
             this.editProjectBtn.Click += new System.EventHandler(this.editProjectBtn_Click);
             // 
             // CancelChangesButton
             // 
-            this.CancelChangesButton.BackgroundImage = global::PredatorUI2.Properties.Resources.WhiteCancelChangesButton_psd;
+            this.CancelChangesButton.BackColor = System.Drawing.Color.Transparent;
             this.CancelChangesButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelChangesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CancelChangesButton.Location = new System.Drawing.Point(837, 255);
+            this.CancelChangesButton.Font = new System.Drawing.Font("Lucida Fax", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CancelChangesButton.Location = new System.Drawing.Point(807, 266);
             this.CancelChangesButton.Name = "CancelChangesButton";
-            this.CancelChangesButton.Size = new System.Drawing.Size(121, 25);
+            this.CancelChangesButton.Size = new System.Drawing.Size(165, 34);
             this.CancelChangesButton.TabIndex = 29;
-            this.CancelChangesButton.UseVisualStyleBackColor = true;
+            this.CancelChangesButton.Text = "CANCEL CHANGES";
+            this.CancelChangesButton.UseVisualStyleBackColor = false;
             this.CancelChangesButton.Click += new System.EventHandler(this.CancelChangesButton_Click);
             // 
             // CreateProjectButton
             // 
-            this.CreateProjectButton.BackgroundImage = global::PredatorUI2.Properties.Resources.WhiteCreateProjectButton_psd;
+            this.CreateProjectButton.BackColor = System.Drawing.Color.Transparent;
             this.CreateProjectButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CreateProjectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CreateProjectButton.Location = new System.Drawing.Point(685, 255);
+            this.CreateProjectButton.Font = new System.Drawing.Font("Lucida Fax", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CreateProjectButton.Location = new System.Drawing.Point(422, 266);
             this.CreateProjectButton.Name = "CreateProjectButton";
-            this.CreateProjectButton.Size = new System.Drawing.Size(131, 25);
+            this.CreateProjectButton.Size = new System.Drawing.Size(173, 34);
             this.CreateProjectButton.TabIndex = 27;
-            this.CreateProjectButton.UseVisualStyleBackColor = true;
+            this.CreateProjectButton.Text = "CREATE PROJECT";
+            this.CreateProjectButton.UseVisualStyleBackColor = false;
             this.CreateProjectButton.Click += new System.EventHandler(this.CreateProjectButton_Click);
+            // 
+            // projectsNameLabel
+            // 
+            this.projectsNameLabel.AutoSize = true;
+            this.projectsNameLabel.BackColor = System.Drawing.Color.Transparent;
+            this.projectsNameLabel.Font = new System.Drawing.Font("TypoSlabserif-Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.projectsNameLabel.Location = new System.Drawing.Point(266, 164);
+            this.projectsNameLabel.Name = "projectsNameLabel";
+            this.projectsNameLabel.Size = new System.Drawing.Size(115, 21);
+            this.projectsNameLabel.TabIndex = 30;
+            this.projectsNameLabel.Text = "Project Name";
+            // 
+            // projectLocationLabel
+            // 
+            this.projectLocationLabel.AutoSize = true;
+            this.projectLocationLabel.BackColor = System.Drawing.Color.Transparent;
+            this.projectLocationLabel.Font = new System.Drawing.Font("TypoSlabserif-Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.projectLocationLabel.Location = new System.Drawing.Point(266, 197);
+            this.projectLocationLabel.Name = "projectLocationLabel";
+            this.projectLocationLabel.Size = new System.Drawing.Size(136, 21);
+            this.projectLocationLabel.TabIndex = 31;
+            this.projectLocationLabel.Text = "Project Location";
+            // 
+            // projectStatusLabel
+            // 
+            this.projectStatusLabel.AutoSize = true;
+            this.projectStatusLabel.BackColor = System.Drawing.Color.Transparent;
+            this.projectStatusLabel.Font = new System.Drawing.Font("TypoSlabserif-Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.projectStatusLabel.Location = new System.Drawing.Point(266, 231);
+            this.projectStatusLabel.Name = "projectStatusLabel";
+            this.projectStatusLabel.Size = new System.Drawing.Size(117, 21);
+            this.projectStatusLabel.TabIndex = 32;
+            this.projectStatusLabel.Text = "Project Status";
             // 
             // Projects_Panel
             // 
@@ -137,6 +181,9 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Controls.Add(this.projectStatusLabel);
+            this.Controls.Add(this.projectLocationLabel);
+            this.Controls.Add(this.projectsNameLabel);
             this.Controls.Add(this.CancelChangesButton);
             this.Controls.Add(this.CreateProjectButton);
             this.Controls.Add(this.deleteProjectBtn);
@@ -163,5 +210,8 @@
         private System.Windows.Forms.Button editProjectBtn;
         private System.Windows.Forms.Button CancelChangesButton;
         private System.Windows.Forms.Button CreateProjectButton;
+        private System.Windows.Forms.Label projectsNameLabel;
+        private System.Windows.Forms.Label projectLocationLabel;
+        private System.Windows.Forms.Label projectStatusLabel;
     }
 }
