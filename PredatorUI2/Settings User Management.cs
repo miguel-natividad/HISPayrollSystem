@@ -23,12 +23,26 @@ namespace PredatorUI2
         //String to hold the project name BEFORE ANY EDITS ARE MADE
         String initialUserName = "";
 
+        bool passwordEntered = false;
+
+        string currentPass = "";
         public Settings_User_Management()
         {
             InitializeComponent();
             loadDataGrid();
         }
 
+        public bool PasswordEntered
+        {
+            get
+            {
+                return passwordEntered;
+            }
+            set
+            {
+                passwordEntered = true;
+            }
+        }
         public void loadDataGrid()
         {
             usermgtDT.Clear();
@@ -155,9 +169,16 @@ namespace PredatorUI2
             initialUserName = userNameTB.Text;
         }
 
+        public void passBack(bool b)
+        {
+            this.PasswordEntered = b;
+            passwordTB.Text = currentPass;
+            passwordTB.PasswordChar = (char)0;
+        }
+
         private void changePassBtn_Click(object sender, EventArgs e)
         {
-            string currentPass = "";
+          
 
             MySqlConnection conn = new MySqlConnection(LogIn.login);
             conn.Open();
@@ -169,7 +190,19 @@ namespace PredatorUI2
                 currentPass = reader[0].ToString();
             }
 
+            MessageBox.Show(currentPass);
+            using (ChangePassForm cpf = new ChangePassForm())
+            {
+                // passing this in ShowDialog will set the .Owner 
+                // property of the child form
+               
+                cpf.Password = currentPass;
+                cpf.ShowDialog(this);
+            }
 
+
+
+            
         }
     }
 }
