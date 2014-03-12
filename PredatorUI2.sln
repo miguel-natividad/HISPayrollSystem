@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PredatorUI2", "PredatorUI2\PredatorUI2.csproj", "{D3301B64-4F9D-48F5-A7A2-BF0ECFB5CA6F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Import", "..\..\Import From Excel\Import\Import\Import.csproj", "{A0024741-9679-4752-AAB6-6A3BE9FD00F6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Import", "..\..\Import\Import\Import.csproj", "{A0024741-9679-4752-AAB6-6A3BE9FD00F6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

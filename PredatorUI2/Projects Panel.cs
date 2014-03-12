@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-
+using Import;
 
 namespace PredatorUI2
 {
@@ -267,6 +267,7 @@ namespace PredatorUI2
             lodgingAllowTB.Text = stringValues[3];
 
             initialProjectName = projectNameTB.Text;
+            manageSalaryBtn.Enabled = true;
 
             /**
             //gets the project ID of the currently selected row's entity 
@@ -293,6 +294,12 @@ namespace PredatorUI2
                 lodgingAllowTB.Text = reader2[0].ToString();
             }
             reader2.Close();*/
+        }
+
+        private void manageSalaryBtn_Click(object sender, EventArgs e)
+        {
+            Import.Form1 import = new Import.Form1();
+            import.Show();
         }
 
       

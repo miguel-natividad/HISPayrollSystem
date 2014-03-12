@@ -404,7 +404,7 @@
     <None Include="Resources\SettingsButton.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Import From Excel\Import\Import\Import.csproj">
+    <ProjectReference Include="..\..\..\Import\Import\Import.csproj">
       <Project>{a0024741-9679-4752-aab6-6a3be9fd00f6}</Project>
       <Name>Import</Name>
     </ProjectReference>

@@ -42,6 +42,7 @@
             this.projectStatusLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lodgingAllowTB = new System.Windows.Forms.TextBox();
+            this.manageSalaryBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.projectsDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -200,6 +201,21 @@
             this.lodgingAllowTB.Text = "0.00";
             this.lodgingAllowTB.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // manageSalaryBtn
+            // 
+            this.manageSalaryBtn.BackColor = System.Drawing.Color.Transparent;
+            this.manageSalaryBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.manageSalaryBtn.Enabled = false;
+            this.manageSalaryBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.manageSalaryBtn.Font = new System.Drawing.Font("Lucida Fax", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.manageSalaryBtn.Location = new System.Drawing.Point(474, 524);
+            this.manageSalaryBtn.Name = "manageSalaryBtn";
+            this.manageSalaryBtn.Size = new System.Drawing.Size(173, 35);
+            this.manageSalaryBtn.TabIndex = 35;
+            this.manageSalaryBtn.Text = "MANAGE SALARY";
+            this.manageSalaryBtn.UseVisualStyleBackColor = false;
+            this.manageSalaryBtn.Click += new System.EventHandler(this.manageSalaryBtn_Click);
+            // 
             // Projects_Panel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -207,6 +223,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Controls.Add(this.manageSalaryBtn);
             this.Controls.Add(this.lodgingAllowTB);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.projectStatusLabel);
@@ -243,5 +260,6 @@
         private System.Windows.Forms.Label projectStatusLabel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox lodgingAllowTB;
+        private System.Windows.Forms.Button manageSalaryBtn;
     }
 }
