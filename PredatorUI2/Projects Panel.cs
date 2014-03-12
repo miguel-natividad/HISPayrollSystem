@@ -36,8 +36,8 @@ namespace PredatorUI2
         public void statusComboBoxAdd()
         {
             statusComboBox.Items.Add("Ongoing");
-            statusComboBox.Items.Add("Completed");
-            statusComboBox.Items.Add("Cancelled");
+            statusComboBox.Items.Add("Closed");
+            
         }
 
         //Loads Data Into The Data Grid View
@@ -48,7 +48,8 @@ namespace PredatorUI2
             MySqlConnection conn = new MySqlConnection(LogIn.login);
             conn.Open();
             MySqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT project_name, project_location, project_status FROM projects_table";
+            string dataGridQuery = "SELECT project_name AS 'Project Name' , project_location AS 'Project Location', project_status AS 'Project Status', project_lodging AS 'Project Lodging' FROM projects_table";
+            cmd.CommandText = dataGridQuery;
             MySqlDataReader reader = cmd.ExecuteReader();
            
             projectsDT.Load(reader);
@@ -134,11 +135,12 @@ namespace PredatorUI2
                 conn.Open();
                 MySqlCommand cmd = conn.CreateCommand();
 
-                cmd.CommandText = "INSERT INTO projects_table(project_ID, project_name, project_location, project_status) VALUES (@project_ID, @project_name, @project_location, @project_status)";
+                cmd.CommandText = "INSERT INTO projects_table(project_ID, project_name, project_location, project_status, project_lodging) VALUES (@project_ID, @project_name, @project_location, @project_status, @project_lodging)";
                 cmd.Parameters.AddWithValue("@project_ID", projectIDquery);
                 cmd.Parameters.AddWithValue("@project_name", projectNameTB.Text);
                 cmd.Parameters.AddWithValue("@project_location", projectLocationTB.Text);
                 cmd.Parameters.AddWithValue("@project_status", statusComboBox.Text);
+                cmd.Parameters.AddWithValue("@project_lodging", lodgingAllowTB.Text);
 
                 cmd.ExecuteNonQuery();
                 conn.Close();
@@ -183,17 +185,18 @@ namespace PredatorUI2
                 String newProjName = projectNameTB.Text;
                 String newProjLocation = projectLocationTB.Text;
                 String newStatus = statusComboBox.Text;
-
+                String newLodging = lodgingAllowTB.Text;
 
                 //Will update databaes with new values
                 cmd = conn.CreateCommand();
 
-                cmd.CommandText = "UPDATE projects_table SET project_name =@project_name, project_location=@project_location, project_status=@project_status WHERE project_ID=@project_ID";
+                cmd.CommandText = "UPDATE projects_table SET project_name =@project_name, project_location=@project_location, project_status=@project_status, project_lodging=@project_lodging WHERE project_ID=@project_ID";
 
                 cmd.Parameters.AddWithValue("@project_name", newProjName);
                 cmd.Parameters.AddWithValue("@project_location", newProjLocation);
                 cmd.Parameters.AddWithValue("@project_status", newStatus);
                 cmd.Parameters.AddWithValue("@project_ID", currentSelectedProjectID);
+                cmd.Parameters.AddWithValue("@project_lodging", newLodging);
                 cmd.ExecuteNonQuery();
                 conn.Close();
 
@@ -261,8 +264,35 @@ namespace PredatorUI2
             projectNameTB.Text = stringValues[0];
             projectLocationTB.Text = stringValues[1];
             statusComboBox.Text = stringValues[2];
+            lodgingAllowTB.Text = stringValues[3];
 
             initialProjectName = projectNameTB.Text;
+
+            /**
+            //gets the project ID of the currently selected row's entity 
+            MySqlConnection conn = new MySqlConnection(LogIn.login);
+            conn.Open();
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT project_ID FROM projects_table WHERE project_name = @project_name";
+            cmd.Parameters.AddWithValue(@"project_name", initialProjectName);
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                currentSelectedProjectID = reader[0].ToString();
+            }
+            reader.Close();
+
+            cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT project_lodging FROM projects_table WHERE project_ID = @project_ID";
+            cmd.Parameters.AddWithValue("@project_ID", currentSelectedProjectID);
+            MySqlDataReader reader2 = cmd.ExecuteReader();
+
+            while (reader2.Read())
+            {
+                lodgingAllowTB.Text = reader2[0].ToString();
+            }
+            reader2.Close();*/
         }
 
       

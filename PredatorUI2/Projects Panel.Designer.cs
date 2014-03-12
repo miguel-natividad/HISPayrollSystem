@@ -40,6 +40,8 @@
             this.projectsNameLabel = new System.Windows.Forms.Label();
             this.projectLocationLabel = new System.Windows.Forms.Label();
             this.projectStatusLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lodgingAllowTB = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.projectsDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,12 +51,11 @@
             this.projectsDataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.projectsDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.projectsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.projectsDataGrid.Location = new System.Drawing.Point(270, 331);
+            this.projectsDataGrid.Location = new System.Drawing.Point(270, 374);
             this.projectsDataGrid.Name = "projectsDataGrid";
             this.projectsDataGrid.Size = new System.Drawing.Size(702, 132);
             this.projectsDataGrid.TabIndex = 1;
             this.projectsDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.projectsDataGrid_CellClick);
-            //this.projectsDataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.projectsDataGrid_CellContentClick);
             // 
             // projectNameTB
             // 
@@ -62,7 +63,7 @@
             this.projectNameTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.projectNameTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.projectNameTB.ForeColor = System.Drawing.Color.White;
-            this.projectNameTB.Location = new System.Drawing.Point(422, 160);
+            this.projectNameTB.Location = new System.Drawing.Point(474, 152);
             this.projectNameTB.Name = "projectNameTB";
             this.projectNameTB.Size = new System.Drawing.Size(173, 26);
             this.projectNameTB.TabIndex = 21;
@@ -73,7 +74,7 @@
             this.projectLocationTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.projectLocationTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.projectLocationTB.ForeColor = System.Drawing.Color.White;
-            this.projectLocationTB.Location = new System.Drawing.Point(422, 192);
+            this.projectLocationTB.Location = new System.Drawing.Point(474, 184);
             this.projectLocationTB.Name = "projectLocationTB";
             this.projectLocationTB.Size = new System.Drawing.Size(173, 26);
             this.projectLocationTB.TabIndex = 22;
@@ -81,7 +82,7 @@
             // statusComboBox
             // 
             this.statusComboBox.FormattingEnabled = true;
-            this.statusComboBox.Location = new System.Drawing.Point(422, 231);
+            this.statusComboBox.Location = new System.Drawing.Point(474, 223);
             this.statusComboBox.Name = "statusComboBox";
             this.statusComboBox.Size = new System.Drawing.Size(173, 21);
             this.statusComboBox.TabIndex = 23;
@@ -92,7 +93,7 @@
             this.deleteProjectBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.deleteProjectBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteProjectBtn.Font = new System.Drawing.Font("Lucida Fax", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteProjectBtn.Location = new System.Drawing.Point(807, 481);
+            this.deleteProjectBtn.Location = new System.Drawing.Point(807, 524);
             this.deleteProjectBtn.Name = "deleteProjectBtn";
             this.deleteProjectBtn.Size = new System.Drawing.Size(165, 35);
             this.deleteProjectBtn.TabIndex = 26;
@@ -106,7 +107,7 @@
             this.editProjectBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.editProjectBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editProjectBtn.Font = new System.Drawing.Font("Lucida Fax", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editProjectBtn.Location = new System.Drawing.Point(670, 481);
+            this.editProjectBtn.Location = new System.Drawing.Point(670, 524);
             this.editProjectBtn.Name = "editProjectBtn";
             this.editProjectBtn.Size = new System.Drawing.Size(131, 35);
             this.editProjectBtn.TabIndex = 25;
@@ -120,7 +121,7 @@
             this.CancelChangesButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelChangesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CancelChangesButton.Font = new System.Drawing.Font("Lucida Fax", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CancelChangesButton.Location = new System.Drawing.Point(807, 266);
+            this.CancelChangesButton.Location = new System.Drawing.Point(807, 313);
             this.CancelChangesButton.Name = "CancelChangesButton";
             this.CancelChangesButton.Size = new System.Drawing.Size(165, 34);
             this.CancelChangesButton.TabIndex = 29;
@@ -134,7 +135,7 @@
             this.CreateProjectButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CreateProjectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CreateProjectButton.Font = new System.Drawing.Font("Lucida Fax", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CreateProjectButton.Location = new System.Drawing.Point(422, 266);
+            this.CreateProjectButton.Location = new System.Drawing.Point(608, 313);
             this.CreateProjectButton.Name = "CreateProjectButton";
             this.CreateProjectButton.Size = new System.Drawing.Size(173, 34);
             this.CreateProjectButton.TabIndex = 27;
@@ -147,7 +148,7 @@
             this.projectsNameLabel.AutoSize = true;
             this.projectsNameLabel.BackColor = System.Drawing.Color.Transparent;
             this.projectsNameLabel.Font = new System.Drawing.Font("TypoSlabserif-Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.projectsNameLabel.Location = new System.Drawing.Point(266, 164);
+            this.projectsNameLabel.Location = new System.Drawing.Point(266, 156);
             this.projectsNameLabel.Name = "projectsNameLabel";
             this.projectsNameLabel.Size = new System.Drawing.Size(115, 21);
             this.projectsNameLabel.TabIndex = 30;
@@ -158,7 +159,7 @@
             this.projectLocationLabel.AutoSize = true;
             this.projectLocationLabel.BackColor = System.Drawing.Color.Transparent;
             this.projectLocationLabel.Font = new System.Drawing.Font("TypoSlabserif-Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.projectLocationLabel.Location = new System.Drawing.Point(266, 197);
+            this.projectLocationLabel.Location = new System.Drawing.Point(266, 189);
             this.projectLocationLabel.Name = "projectLocationLabel";
             this.projectLocationLabel.Size = new System.Drawing.Size(136, 21);
             this.projectLocationLabel.TabIndex = 31;
@@ -169,11 +170,35 @@
             this.projectStatusLabel.AutoSize = true;
             this.projectStatusLabel.BackColor = System.Drawing.Color.Transparent;
             this.projectStatusLabel.Font = new System.Drawing.Font("TypoSlabserif-Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.projectStatusLabel.Location = new System.Drawing.Point(266, 231);
+            this.projectStatusLabel.Location = new System.Drawing.Point(266, 223);
             this.projectStatusLabel.Name = "projectStatusLabel";
             this.projectStatusLabel.Size = new System.Drawing.Size(117, 21);
             this.projectStatusLabel.TabIndex = 32;
             this.projectStatusLabel.Text = "Project Status";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("TypoSlabserif-Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(266, 263);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(162, 21);
+            this.label1.TabIndex = 33;
+            this.label1.Text = "Lodging Allowance";
+            // 
+            // lodgingAllowTB
+            // 
+            this.lodgingAllowTB.BackColor = System.Drawing.Color.DimGray;
+            this.lodgingAllowTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lodgingAllowTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lodgingAllowTB.ForeColor = System.Drawing.Color.White;
+            this.lodgingAllowTB.Location = new System.Drawing.Point(474, 258);
+            this.lodgingAllowTB.Name = "lodgingAllowTB";
+            this.lodgingAllowTB.Size = new System.Drawing.Size(173, 26);
+            this.lodgingAllowTB.TabIndex = 34;
+            this.lodgingAllowTB.Text = "0.00";
+            this.lodgingAllowTB.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // Projects_Panel
             // 
@@ -182,6 +207,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Controls.Add(this.lodgingAllowTB);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.projectStatusLabel);
             this.Controls.Add(this.projectLocationLabel);
             this.Controls.Add(this.projectsNameLabel);
@@ -214,5 +241,7 @@
         private System.Windows.Forms.Label projectsNameLabel;
         private System.Windows.Forms.Label projectLocationLabel;
         private System.Windows.Forms.Label projectStatusLabel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox lodgingAllowTB;
     }
 }
