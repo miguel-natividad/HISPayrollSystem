@@ -102,14 +102,14 @@ namespace PredatorUI2
             }
 
             //splits the new number into its individual characters, so that we can count how many zeroes we need.
-            string[] numberInWords = newNum.ToString().Split();
+           // string[] numberInWords = newNum.ToString().Split();
+            int count = newNum.ToString().Length;
 
-           
             //begins the query by adding the prefix, 'PRJ-'
             projectIDquery += "PRJ-";
 
             //loop to decide how many zeros are needed before inputting the newNum
-            for (int k = 0; k < 10 - numberInWords.Count(); k++)
+            for (int k = 0; k < 10 - count; k++)
             {
                 projectIDquery += "0";
             }

@@ -141,6 +141,12 @@
     <Compile Include="LoadingPage.Designer.cs">
       <DependentUpon>LoadingPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManageProjectsSalary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageProjectsSalary.Designer.cs">
+      <DependentUpon>ManageProjectsSalary.cs</DependentUpon>
+    </Compile>
     <Compile Include="Payslip.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -230,6 +236,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LoadingPage.resx">
       <DependentUpon>LoadingPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageProjectsSalary.resx">
+      <DependentUpon>ManageProjectsSalary.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Payslip.resx">
       <DependentUpon>Payslip.cs</DependentUpon>

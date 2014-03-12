@@ -113,6 +113,7 @@ namespace PredatorUI2
             }
             reader.Close();
 
+            usermgtIDnum.Sort();
             int newNum = 0;
 
             for (int k = 0; k < usermgtIDnum.Count(); k++)
@@ -126,20 +127,20 @@ namespace PredatorUI2
             }
 
             //splits the new number into its individual characters, so that we can count how many zeroes we need.
-            string[] numberInWords = newNum.ToString().Split();
-
+          //  string[] numberInWords = newNum.ToString().Split();
+            int count = newNum.ToString().Length;
 
             //begins the query by adding the prefix, 'PRJ-'
-            usermgtIDquery += "PRJ-";
+            usermgtIDquery += "USER-";
 
             //loop to decide how many zeros are needed before inputting the newNum
-            for (int k = 0; k < 10 - numberInWords.Count(); k++)
+            for (int k = 0; k < 5 - count; k++)
             {
                 usermgtIDquery += "0";
             }
             usermgtIDquery += newNum.ToString();
 
-            MessageBox.Show("The new project has been assigned with the user ID: " + usermgtIDquery);
+            MessageBox.Show("The new project has been assigned with the USER ID: " + usermgtIDquery);
         }
 
         private void addUserBtn_Click(object sender, EventArgs e)
@@ -419,6 +420,19 @@ namespace PredatorUI2
 
 
                 reader.Close();
+
+                cmd = conn.CreateCommand();
+                cmd.CommandText = "DELETE FROM user_accounts_table WHERE user_ID =@user_ID";
+                cmd.Parameters.AddWithValue("@user_ID", currentSelectedUserMgt);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                loadDataGrid();
+                MessageBox.Show("Delete Successful");
+
+                firstNameTB.Clear();
+                lastNameTB.Clear();
+                passwordTB.Clear();
+                userNameTB.Clear();
             }
         }
     }
