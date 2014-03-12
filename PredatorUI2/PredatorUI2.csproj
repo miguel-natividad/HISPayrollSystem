@@ -47,6 +47,9 @@
     <Reference Include="mysql.data.entity.EF6">
       <HintPath>..\packages\MySql.Data.Entities.6.8.3.0\lib\net40\mysql.data.entity.EF6.dll</HintPath>
     </Reference>
+    <Reference Include="MySqlDriver">
+      <HintPath>.\MySqlDriver.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -259,6 +262,9 @@
     <EmbeddedResource Include="TimesheetReport.resx">
       <DependentUpon>TimesheetReport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TimesheetTime.resx">
+      <DependentUpon>TimesheetTime.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -396,6 +402,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\SettingsButton.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Import From Excel\Import\Import\Import.csproj">
+      <Project>{a0024741-9679-4752-aab6-6a3be9fd00f6}</Project>
+      <Name>Import</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
