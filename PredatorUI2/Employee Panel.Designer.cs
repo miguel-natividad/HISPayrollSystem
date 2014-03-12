@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.UserNameTextBox = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.EmployeeNameTextBox = new System.Windows.Forms.TextBox();
+            this.AccountNumberTextBox = new System.Windows.Forms.TextBox();
+            this.PositionTextBox = new System.Windows.Forms.TextBox();
+            this.CurrentBalanceTextBox = new System.Windows.Forms.TextBox();
             this.CancelChangesButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.save_button = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.EmployeeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,51 +45,52 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // UserNameTextBox
+            // EmployeeNameTextBox
             // 
-            this.UserNameTextBox.BackColor = System.Drawing.Color.DimGray;
-            this.UserNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.UserNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserNameTextBox.ForeColor = System.Drawing.Color.White;
-            this.UserNameTextBox.Location = new System.Drawing.Point(414, 181);
-            this.UserNameTextBox.Name = "UserNameTextBox";
-            this.UserNameTextBox.Size = new System.Drawing.Size(223, 26);
-            this.UserNameTextBox.TabIndex = 22;
+            this.EmployeeNameTextBox.BackColor = System.Drawing.Color.DimGray;
+            this.EmployeeNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.EmployeeNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EmployeeNameTextBox.ForeColor = System.Drawing.Color.White;
+            this.EmployeeNameTextBox.Location = new System.Drawing.Point(414, 181);
+            this.EmployeeNameTextBox.Name = "EmployeeNameTextBox";
+            this.EmployeeNameTextBox.Size = new System.Drawing.Size(223, 26);
+            this.EmployeeNameTextBox.TabIndex = 22;
+            this.EmployeeNameTextBox.TextChanged += new System.EventHandler(this.EmployeeNameTextBox_TextChanged);
             // 
-            // textBox1
+            // AccountNumberTextBox
             // 
-            this.textBox1.BackColor = System.Drawing.Color.DimGray;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(429, 213);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(208, 26);
-            this.textBox1.TabIndex = 23;
+            this.AccountNumberTextBox.BackColor = System.Drawing.Color.DimGray;
+            this.AccountNumberTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.AccountNumberTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AccountNumberTextBox.ForeColor = System.Drawing.Color.White;
+            this.AccountNumberTextBox.Location = new System.Drawing.Point(429, 213);
+            this.AccountNumberTextBox.Name = "AccountNumberTextBox";
+            this.AccountNumberTextBox.Size = new System.Drawing.Size(208, 26);
+            this.AccountNumberTextBox.TabIndex = 23;
             // 
-            // textBox2
+            // PositionTextBox
             // 
-            this.textBox2.BackColor = System.Drawing.Color.DimGray;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.Color.White;
-            this.textBox2.Location = new System.Drawing.Point(766, 181);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(197, 26);
-            this.textBox2.TabIndex = 24;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.PositionTextBox.BackColor = System.Drawing.Color.DimGray;
+            this.PositionTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PositionTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PositionTextBox.ForeColor = System.Drawing.Color.White;
+            this.PositionTextBox.Location = new System.Drawing.Point(766, 181);
+            this.PositionTextBox.Name = "PositionTextBox";
+            this.PositionTextBox.Size = new System.Drawing.Size(197, 26);
+            this.PositionTextBox.TabIndex = 24;
+            this.PositionTextBox.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // textBox3
+            // CurrentBalanceTextBox
             // 
-            this.textBox3.BackColor = System.Drawing.Color.DimGray;
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.ForeColor = System.Drawing.Color.White;
-            this.textBox3.Location = new System.Drawing.Point(845, 213);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(118, 26);
-            this.textBox3.TabIndex = 25;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.CurrentBalanceTextBox.BackColor = System.Drawing.Color.DimGray;
+            this.CurrentBalanceTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.CurrentBalanceTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CurrentBalanceTextBox.ForeColor = System.Drawing.Color.White;
+            this.CurrentBalanceTextBox.Location = new System.Drawing.Point(845, 213);
+            this.CurrentBalanceTextBox.Name = "CurrentBalanceTextBox";
+            this.CurrentBalanceTextBox.Size = new System.Drawing.Size(118, 26);
+            this.CurrentBalanceTextBox.TabIndex = 25;
+            this.CurrentBalanceTextBox.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // CancelChangesButton
             // 
@@ -102,16 +103,17 @@
             this.CancelChangesButton.TabIndex = 30;
             this.CancelChangesButton.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // save_button
             // 
-            this.button1.BackgroundImage = global::PredatorUI2.Properties.Resources.WhiteSaveChangesButton_psd;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(637, 255);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(160, 25);
-            this.button1.TabIndex = 31;
-            this.button1.UseVisualStyleBackColor = true;
+            this.save_button.BackgroundImage = global::PredatorUI2.Properties.Resources.WhiteSaveChangesButton_psd;
+            this.save_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.save_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.save_button.Location = new System.Drawing.Point(637, 255);
+            this.save_button.Name = "save_button";
+            this.save_button.Size = new System.Drawing.Size(160, 25);
+            this.save_button.TabIndex = 31;
+            this.save_button.UseVisualStyleBackColor = true;
+            this.save_button.Click += new System.EventHandler(this.button1_Click);
             // 
             // dataGridView1
             // 
@@ -198,12 +200,12 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.ChangeButton);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.save_button);
             this.Controls.Add(this.CancelChangesButton);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.UserNameTextBox);
+            this.Controls.Add(this.CurrentBalanceTextBox);
+            this.Controls.Add(this.PositionTextBox);
+            this.Controls.Add(this.AccountNumberTextBox);
+            this.Controls.Add(this.EmployeeNameTextBox);
             this.Name = "Employee_Panel";
             this.Text = "Employee_Panel";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -214,12 +216,12 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox UserNameTextBox;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox EmployeeNameTextBox;
+        private System.Windows.Forms.TextBox AccountNumberTextBox;
+        private System.Windows.Forms.TextBox PositionTextBox;
+        private System.Windows.Forms.TextBox CurrentBalanceTextBox;
         private System.Windows.Forms.Button CancelChangesButton;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button save_button;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn EmployeeName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Position;
