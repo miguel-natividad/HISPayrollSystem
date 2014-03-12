@@ -15,7 +15,7 @@ namespace PredatorUI2
     public partial class Employee_Panel : Form
     {
         private DatabaseDriver db = new DatabaseDriver("localhost", "root", "root", "his_payroll");
-        db.Open();
+        //db.Open();
 
         public Employee_Panel()
         {
