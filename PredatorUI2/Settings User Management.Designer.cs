@@ -121,6 +121,7 @@
             this.delUserBtn.Size = new System.Drawing.Size(65, 20);
             this.delUserBtn.TabIndex = 16;
             this.delUserBtn.UseVisualStyleBackColor = true;
+            this.delUserBtn.Click += new System.EventHandler(this.delUserBtn_Click);
             // 
             // Tasks
             // 

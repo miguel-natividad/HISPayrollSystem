@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-
+using System.Text.RegularExpressions;
 namespace PredatorUI2
 {
     public partial class Settings_User_Management : Form
@@ -26,13 +26,37 @@ namespace PredatorUI2
         bool passwordEntered = false;
 
         string currentPass = "";
-      
+
+        private static int Minimum_Length = 5;
+        private static int Upper_Case_length = 1;
+        private static int Lower_Case_length = 1;
+      //  private static int NonAlpha_length = 1;
+        private static int Numeric_length = 1;
+
         public Settings_User_Management()
         {
             InitializeComponent();
             loadDataGrid();
         }
+        public static bool IsValid(string Password)
+        {
+            if (Password.Length < Minimum_Length)
+                return false;
+            if (UpperCaseCount(Password) < Upper_Case_length)
+                return false;
+            if (LowerCaseCount(Password) < Lower_Case_length)
+                return false;
+            if (NumericCount(Password) < 1)
+                return false;
+            if (Password.Contains(" "))
+                return false;
+            if (Password.Equals("guest") || Password.Equals("Guest") || Password.Equals("GUEST") || Password.Equals("password") || Password.Equals("Password") || Password.Equals("PASSWORD"))
+                return false;
 
+            //if (NonAlphaCount(Password) < NonAlpha_length)
+            //    return false;
+            return true;
+        }
         public bool PasswordEntered
         {
             get
@@ -126,23 +150,37 @@ namespace PredatorUI2
             }
             else
             {
-                getNextUserMgtID();
+                if (IsValid(passwordTB.Text) == false)
+                {
+                    string requirements = "";
+                    requirements += "Please satisfy the following conditions: \n";
+                    requirements += "At Least 5 Characters \n";
+                    requirements += "No spaces \n";
+                    requirements += "Contains at least 1 capital letter \n";
+                    requirements += "Contains at least 1 number \n";
+                    requirements += "Cannot be 'guest' or 'password' \n";
+                    MessageBox.Show(requirements);
+                }
+                else
+                {
+                    getNextUserMgtID();
 
-                MySqlConnection conn = new MySqlConnection(LogIn.login);
-                conn.Open();
-                MySqlCommand cmd = conn.CreateCommand();
+                    MySqlConnection conn = new MySqlConnection(LogIn.login);
+                    conn.Open();
+                    MySqlCommand cmd = conn.CreateCommand();
 
-                cmd.CommandText = "INSERT INTO user_accounts_table(user_ID, username, password, first_name, last_name) VALUES (@user_ID, @username, @password, @first_name, @last_name)";
-                cmd.Parameters.AddWithValue("@user_ID", usermgtIDquery);
-                cmd.Parameters.AddWithValue("@username", userNameTB.Text);
-                cmd.Parameters.AddWithValue("@password", passwordTB.Text);
-                cmd.Parameters.AddWithValue("@first_name", firstNameTB.Text);
-                cmd.Parameters.AddWithValue("@last_name", lastNameTB.Text);
-                cmd.ExecuteNonQuery();
-                conn.Close();
+                    cmd.CommandText = "INSERT INTO user_accounts_table(user_ID, username, password, first_name, last_name) VALUES (@user_ID, @username, @password, @first_name, @last_name)";
+                    cmd.Parameters.AddWithValue("@user_ID", usermgtIDquery);
+                    cmd.Parameters.AddWithValue("@username", userNameTB.Text);
+                    cmd.Parameters.AddWithValue("@password", passwordTB.Text);
+                    cmd.Parameters.AddWithValue("@first_name", firstNameTB.Text);
+                    cmd.Parameters.AddWithValue("@last_name", lastNameTB.Text);
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
 
-                //refreshes the datagrid;
-                loadDataGrid();
+                    //refreshes the datagrid;
+                    loadDataGrid();
+                }
             }
         }
 
@@ -152,9 +190,26 @@ namespace PredatorUI2
             this.PasswordEntered = b;
 
             passwordTB.Text = currentPass;
-            passwordTB.PasswordChar = (char)0;
+           // passwordTB.PasswordChar = (char)0;
         }
 
+        private static int UpperCaseCount(string Password)
+        {
+            return Regex.Matches(Password, "[A-Z]").Count;
+        }
+
+        private static int LowerCaseCount(string Password)
+        {
+            return Regex.Matches(Password, "[a-z]").Count;
+        }
+        private static int NumericCount(string Password)
+        {
+            return Regex.Matches(Password, "[0-9]").Count;
+        }
+        private static int NonAlphaCount(string Password)
+        {
+            return Regex.Matches(Password, @"[^0-9a-zA-Z\._]").Count;
+        }
         private void changePassBtn_Click(object sender, EventArgs e)
         {
           
@@ -198,42 +253,56 @@ namespace PredatorUI2
                 }
                 else
                 {
-                    //gets the user ID of the currently selected row's entity 
-                    MySqlConnection conn = new MySqlConnection(LogIn.login);
-                    conn.Open();
-                    MySqlCommand cmd = conn.CreateCommand();
-                    cmd.CommandText = "SELECT user_ID FROM user_accounts_table WHERE username = @username";
-                    cmd.Parameters.AddWithValue(@"username", initialUserName);
-                    MySqlDataReader reader = cmd.ExecuteReader();
-                    
-                    while (reader.Read())
+                    if (IsValid(passwordTB.Text) == false)
                     {
-                        currentSelectedUserMgt = reader[0].ToString();
+                        string requirements = "";
+                        requirements += "Please satisfy the following conditions: \n";
+                        requirements += "At Least 5 Characters \n";
+                        requirements += "No spaces \n";
+                        requirements += "Contains at least 1 capital letter \n";
+                        requirements += "Contains at least 1 number \n";
+                        requirements += "Cannot be 'guest' or 'password' \n";
+                        MessageBox.Show(requirements);
                     }
-                    reader.Close();
+                    else
+                    {
+                        //gets the user ID of the currently selected row's entity 
+                        MySqlConnection conn = new MySqlConnection(LogIn.login);
+                        conn.Open();
+                        MySqlCommand cmd = conn.CreateCommand();
+                        cmd.CommandText = "SELECT user_ID FROM user_accounts_table WHERE username = @username";
+                        cmd.Parameters.AddWithValue(@"username", initialUserName);
+                        MySqlDataReader reader = cmd.ExecuteReader();
 
-                    //initializes strings to hold the new values
-                    String newUserName = userNameTB.Text;
-                    String newFirstName = firstNameTB.Text;
-                    String newLastName = lastNameTB.Text;
+                        while (reader.Read())
+                        {
+                            currentSelectedUserMgt = reader[0].ToString();
+                        }
+                        reader.Close();
 
-                    //Will update databaes with new values
-                    cmd = conn.CreateCommand();
+                        //initializes strings to hold the new values
+                        String newUserName = userNameTB.Text;
+                        String newFirstName = firstNameTB.Text;
+                        String newLastName = lastNameTB.Text;
 
-                    cmd.CommandText = "UPDATE user_accounts_table SET username=@username, first_name=@first_name, last_name=@last_name WHERE user_ID=@user_ID";
-                    cmd.Parameters.AddWithValue("@user_ID", currentSelectedUserMgt); 
-                    cmd.Parameters.AddWithValue("@username", newUserName);
-                    cmd.Parameters.AddWithValue("@first_name", newFirstName);
-                    cmd.Parameters.AddWithValue("@last_name", newLastName);
+                        //Will update databaes with new values
+                        cmd = conn.CreateCommand();
 
-                    cmd.ExecuteNonQuery();
-                    conn.Close();
-                   
-                    //refreshes the datagrid;
-                    loadDataGrid();
-                    MessageBox.Show("Edit Successful");
+                        cmd.CommandText = "UPDATE user_accounts_table SET username=@username, first_name=@first_name, last_name=@last_name WHERE user_ID=@user_ID";
+                        cmd.Parameters.AddWithValue("@user_ID", currentSelectedUserMgt);
+                        cmd.Parameters.AddWithValue("@username", newUserName);
+                        cmd.Parameters.AddWithValue("@first_name", newFirstName);
+                        cmd.Parameters.AddWithValue("@last_name", newLastName);
 
-                    initialUserName = newUserName;
+                        cmd.ExecuteNonQuery();
+                        conn.Close();
+
+                        //refreshes the datagrid;
+                        loadDataGrid();
+                        MessageBox.Show("Edit Successful");
+
+                        initialUserName = newUserName;
+                    }
                 }
             }
             else
@@ -244,43 +313,58 @@ namespace PredatorUI2
                 }
                 else
                 {
-                    //gets the user ID of the currently selected row's entity 
-                    MySqlConnection conn = new MySqlConnection(LogIn.login);
-                    conn.Open();
-                    MySqlCommand cmd = conn.CreateCommand();
-                    cmd.CommandText = "SELECT user_ID FROM user_accounts_table WHERE username = @user_name";
-                    cmd.Parameters.AddWithValue(@"user_name", initialUserName);
-                    MySqlDataReader reader = cmd.ExecuteReader();
-
-                    while (reader.Read())
+                    if (IsValid(passwordTB.Text) == false)
                     {
-                        currentSelectedUserMgt = reader[0].ToString();
+                        string requirements = "";
+                        requirements += "Please satisfy the following conditions: \n";
+                        requirements += "At Least 5 Characters \n";
+                        requirements += "No spaces \n";
+                        requirements += "Contains at least 1 capital letter \n";
+                        requirements += "Contains at least 1 number \n";
+                        requirements += "Cannot be 'guest' or 'password' \n";
+                        MessageBox.Show(requirements);
                     }
-                    reader.Close();
+                    else
+                    {
 
-                    //initializes strings to hold the new values
-                    String newUserName = userNameTB.Text;
-                    String newFirstName = firstNameTB.Text;
-                    String newLastName = lastNameTB.Text;
-                    String newPass = passwordTB.Text;
+                        //gets the user ID of the currently selected row's entity 
+                        MySqlConnection conn = new MySqlConnection(LogIn.login);
+                        conn.Open();
+                        MySqlCommand cmd = conn.CreateCommand();
+                        cmd.CommandText = "SELECT user_ID FROM user_accounts_table WHERE username = @user_name";
+                        cmd.Parameters.AddWithValue(@"user_name", initialUserName);
+                        MySqlDataReader reader = cmd.ExecuteReader();
 
-                    //Will update databaes with new values
-                    cmd = conn.CreateCommand();
+                        while (reader.Read())
+                        {
+                            currentSelectedUserMgt = reader[0].ToString();
+                        }
+                        reader.Close();
 
-                    cmd.CommandText = "UPDATE user_accounts_table SET username=@user_name, first_name=@first_name, last_name=@last_name, password=@password WHERE user_ID=@user_ID";
-                    cmd.Parameters.AddWithValue("@user_ID", currentSelectedUserMgt); 
-                    cmd.Parameters.AddWithValue("@user_name", newUserName);
-                    cmd.Parameters.AddWithValue("@first_name", newFirstName);
-                    cmd.Parameters.AddWithValue("@last_name", newLastName);
-                    cmd.Parameters.AddWithValue("@password", newPass);
+                        //initializes strings to hold the new values
+                        String newUserName = userNameTB.Text;
+                        String newFirstName = firstNameTB.Text;
+                        String newLastName = lastNameTB.Text;
+                        String newPass = passwordTB.Text;
 
-                    cmd.ExecuteNonQuery();
-                    conn.Close();
+                        //Will update databaes with new values
+                        cmd = conn.CreateCommand();
 
-                    //refreshes the datagrid;
-                    loadDataGrid();
-                    MessageBox.Show("Edit Successful");
-                    initialUserName = newUserName;
+                        cmd.CommandText = "UPDATE user_accounts_table SET username=@user_name, first_name=@first_name, last_name=@last_name, password=@password WHERE user_ID=@user_ID";
+                        cmd.Parameters.AddWithValue("@user_ID", currentSelectedUserMgt);
+                        cmd.Parameters.AddWithValue("@user_name", newUserName);
+                        cmd.Parameters.AddWithValue("@first_name", newFirstName);
+                        cmd.Parameters.AddWithValue("@last_name", newLastName);
+                        cmd.Parameters.AddWithValue("@password", newPass);
+
+                        cmd.ExecuteNonQuery();
+                        conn.Close();
+
+                        //refreshes the datagrid;
+                        loadDataGrid();
+                        MessageBox.Show("Edit Successful");
+                        initialUserName = newUserName;
+                    }
                 }
             }
         }
@@ -308,6 +392,34 @@ namespace PredatorUI2
 
             initialUserName = userNameTB.Text;
           
+        }
+
+        private void delUserBtn_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(this, "Are you sure you want to delete selected row?", "Close?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.No)
+            {
+                DialogResult = DialogResult.Cancel;
+            }
+            else
+            {
+                //gets the project ID of the currently selected row's entity 
+                MySqlConnection conn = new MySqlConnection(LogIn.login);
+                conn.Open();
+                MySqlCommand cmd = conn.CreateCommand();
+                cmd.CommandText = "SELECT user_ID FROM user_accounts_table WHERE username = @username";
+                cmd.Parameters.AddWithValue(@"username", initialUserName);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    currentSelectedUserMgt = reader[0].ToString();
+                }
+
+
+                reader.Close();
+            }
         }
     }
 }
