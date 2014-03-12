@@ -30,7 +30,8 @@ using MySql.Data.MySqlClient;
             MySqlConnection conn = new MySqlConnection(login);
             conn.Open();
             MySqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT username, password FROM user_table";
+            cmd.CommandText = "SELECT username, password FROM user_accounts_table WHERE username = @username";
+            cmd.Parameters.AddWithValue("@username", UserNameTextBox.Text);
             MySqlDataReader reader = cmd.ExecuteReader();
          
             //This part checks if what the user has inputted MATCHES what is inputted in the HIS MySQL database
@@ -66,7 +67,8 @@ using MySql.Data.MySqlClient;
                 MySqlConnection conn = new MySqlConnection(login);
                 conn.Open();
                 MySqlCommand cmd = conn.CreateCommand();
-                cmd.CommandText = "SELECT username, password FROM user_accounts_table";
+                cmd.CommandText = "SELECT username, password FROM user_accounts_table WHERE username = @username";
+                cmd.Parameters.AddWithValue("@username", UserNameTextBox.Text);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read())

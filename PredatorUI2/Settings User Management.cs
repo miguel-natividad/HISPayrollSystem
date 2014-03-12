@@ -26,6 +26,7 @@ namespace PredatorUI2
         bool passwordEntered = false;
 
         string currentPass = "";
+      
         public Settings_User_Management()
         {
             InitializeComponent();
@@ -149,6 +150,7 @@ namespace PredatorUI2
         public void passBack(bool b)
         {
             this.PasswordEntered = b;
+
             passwordTB.Text = currentPass;
             passwordTB.PasswordChar = (char)0;
         }
@@ -160,20 +162,24 @@ namespace PredatorUI2
             MySqlConnection conn = new MySqlConnection(LogIn.login);
             conn.Open();
             MySqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT password FROM user_accounts_table";
+            cmd.CommandText = "SELECT username, password FROM user_accounts_table WHERE username = @username";
+            cmd.Parameters.AddWithValue("@username", initialUserName);
             MySqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                currentPass = reader[0].ToString();
+                initialUserName = reader[0].ToString();
+                currentPass = reader[1].ToString();
             }
 
-          
+
             using (ChangePassForm cpf = new ChangePassForm())
             {
                 // passing this in ShowDialog will set the .Owner 
                 // property of the child form
-               
+                
+                cpf.UserName = initialUserName;
                 cpf.Password = currentPass;
+               
                 cpf.ShowDialog(this);
             }
 
@@ -226,6 +232,8 @@ namespace PredatorUI2
                     //refreshes the datagrid;
                     loadDataGrid();
                     MessageBox.Show("Edit Successful");
+
+                    initialUserName = newUserName;
                 }
             }
             else
@@ -272,6 +280,7 @@ namespace PredatorUI2
                     //refreshes the datagrid;
                     loadDataGrid();
                     MessageBox.Show("Edit Successful");
+                    initialUserName = newUserName;
                 }
             }
         }
@@ -298,6 +307,7 @@ namespace PredatorUI2
             userNameTB.Text = stringValues[2];
 
             initialUserName = userNameTB.Text;
+          
         }
     }
 }

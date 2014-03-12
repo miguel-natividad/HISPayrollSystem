@@ -63,14 +63,13 @@
             this.usermgtDataGrid.Size = new System.Drawing.Size(702, 132);
             this.usermgtDataGrid.TabIndex = 0;
             this.usermgtDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.usermgtDataGrid_CellClick);
-           // this.usermgtDataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.usermgtDataGrid_CellContentClick);
             // 
             // changePassBtn
             // 
             this.changePassBtn.BackgroundImage = global::PredatorUI2.Properties.Resources.WhiteChangePasswordButton_psd;
             this.changePassBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.changePassBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.changePassBtn.Location = new System.Drawing.Point(247, 293);
+            this.changePassBtn.Location = new System.Drawing.Point(423, 308);
             this.changePassBtn.Name = "changePassBtn";
             this.changePassBtn.Size = new System.Drawing.Size(160, 25);
             this.changePassBtn.TabIndex = 1;
@@ -82,7 +81,7 @@
             this.saveChangesBtn.BackgroundImage = global::PredatorUI2.Properties.Resources.WhiteSaveChangesButton_psd;
             this.saveChangesBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.saveChangesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveChangesBtn.Location = new System.Drawing.Point(438, 293);
+            this.saveChangesBtn.Location = new System.Drawing.Point(614, 308);
             this.saveChangesBtn.Name = "saveChangesBtn";
             this.saveChangesBtn.Size = new System.Drawing.Size(160, 25);
             this.saveChangesBtn.TabIndex = 2;
@@ -94,7 +93,7 @@
             this.cancelChangesBtn.BackgroundImage = global::PredatorUI2.Properties.Resources.WhiteCancelChangesButton_psd;
             this.cancelChangesBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.cancelChangesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cancelChangesBtn.Location = new System.Drawing.Point(613, 293);
+            this.cancelChangesBtn.Location = new System.Drawing.Point(789, 308);
             this.cancelChangesBtn.Name = "cancelChangesBtn";
             this.cancelChangesBtn.Size = new System.Drawing.Size(160, 25);
             this.cancelChangesBtn.TabIndex = 3;
@@ -105,7 +104,7 @@
             this.addUserBtn.BackgroundImage = global::PredatorUI2.Properties.Resources.WhiteAddButton_psd;
             this.addUserBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.addUserBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addUserBtn.Location = new System.Drawing.Point(742, 514);
+            this.addUserBtn.Location = new System.Drawing.Point(775, 511);
             this.addUserBtn.Name = "addUserBtn";
             this.addUserBtn.Size = new System.Drawing.Size(65, 20);
             this.addUserBtn.TabIndex = 14;
@@ -117,7 +116,7 @@
             this.delUserBtn.BackgroundImage = global::PredatorUI2.Properties.Resources.WhiteDeleteButton_psd;
             this.delUserBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.delUserBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.delUserBtn.Location = new System.Drawing.Point(851, 514);
+            this.delUserBtn.Location = new System.Drawing.Point(884, 511);
             this.delUserBtn.Name = "delUserBtn";
             this.delUserBtn.Size = new System.Drawing.Size(65, 20);
             this.delUserBtn.TabIndex = 16;
