@@ -15,7 +15,7 @@ using MySql.Data.MySqlClient;
     public partial class LogIn : Form
     {
         //creates a static string that contains login credentials for mySQL that can be accessed in any class
-        public static string login = "server=localhost;database=his;uid=root;password=verisiminitude0908;";
+        public static string login = "server=localhost;database=his_payroll;uid=root;password=verisiminitude0908;";
        
 
         public LogIn()

@@ -107,6 +107,7 @@
             this.CancelChangesButton.Size = new System.Drawing.Size(160, 25);
             this.CancelChangesButton.TabIndex = 30;
             this.CancelChangesButton.UseVisualStyleBackColor = true;
+            this.CancelChangesButton.Click += new System.EventHandler(this.CancelChangesButton_Click);
             // 
             // save_button
             // 
@@ -118,6 +119,7 @@
             this.save_button.Size = new System.Drawing.Size(160, 25);
             this.save_button.TabIndex = 31;
             this.save_button.UseVisualStyleBackColor = true;
+            this.save_button.Click += new System.EventHandler(this.save_button_Click);
             // 
             // employeeDataGridView
             // 
@@ -129,6 +131,7 @@
             this.employeeDataGridView.Name = "employeeDataGridView";
             this.employeeDataGridView.Size = new System.Drawing.Size(702, 132);
             this.employeeDataGridView.TabIndex = 32;
+            this.employeeDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.employeeDataGridView_CellClick);
             // 
             // delBtn
             // 
@@ -140,6 +143,7 @@
             this.delBtn.Size = new System.Drawing.Size(65, 20);
             this.delBtn.TabIndex = 35;
             this.delBtn.UseVisualStyleBackColor = true;
+            this.delBtn.Click += new System.EventHandler(this.delBtn_Click);
             // 
             // addButton
             // 
@@ -256,6 +260,7 @@
             this.workerTypeCB.Name = "workerTypeCB";
             this.workerTypeCB.Size = new System.Drawing.Size(121, 21);
             this.workerTypeCB.TabIndex = 46;
+            this.workerTypeCB.SelectedIndexChanged += new System.EventHandler(this.workerTypeCB_SelectedIndexChanged);
             // 
             // label8
             // 
