@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="adodb, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.0.0\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
@@ -50,6 +53,7 @@
     <Reference Include="MySqlDriver">
       <HintPath>.\MySqlDriver.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -135,6 +139,12 @@
     <Compile Include="FullScreenTemplate.Designer.cs">
       <DependentUpon>FullScreenTemplate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Import.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Import.Designer.cs">
+      <DependentUpon>Import.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoadingPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -173,6 +183,12 @@
     <Compile Include="SalaryReport.Designer.cs">
       <DependentUpon>SalaryReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Select Tables.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Select Tables.Designer.cs">
+      <DependentUpon>Select Tables.cs</DependentUpon>
+    </Compile>
     <Compile Include="Settings User Management.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,6 +212,12 @@
     </Compile>
     <Compile Include="TimesheetTime.Designer.cs">
       <DependentUpon>TimesheetTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewEmployees.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewEmployees.Designer.cs">
+      <DependentUpon>ViewEmployees.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AccountingReport.resx">
       <DependentUpon>AccountingReport.cs</DependentUpon>
@@ -234,6 +256,9 @@
     <EmbeddedResource Include="FullScreenTemplate.resx">
       <DependentUpon>FullScreenTemplate.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Import.resx">
+      <DependentUpon>Import.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoadingPage.resx">
       <DependentUpon>LoadingPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -262,6 +287,9 @@
     <EmbeddedResource Include="SalaryReport.resx">
       <DependentUpon>SalaryReport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Select Tables.resx">
+      <DependentUpon>Select Tables.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Settings User Management.resx">
       <DependentUpon>Settings User Management.cs</DependentUpon>
     </EmbeddedResource>
@@ -273,6 +301,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TimesheetTime.resx">
       <DependentUpon>TimesheetTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewEmployees.resx">
+      <DependentUpon>ViewEmployees.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="packages.config" />
@@ -413,10 +444,51 @@
     <None Include="Resources\SettingsButton.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Import\Import\Import.csproj">
-      <Project>{a0024741-9679-4752-aab6-6a3be9fd00f6}</Project>
-      <Name>Import</Name>
-    </ProjectReference>
+    <COMReference Include="ADOX">
+      <Guid>{00000600-0000-0010-8000-00AA006D2EA4}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="ComCtl2">
+      <Guid>{FE0065C0-1B7B-11CF-9D53-00AA003C9CB6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>1</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="ComctlLib">
+      <Guid>{6B7E6392-850A-101B-AFC0-4210102A8DA7}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="MSComctlLib">
+      <Guid>{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

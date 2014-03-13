@@ -26,8 +26,8 @@ namespace PredatorUI2
 
         private void employeesBtn_Click(object sender, EventArgs e)
         {
-            Employee_Panel employeesPanel = new Employee_Panel();
-            employeesPanel.Show();
+            ViewEmployees vemp = new ViewEmployees();
+            vemp.Show();
         }
 
         private void reportsBtn_Click(object sender, EventArgs e)

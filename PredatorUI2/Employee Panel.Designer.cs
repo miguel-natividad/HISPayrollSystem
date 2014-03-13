@@ -301,6 +301,7 @@
             this.Controls.Add(this.firstNameTB);
             this.Name = "Employee_Panel";
             this.Text = "Employee_Panel";
+            this.Load += new System.EventHandler(this.Employee_Panel_Load);
             ((System.ComponentModel.ISupportInitialize)(this.employeeDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

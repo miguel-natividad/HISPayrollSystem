@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-using Import;
 
 namespace PredatorUI2
 {
@@ -269,6 +268,21 @@ namespace PredatorUI2
             initialProjectName = projectNameTB.Text;
             manageSalaryBtn.Enabled = true;
 
+            //gets the project ID of the currently selected row's entity 
+            MySqlConnection conn = new MySqlConnection(LogIn.login);
+            conn.Open();
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT project_ID FROM projects_table WHERE project_name = @project_name";
+            cmd.Parameters.AddWithValue(@"project_name", initialProjectName);
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                currentSelectedProjectID = reader[0].ToString();
+            }
+            reader.Close();
+
+
             /**
             //gets the project ID of the currently selected row's entity 
             MySqlConnection conn = new MySqlConnection(LogIn.login);
@@ -298,8 +312,31 @@ namespace PredatorUI2
 
         private void manageSalaryBtn_Click(object sender, EventArgs e)
         {
-            Import.Form1 import = new Import.Form1();
-            import.Show();
+           
+                Import imp = new Import();
+           
+               
+                imp.ProjectID = currentSelectedProjectID;
+                imp.Show();
+           
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Projects_Panel projectsPanel = new Projects_Panel();
+            projectsPanel.Show();
+        }
+
+        private void employeesPanelBtn_Click(object sender, EventArgs e)
+        {
+            ViewEmployees vemp = new ViewEmployees();
+            vemp.Show();
+        }
+
+        private void settingsBtn_Click(object sender, EventArgs e)
+        {
+            Settings_User_Management settingsUser = new Settings_User_Management();
+            settingsUser.Show();
         }
 
       

@@ -6,7 +6,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Import;
 
 namespace PredatorUI2
 {
@@ -19,7 +18,7 @@ namespace PredatorUI2
 
         private void TimesheetTime_Load(object sender, EventArgs e)
         {
-            Import.Form1 a = new Form1();
+            Import a = new Import();
             a.ShowDialog();
         }
     }

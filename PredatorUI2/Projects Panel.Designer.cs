@@ -43,6 +43,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lodgingAllowTB = new System.Windows.Forms.TextBox();
             this.manageSalaryBtn = new System.Windows.Forms.Button();
+            this.projectsPanelBtn = new System.Windows.Forms.Button();
+            this.employeesPanelBtn = new System.Windows.Forms.Button();
+            this.reportsBtn = new System.Windows.Forms.Button();
+            this.settingsBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.projectsDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -216,6 +220,45 @@
             this.manageSalaryBtn.UseVisualStyleBackColor = false;
             this.manageSalaryBtn.Click += new System.EventHandler(this.manageSalaryBtn_Click);
             // 
+            // projectsPanelBtn
+            // 
+            this.projectsPanelBtn.Location = new System.Drawing.Point(47, 152);
+            this.projectsPanelBtn.Name = "projectsPanelBtn";
+            this.projectsPanelBtn.Size = new System.Drawing.Size(144, 23);
+            this.projectsPanelBtn.TabIndex = 36;
+            this.projectsPanelBtn.Text = "Projects Panel";
+            this.projectsPanelBtn.UseVisualStyleBackColor = true;
+            this.projectsPanelBtn.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // employeesPanelBtn
+            // 
+            this.employeesPanelBtn.Location = new System.Drawing.Point(47, 190);
+            this.employeesPanelBtn.Name = "employeesPanelBtn";
+            this.employeesPanelBtn.Size = new System.Drawing.Size(144, 23);
+            this.employeesPanelBtn.TabIndex = 37;
+            this.employeesPanelBtn.Text = "Employees Panel";
+            this.employeesPanelBtn.UseVisualStyleBackColor = true;
+            this.employeesPanelBtn.Click += new System.EventHandler(this.employeesPanelBtn_Click);
+            // 
+            // reportsBtn
+            // 
+            this.reportsBtn.Location = new System.Drawing.Point(47, 234);
+            this.reportsBtn.Name = "reportsBtn";
+            this.reportsBtn.Size = new System.Drawing.Size(144, 23);
+            this.reportsBtn.TabIndex = 38;
+            this.reportsBtn.Text = "Reports";
+            this.reportsBtn.UseVisualStyleBackColor = true;
+            // 
+            // settingsBtn
+            // 
+            this.settingsBtn.Location = new System.Drawing.Point(47, 279);
+            this.settingsBtn.Name = "settingsBtn";
+            this.settingsBtn.Size = new System.Drawing.Size(144, 23);
+            this.settingsBtn.TabIndex = 39;
+            this.settingsBtn.Text = "Settings";
+            this.settingsBtn.UseVisualStyleBackColor = true;
+            this.settingsBtn.Click += new System.EventHandler(this.settingsBtn_Click);
+            // 
             // Projects_Panel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -223,6 +266,10 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Controls.Add(this.settingsBtn);
+            this.Controls.Add(this.reportsBtn);
+            this.Controls.Add(this.employeesPanelBtn);
+            this.Controls.Add(this.projectsPanelBtn);
             this.Controls.Add(this.manageSalaryBtn);
             this.Controls.Add(this.lodgingAllowTB);
             this.Controls.Add(this.label1);
@@ -261,5 +308,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox lodgingAllowTB;
         private System.Windows.Forms.Button manageSalaryBtn;
+        private System.Windows.Forms.Button projectsPanelBtn;
+        private System.Windows.Forms.Button employeesPanelBtn;
+        private System.Windows.Forms.Button reportsBtn;
+        private System.Windows.Forms.Button settingsBtn;
     }
 }
