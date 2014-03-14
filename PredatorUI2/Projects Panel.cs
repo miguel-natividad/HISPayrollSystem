@@ -57,6 +57,23 @@ namespace PredatorUI2
             
             
         }
+
+        public void getCurrentProjectID()
+        {
+            //gets the project ID of the currently selected row's entity 
+            MySqlConnection conn = new MySqlConnection(LogIn.login);
+            conn.Open();
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT project_ID FROM projects_table WHERE project_name = @project_name";
+            cmd.Parameters.AddWithValue(@"project_name", initialProjectName);
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                currentSelectedProjectID = reader[0].ToString();
+            }
+            reader.Close();
+        }
         //increments the Project_ID to follow the format: PRJ-000000000X
         public void getNextProjectID()
         {
@@ -101,7 +118,7 @@ namespace PredatorUI2
             }
 
             //splits the new number into its individual characters, so that we can count how many zeroes we need.
-           // string[] numberInWords = newNum.ToString().Split();
+           
             int count = newNum.ToString().Length;
 
             //begins the query by adding the prefix, 'PRJ-'
@@ -167,18 +184,7 @@ namespace PredatorUI2
             else
             {
                 //gets the project ID of the currently selected row's entity 
-                MySqlConnection conn = new MySqlConnection(LogIn.login);
-                conn.Open();
-                MySqlCommand cmd = conn.CreateCommand();
-                cmd.CommandText = "SELECT project_ID FROM projects_table WHERE project_name = @project_name";
-                cmd.Parameters.AddWithValue(@"project_name", initialProjectName);
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    currentSelectedProjectID = reader[0].ToString();
-                }
-                reader.Close();
+                getCurrentProjectID();
 
                 //initializes strings to hold the new values
                 String newProjName = projectNameTB.Text;
@@ -187,7 +193,10 @@ namespace PredatorUI2
                 String newLodging = lodgingAllowTB.Text;
 
                 //Will update databaes with new values
-                cmd = conn.CreateCommand();
+                MySqlConnection conn = new MySqlConnection(LogIn.login);
+                conn.Open();
+                MySqlCommand cmd = conn.CreateCommand();
+                
 
                 cmd.CommandText = "UPDATE projects_table SET project_name =@project_name, project_location=@project_location, project_status=@project_status, project_lodging=@project_lodging WHERE project_ID=@project_ID";
 
@@ -268,19 +277,7 @@ namespace PredatorUI2
             initialProjectName = projectNameTB.Text;
             manageSalaryBtn.Enabled = true;
 
-            //gets the project ID of the currently selected row's entity 
-            MySqlConnection conn = new MySqlConnection(LogIn.login);
-            conn.Open();
-            MySqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT project_ID FROM projects_table WHERE project_name = @project_name";
-            cmd.Parameters.AddWithValue(@"project_name", initialProjectName);
-            MySqlDataReader reader = cmd.ExecuteReader();
-
-            while (reader.Read())
-            {
-                currentSelectedProjectID = reader[0].ToString();
-            }
-            reader.Close();
+            getCurrentProjectID();
 
 
             /**

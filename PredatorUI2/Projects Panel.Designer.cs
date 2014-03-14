@@ -98,12 +98,13 @@
             this.deleteProjectBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.deleteProjectBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteProjectBtn.Font = new System.Drawing.Font("Lucida Fax", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteProjectBtn.Location = new System.Drawing.Point(807, 524);
+            this.deleteProjectBtn.Location = new System.Drawing.Point(452, 512);
             this.deleteProjectBtn.Name = "deleteProjectBtn";
             this.deleteProjectBtn.Size = new System.Drawing.Size(165, 35);
             this.deleteProjectBtn.TabIndex = 26;
             this.deleteProjectBtn.Text = "DELETE PROJECT";
             this.deleteProjectBtn.UseVisualStyleBackColor = false;
+            this.deleteProjectBtn.Visible = false;
             this.deleteProjectBtn.Click += new System.EventHandler(this.deleteProjectBtn_Click);
             // 
             // editProjectBtn
@@ -112,11 +113,11 @@
             this.editProjectBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.editProjectBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editProjectBtn.Font = new System.Drawing.Font("Lucida Fax", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editProjectBtn.Location = new System.Drawing.Point(670, 524);
+            this.editProjectBtn.Location = new System.Drawing.Point(623, 313);
             this.editProjectBtn.Name = "editProjectBtn";
-            this.editProjectBtn.Size = new System.Drawing.Size(131, 35);
+            this.editProjectBtn.Size = new System.Drawing.Size(178, 35);
             this.editProjectBtn.TabIndex = 25;
-            this.editProjectBtn.Text = "EDIT PROJECT";
+            this.editProjectBtn.Text = "SAVE CHANGES";
             this.editProjectBtn.UseVisualStyleBackColor = false;
             this.editProjectBtn.Click += new System.EventHandler(this.editProjectBtn_Click);
             // 
@@ -130,7 +131,7 @@
             this.CancelChangesButton.Name = "CancelChangesButton";
             this.CancelChangesButton.Size = new System.Drawing.Size(165, 34);
             this.CancelChangesButton.TabIndex = 29;
-            this.CancelChangesButton.Text = "CANCEL CHANGES";
+            this.CancelChangesButton.Text = "CLEAR FIELDS";
             this.CancelChangesButton.UseVisualStyleBackColor = false;
             this.CancelChangesButton.Click += new System.EventHandler(this.CancelChangesButton_Click);
             // 
@@ -140,7 +141,7 @@
             this.CreateProjectButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CreateProjectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CreateProjectButton.Font = new System.Drawing.Font("Lucida Fax", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CreateProjectButton.Location = new System.Drawing.Point(608, 313);
+            this.CreateProjectButton.Location = new System.Drawing.Point(444, 314);
             this.CreateProjectButton.Name = "CreateProjectButton";
             this.CreateProjectButton.Size = new System.Drawing.Size(173, 34);
             this.CreateProjectButton.TabIndex = 27;
@@ -212,7 +213,7 @@
             this.manageSalaryBtn.Enabled = false;
             this.manageSalaryBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.manageSalaryBtn.Font = new System.Drawing.Font("Lucida Fax", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.manageSalaryBtn.Location = new System.Drawing.Point(474, 524);
+            this.manageSalaryBtn.Location = new System.Drawing.Point(807, 512);
             this.manageSalaryBtn.Name = "manageSalaryBtn";
             this.manageSalaryBtn.Size = new System.Drawing.Size(173, 35);
             this.manageSalaryBtn.TabIndex = 35;

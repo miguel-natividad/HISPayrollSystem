@@ -14,6 +14,8 @@ namespace PredatorUI2
         public ControlPanel()
         {
             InitializeComponent();
+            
+            //sets the time label to the current time
             DateTime currtime = DateTime.Now;
             timeLabel.Text = currtime.ToString();
         }

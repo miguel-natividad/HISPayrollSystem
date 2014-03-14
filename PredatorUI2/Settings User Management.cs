@@ -38,6 +38,7 @@ namespace PredatorUI2
             InitializeComponent();
             loadDataGrid();
         }
+
         public static bool IsValid(string Password)
         {
             if (Password.Length < Minimum_Length)
@@ -57,6 +58,8 @@ namespace PredatorUI2
             //    return false;
             return true;
         }
+
+        //if user has expressed intent to change password 
         public bool PasswordEntered
         {
             get
@@ -68,6 +71,7 @@ namespace PredatorUI2
                 passwordEntered = true;
             }
         }
+
         public void loadDataGrid()
         {
             usermgtDT.Clear();
@@ -145,12 +149,15 @@ namespace PredatorUI2
 
         private void addUserBtn_Click(object sender, EventArgs e)
         {
+            //checks first if first name, last name, username, and password text fields have been filled out 
             if (firstNameTB.Text == "" || lastNameTB.Text == "" || userNameTB.Text == "" || passwordTB.Text== "")
             {
                 MessageBox.Show("Please fill out all the fields.");
             }
+                // if fields have been filled out 
             else
             {
+                //checks if entered password is valid
                 if (IsValid(passwordTB.Text) == false)
                 {
                     string requirements = "";
@@ -162,6 +169,7 @@ namespace PredatorUI2
                     requirements += "Cannot be 'guest' or 'password' \n";
                     MessageBox.Show(requirements);
                 }
+                    // if password passes requirements, then insert into usser_accounts_table
                 else
                 {
                     getNextUserMgtID();
@@ -181,6 +189,11 @@ namespace PredatorUI2
 
                     //refreshes the datagrid;
                     loadDataGrid();
+
+                    firstNameTB.Clear();
+                    lastNameTB.Clear();
+                    passwordTB.Clear();
+                    userNameTB.Clear();
                 }
             }
         }
@@ -244,6 +257,23 @@ namespace PredatorUI2
             
         }
 
+        public void getCurrentUserID()
+        {
+            //gets the user ID of the currently selected row's entity 
+            MySqlConnection conn = new MySqlConnection(LogIn.login);
+            conn.Open();
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT user_ID FROM user_accounts_table WHERE username = @username";
+            cmd.Parameters.AddWithValue(@"username", initialUserName);
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                currentSelectedUserMgt = reader[0].ToString();
+            }
+            reader.Close();
+        }
+
         private void saveChangesBtn_Click(object sender, EventArgs e)
         {
             if (passwordEntered == false)
@@ -267,27 +297,17 @@ namespace PredatorUI2
                     }
                     else
                     {
-                        //gets the user ID of the currently selected row's entity 
-                        MySqlConnection conn = new MySqlConnection(LogIn.login);
-                        conn.Open();
-                        MySqlCommand cmd = conn.CreateCommand();
-                        cmd.CommandText = "SELECT user_ID FROM user_accounts_table WHERE username = @username";
-                        cmd.Parameters.AddWithValue(@"username", initialUserName);
-                        MySqlDataReader reader = cmd.ExecuteReader();
-
-                        while (reader.Read())
-                        {
-                            currentSelectedUserMgt = reader[0].ToString();
-                        }
-                        reader.Close();
+                        
 
                         //initializes strings to hold the new values
                         String newUserName = userNameTB.Text;
                         String newFirstName = firstNameTB.Text;
                         String newLastName = lastNameTB.Text;
 
-                        //Will update databaes with new values
-                        cmd = conn.CreateCommand();
+                        MySqlConnection conn = new MySqlConnection(LogIn.login);
+                        conn.Open();
+                        MySqlCommand cmd = conn.CreateCommand();
+
 
                         cmd.CommandText = "UPDATE user_accounts_table SET username=@username, first_name=@first_name, last_name=@last_name WHERE user_ID=@user_ID";
                         cmd.Parameters.AddWithValue("@user_ID", currentSelectedUserMgt);
@@ -303,6 +323,11 @@ namespace PredatorUI2
                         MessageBox.Show("Edit Successful");
 
                         initialUserName = newUserName;
+
+                        firstNameTB.Clear();
+                        lastNameTB.Clear();
+                        passwordTB.Clear();
+                        userNameTB.Clear();
                     }
                 }
             }
@@ -328,19 +353,7 @@ namespace PredatorUI2
                     else
                     {
 
-                        //gets the user ID of the currently selected row's entity 
-                        MySqlConnection conn = new MySqlConnection(LogIn.login);
-                        conn.Open();
-                        MySqlCommand cmd = conn.CreateCommand();
-                        cmd.CommandText = "SELECT user_ID FROM user_accounts_table WHERE username = @user_name";
-                        cmd.Parameters.AddWithValue(@"user_name", initialUserName);
-                        MySqlDataReader reader = cmd.ExecuteReader();
-
-                        while (reader.Read())
-                        {
-                            currentSelectedUserMgt = reader[0].ToString();
-                        }
-                        reader.Close();
+                        getCurrentUserID();
 
                         //initializes strings to hold the new values
                         String newUserName = userNameTB.Text;
@@ -348,8 +361,12 @@ namespace PredatorUI2
                         String newLastName = lastNameTB.Text;
                         String newPass = passwordTB.Text;
 
+                        
                         //Will update databaes with new values
-                        cmd = conn.CreateCommand();
+                        MySqlConnection conn = new MySqlConnection(LogIn.login);
+                        conn.Open();
+                        MySqlCommand cmd = conn.CreateCommand();
+
 
                         cmd.CommandText = "UPDATE user_accounts_table SET username=@user_name, first_name=@first_name, last_name=@last_name, password=@password WHERE user_ID=@user_ID";
                         cmd.Parameters.AddWithValue("@user_ID", currentSelectedUserMgt);
@@ -365,6 +382,11 @@ namespace PredatorUI2
                         loadDataGrid();
                         MessageBox.Show("Edit Successful");
                         initialUserName = newUserName;
+
+                        firstNameTB.Clear();
+                        lastNameTB.Clear();
+                        passwordTB.Clear();
+                        userNameTB.Clear();
                     }
                 }
             }
@@ -392,7 +414,7 @@ namespace PredatorUI2
             userNameTB.Text = stringValues[2];
 
             initialUserName = userNameTB.Text;
-          
+            getCurrentUserID();
         }
 
         private void delUserBtn_Click(object sender, EventArgs e)
@@ -405,21 +427,11 @@ namespace PredatorUI2
             }
             else
             {
-                //gets the project ID of the currently selected row's entity 
+                getCurrentUserID();
+
                 MySqlConnection conn = new MySqlConnection(LogIn.login);
                 conn.Open();
                 MySqlCommand cmd = conn.CreateCommand();
-                cmd.CommandText = "SELECT user_ID FROM user_accounts_table WHERE username = @username";
-                cmd.Parameters.AddWithValue(@"username", initialUserName);
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    currentSelectedUserMgt = reader[0].ToString();
-                }
-
-
-                reader.Close();
 
                 cmd = conn.CreateCommand();
                 cmd.CommandText = "DELETE FROM user_accounts_table WHERE user_ID =@user_ID";
