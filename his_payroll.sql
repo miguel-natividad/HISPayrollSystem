@@ -8,7 +8,10 @@
 -- PHP Version: 5.5.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
+SET time_zone = "+08:00";
+
+CREATE SCHEMA IF NOT EXISTS `his_payroll` DEFAULT CHARACTER SET utf8 ;
+USE `his_payroll`;
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
