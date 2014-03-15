@@ -91,48 +91,56 @@ namespace PredatorUI2
             //Creates a list of integers which will hold the project IDs currently in the database 
             List<int> projectIDnum = new List<int>();
 
-            while (reader.Read())
+            if (reader.HasRows == true)
             {
-                //Assigns to string 'word' the project_ID value
-                string word = reader[0].ToString();
 
-                //splits a project_id. From PRJ-000000000X into PRJ and 0000000000X
-                string[] values = word.Split('-');
-
-                //Adds only the numerical part to the list , 'projectIDnum'
-                projectIDnum.Add(int.Parse(values[1]));
-
-            }
-            reader.Close();
-
-            int newNum = 0;
-
-            for (int k = 0; k < projectIDnum.Count(); k++)
-            {
-                //checks if K has reached the LAST number in projectIDnum list
-                if (k == projectIDnum.Count - 1)
+                while (reader.Read())
                 {
-                    //so the new number is equal to the LAST number incremented by 1.
-                    newNum += projectIDnum[k] + 1;
+                    //Assigns to string 'word' the project_ID value
+                    string word = reader[0].ToString();
+
+                    //splits a project_id. From PRJ-000000000X into PRJ and 0000000000X
+                    string[] values = word.Split('-');
+
+                    //Adds only the numerical part to the list , 'projectIDnum'
+                    projectIDnum.Add(int.Parse(values[1]));
+
                 }
+                reader.Close();
+
+                int newNum = 0;
+
+                for (int k = 0; k < projectIDnum.Count(); k++)
+                {
+                    //checks if K has reached the LAST number in projectIDnum list
+                    if (k == projectIDnum.Count - 1)
+                    {
+                        //so the new number is equal to the LAST number incremented by 1.
+                        newNum += projectIDnum[k] + 1;
+                    }
+                }
+
+                //splits the new number into its individual characters, so that we can count how many zeroes we need.
+
+                int count = newNum.ToString().Length;
+
+                //begins the query by adding the prefix, 'PRJ-'
+                projectIDquery += "PRJ-";
+
+                //loop to decide how many zeros are needed before inputting the newNum
+                for (int k = 0; k < 10 - count; k++)
+                {
+                    projectIDquery += "0";
+                }
+                projectIDquery += newNum.ToString();
+
+                MessageBox.Show("The new project has been assigned with the project ID: " + projectIDquery);
+
             }
-
-            //splits the new number into its individual characters, so that we can count how many zeroes we need.
-           
-            int count = newNum.ToString().Length;
-
-            //begins the query by adding the prefix, 'PRJ-'
-            projectIDquery += "PRJ-";
-
-            //loop to decide how many zeros are needed before inputting the newNum
-            for (int k = 0; k < 10 - count; k++)
+            else
             {
-                projectIDquery += "0";
+                projectIDquery = "PRJ-0000000001";
             }
-            projectIDquery += newNum.ToString();
-
-            MessageBox.Show("The new project has been assigned with the project ID: " + projectIDquery);
-
         }
 
         

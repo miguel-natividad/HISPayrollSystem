@@ -102,49 +102,55 @@ namespace PredatorUI2
 
             //Creates a list of integers which will hold the project IDs currently in the database 
             List<int> usermgtIDnum = new List<int>();
-
-            while (reader.Read())
+            if (reader.HasRows == true)
             {
-                //Assigns to string 'word' the project_ID value
-                string word = reader[0].ToString();
-
-                //splits a project_id. From PRJ-000000000X into PRJ and 0000000000X
-                string[] values = word.Split('-');
-
-                //Adds only the numerical part to the list , 'projectIDnum'
-                usermgtIDnum.Add(int.Parse(values[1]));
-
-            }
-            reader.Close();
-
-            usermgtIDnum.Sort();
-            int newNum = 0;
-
-            for (int k = 0; k < usermgtIDnum.Count(); k++)
-            {
-                //checks if K has reached the LAST number in projectIDnum list
-                if (k == usermgtIDnum.Count - 1)
+                while (reader.Read())
                 {
-                    //so the new number is equal to the LAST number incremented by 1.
-                    newNum += usermgtIDnum[k] + 1;
+                    //Assigns to string 'word' the project_ID value
+                    string word = reader[0].ToString();
+
+                    //splits a project_id. From PRJ-000000000X into PRJ and 0000000000X
+                    string[] values = word.Split('-');
+
+                    //Adds only the numerical part to the list , 'projectIDnum'
+                    usermgtIDnum.Add(int.Parse(values[1]));
+
                 }
+                reader.Close();
+
+                usermgtIDnum.Sort();
+                int newNum = 0;
+
+                for (int k = 0; k < usermgtIDnum.Count(); k++)
+                {
+                    //checks if K has reached the LAST number in projectIDnum list
+                    if (k == usermgtIDnum.Count - 1)
+                    {
+                        //so the new number is equal to the LAST number incremented by 1.
+                        newNum += usermgtIDnum[k] + 1;
+                    }
+                }
+
+                //splits the new number into its individual characters, so that we can count how many zeroes we need.
+                //  string[] numberInWords = newNum.ToString().Split();
+                int count = newNum.ToString().Length;
+
+                //begins the query by adding the prefix, 'PRJ-'
+                usermgtIDquery += "USER-";
+
+                //loop to decide how many zeros are needed before inputting the newNum
+                for (int k = 0; k < 5 - count; k++)
+                {
+                    usermgtIDquery += "0";
+                }
+                usermgtIDquery += newNum.ToString();
+
+                MessageBox.Show("The new project has been assigned with the USER ID: " + usermgtIDquery);
             }
-
-            //splits the new number into its individual characters, so that we can count how many zeroes we need.
-          //  string[] numberInWords = newNum.ToString().Split();
-            int count = newNum.ToString().Length;
-
-            //begins the query by adding the prefix, 'PRJ-'
-            usermgtIDquery += "USER-";
-
-            //loop to decide how many zeros are needed before inputting the newNum
-            for (int k = 0; k < 5 - count; k++)
+            else
             {
-                usermgtIDquery += "0";
+                usermgtIDquery = "USER-0000000001";
             }
-            usermgtIDquery += newNum.ToString();
-
-            MessageBox.Show("The new project has been assigned with the USER ID: " + usermgtIDquery);
         }
 
         private void addUserBtn_Click(object sender, EventArgs e)

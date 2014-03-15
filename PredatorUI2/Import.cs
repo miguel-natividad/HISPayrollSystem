@@ -21,6 +21,8 @@ namespace PredatorUI2
     {
 
         string projectID = "";
+        string periodIDquery = "";
+
         public DataTable importedDT = new DataTable();
         public Import()
         {
@@ -61,6 +63,74 @@ namespace PredatorUI2
             }
         }
 
+        public void getNextPeriodID()
+        {
+            //Resets the String projectIDquery;
+            periodIDquery = "";
+
+            MySqlConnection conn = new MySqlConnection(LogIn.login);
+            conn.Open();
+            MySqlCommand cmd = conn.CreateCommand();
+
+            //Gets all the project_ids currently in the database
+            cmd.CommandText = "SELECT period_ID FROM period_table";
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            //Creates a list of integers which will hold the project IDs currently in the database 
+            List<int> projectIDnum = new List<int>();
+
+            if (reader.HasRows == true)
+            {
+                while (reader.Read())
+                {
+                    //Assigns to string 'word' the project_ID value
+                    string word = reader[0].ToString();
+
+                    //splits a project_id. From PRJ-000000000X into PRJ and 0000000000X
+                    string[] values = word.Split('-');
+
+                    //Adds only the numerical part to the list , 'projectIDnum'
+                    projectIDnum.Add(int.Parse(values[1]));
+
+                }
+                reader.Close();
+
+                int newNum = 0;
+
+                for (int k = 0; k < projectIDnum.Count(); k++)
+                {
+                    //checks if K has reached the LAST number in projectIDnum list
+                    if (k == projectIDnum.Count - 1)
+                    {
+                        //so the new number is equal to the LAST number incremented by 1.
+                        newNum += projectIDnum[k] + 1;
+                    }
+                }
+
+                //splits the new number into its individual characters, so that we can count how many zeroes we need.
+
+                int count = newNum.ToString().Length;
+
+                //begins the query by adding the prefix, 'PRJ-'
+                periodIDquery += "P-";
+
+                //loop to decide how many zeros are needed before inputting the newNum
+                for (int k = 0; k < 10 - count; k++)
+                {
+                    periodIDquery += "0";
+                }
+                periodIDquery += newNum.ToString();
+
+                MessageBox.Show("The new project has been assigned with the project ID: " + periodIDquery);
+
+            }
+            else
+            {
+                periodIDquery = "P-0000000001";
+            }
+        }
+
+        
         private void ImportFile()
         {
             if (txtFileName.Text.Trim() != string.Empty)
@@ -74,21 +144,91 @@ namespace PredatorUI2
                     objSelectTable.Dispose();
                     if ((SelectedTable != string.Empty) && (SelectedTable != null))
                     {
+                        //the actual importing
+                        //binds datagridView1 to the data table
                         importedDT = GetDataTableExcel(txtFileName.Text, SelectedTable);
                         dataGridView1.DataSource = importedDT;
 
+                        //gets the Project Name and the start and end dates of the imported biometric file
                         string projectName = dataGridView1.Columns[0].Name.ToString();
-                        string startDate = dataGridView1.Rows[0].Cells[1].Value.ToString();
+                        string startDate= dataGridView1.Rows[0].Cells[1].Value.ToString();
                         string endDate = dataGridView1.Rows[1].Cells[1].Value.ToString();
-                      
 
-                        List<string> fullnamesEmployess = new List<string>();
+                        //converts the date in the imported biometric file to a mysql accepted format
+                        string[] startDateBroken = startDate.Split('/');
+                        string correctlyFormattedStart = "";
+                        correctlyFormattedStart += startDateBroken[2] + "-" + startDateBroken[0] + "-" + startDateBroken[1];
+                       
 
+                        string[] endDateBroken = endDate.Split('/');
+                        string correctlyFormattedEnd = "";
+                        correctlyFormattedEnd += endDateBroken[2] + "-" + endDateBroken[0] + "-" + endDateBroken[1];
+
+
+
+                    
+                        //gets the next period ID 
+                        getNextPeriodID();
+                        
+                        //insert into period_table PERIOD ID, START_DATE, END_DATE based on imported biometric file
                         MySqlConnection conn = new MySqlConnection(LogIn.login);
                         conn.Open();
                         MySqlCommand cmd = conn.CreateCommand();
-                        cmd.CommandText = "SELECT name_last, name_first FROM employee_table";
+                        cmd.CommandText = "INSERT INTO period_table(period_ID, start_date, end_date) VALUES (@period_id, @start_date, @end_date)";
+                        cmd.Parameters.AddWithValue("@period_id", periodIDquery);
+                        cmd.Parameters.AddWithValue("@start_date", correctlyFormattedStart);
+                        cmd.Parameters.AddWithValue("@end_date", correctlyFormattedEnd);
+                        cmd.ExecuteNonQuery();
+
+
+                        //to compute for weeknum, month and year USING MYSQL 
+                       
+
+                        cmd = conn.CreateCommand();
+                        cmd.CommandText = "SELECT DATE_FORMAT(start_date, '%v') AS 'NUM', DATE_FORMAT(end_date, '%M') AS 'MONTH', DATE_FORMAT(end_date, '%Y')AS 'YEAR' FROM period_table WHERE period_id = @period_id";
+                        cmd.Parameters.AddWithValue("@period_id", periodIDquery);
                         MySqlDataReader reader = cmd.ExecuteReader();
+                        string weeknum = "";
+                        string month = "";
+                        string year = "";
+
+                       while (reader.Read())
+                        {
+                          weeknum = reader[0].ToString();
+                          month = reader[1].ToString();
+                          year = reader[2].ToString();
+                        }
+                        MessageBox.Show(weeknum);
+                        MessageBox.Show(month);
+                        MessageBox.Show(year);
+
+                        reader.Close();
+                        /**DataTable query = new DataTable();
+                        query.Load(reader);
+                        dataGridView1.DataSource = query;
+                        reader.Close();
+
+                        weeknum = dataGridView1.Rows[0].Cells[0].Value.ToString();
+                        month = dataGridView1.Rows[0].Cells[1].Value.ToString();
+                        year = dataGridView1.Rows[0].Cells[2].Value.ToString();*/
+
+                        //updating  period_table the computed values of WEEKNUM, MONTH, YEAR
+                        cmd = conn.CreateCommand();
+                        cmd.CommandText = "UPDATE period_table SET week_num = @week_num, month = @month, year = @year WHERE period_ID = @period_ID";
+                        cmd.Parameters.AddWithValue("@week_num", weeknum);
+                        cmd.Parameters.AddWithValue("@month", month);
+                        cmd.Parameters.AddWithValue("@year", year);
+                        cmd.Parameters.AddWithValue("@period_id", periodIDquery);
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Updated");
+
+
+                        //gets a list of employees
+                        List<string> fullnamesEmployess = new List<string>();
+
+                         cmd = conn.CreateCommand();
+                        cmd.CommandText = "SELECT name_last, name_first FROM employee_table";
+                         reader = cmd.ExecuteReader();
 
                         while (reader.Read())
                         {
@@ -99,10 +239,30 @@ namespace PredatorUI2
 
                         reader.Close();
 
-                        foreach (string s in fullnamesEmployess)
+                        //checks if member is found in the imported biometric file
+                        bool memberFound = false;
+                        
+                        for (int k = 0; k < dataGridView1.Rows.Count-1; k++)
+                        {
+                            foreach(string s in fullnamesEmployess)
+                            {
+                                if (dataGridView1.Rows[k].Cells[0].Value.ToString().Equals(s,StringComparison.OrdinalIgnoreCase))
+                                {
+                                    MessageBox.Show("Employee found: " + dataGridView1.Rows[k].Cells[0].Value.ToString());
+                                    memberFound = true;
+                                }
+                            }
+                        }
+
+                        if (memberFound == false)
+                        {
+                            MessageBox.Show("No such member found");
+                        }
+
+                       /** foreach (string s in fullnamesEmployess)
                         {
                             MessageBox.Show(s);
-                        }
+                        }*/
 
                     }
                 }
@@ -159,7 +319,44 @@ namespace PredatorUI2
 
         private void button2_Click_1(object sender, EventArgs e)
         {
+            //to compute for weeknum, month and year USING MYSQL 
+            MySqlConnection conn = new MySqlConnection(LogIn.login);
+            conn.Open();
+          
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT DATE_FORMAT(start_date, '%v') AS 'NUM', DATE_FORMAT(end_date, '%M') AS 'MONTH', DATE_FORMAT(end_date, '%Y')AS 'YEAR' FROM period_table WHERE period_id = @period_id";
+            cmd.Parameters.AddWithValue("@period_id", periodIDquery);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            string weeknum = "";
+            string month = "";
+            string year = "";
             
+            /**while (reader.Read())
+            {
+              weeknum = reader[0].ToString();
+              month = reader[1].ToString();
+              year = reader[2].ToString();
+            }
+            MessageBox.Show(weeknum);
+            MessageBox.Show(month);
+            MessageBox.Show(year);*/
+
+            DataTable query = new DataTable();
+            query.Load(reader);
+            dataGridView1.DataSource = query;
+            reader.Close();
+
+            weeknum = dataGridView1.Rows[0].Cells[0].Value.ToString();
+            month = dataGridView1.Rows[0].Cells[1].Value.ToString();
+            year = dataGridView1.Rows[0].Cells[2].Value.ToString();
+            //updating  period_table the computed values of WEEKNUM, MONTH, YEAR
+            cmd = conn.CreateCommand();
+            cmd.CommandText = "UPDATE period_table SET week_num = @week_num, month = @month, year = @year WHERE period_ID = @period_ID";
+            cmd.Parameters.AddWithValue("@week_num", weeknum);
+            cmd.Parameters.AddWithValue("@month", month);
+            cmd.Parameters.AddWithValue("@year", year);
+            cmd.Parameters.AddWithValue("@period_id", periodIDquery);
+            cmd.ExecuteNonQuery();
         }
     }
 }
