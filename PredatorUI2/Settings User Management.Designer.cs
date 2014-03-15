@@ -35,9 +35,6 @@
             this.cancelChangesBtn = new System.Windows.Forms.Button();
             this.addUserBtn = new System.Windows.Forms.Button();
             this.delUserBtn = new System.Windows.Forms.Button();
-            this.Tasks = new System.Windows.Forms.PictureBox();
-            this.OrganizationalInformation = new System.Windows.Forms.PictureBox();
-            this.UserManagement = new System.Windows.Forms.PictureBox();
             this.firstNameTB = new System.Windows.Forms.TextBox();
             this.lastNameTB = new System.Windows.Forms.TextBox();
             this.userNameTB = new System.Windows.Forms.TextBox();
@@ -46,10 +43,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.settingsBtn = new System.Windows.Forms.Button();
+            this.reportsBtn = new System.Windows.Forms.Button();
+            this.employeesPanelBtn = new System.Windows.Forms.Button();
+            this.projectsPanelBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.usermgtDataGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Tasks)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.OrganizationalInformation)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.UserManagement)).BeginInit();
             this.SuspendLayout();
             // 
             // usermgtDataGrid
@@ -122,36 +120,6 @@
             this.delUserBtn.TabIndex = 16;
             this.delUserBtn.UseVisualStyleBackColor = true;
             this.delUserBtn.Click += new System.EventHandler(this.delUserBtn_Click);
-            // 
-            // Tasks
-            // 
-            this.Tasks.BackgroundImage = global::PredatorUI2.Properties.Resources.Tasks;
-            this.Tasks.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Tasks.Location = new System.Drawing.Point(12, 110);
-            this.Tasks.Name = "Tasks";
-            this.Tasks.Size = new System.Drawing.Size(150, 40);
-            this.Tasks.TabIndex = 17;
-            this.Tasks.TabStop = false;
-            // 
-            // OrganizationalInformation
-            // 
-            this.OrganizationalInformation.BackgroundImage = global::PredatorUI2.Properties.Resources.OrganizationalInformation4;
-            this.OrganizationalInformation.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.OrganizationalInformation.Location = new System.Drawing.Point(26, 143);
-            this.OrganizationalInformation.Name = "OrganizationalInformation";
-            this.OrganizationalInformation.Size = new System.Drawing.Size(200, 60);
-            this.OrganizationalInformation.TabIndex = 18;
-            this.OrganizationalInformation.TabStop = false;
-            // 
-            // UserManagement
-            // 
-            this.UserManagement.BackgroundImage = global::PredatorUI2.Properties.Resources.UserManagement;
-            this.UserManagement.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.UserManagement.Location = new System.Drawing.Point(26, 196);
-            this.UserManagement.Name = "UserManagement";
-            this.UserManagement.Size = new System.Drawing.Size(200, 60);
-            this.UserManagement.TabIndex = 19;
-            this.UserManagement.TabStop = false;
             // 
             // firstNameTB
             // 
@@ -234,12 +202,52 @@
             this.label4.TabIndex = 27;
             this.label4.Text = "Password";
             // 
+            // settingsBtn
+            // 
+            this.settingsBtn.Location = new System.Drawing.Point(38, 290);
+            this.settingsBtn.Name = "settingsBtn";
+            this.settingsBtn.Size = new System.Drawing.Size(144, 23);
+            this.settingsBtn.TabIndex = 43;
+            this.settingsBtn.Text = "Settings";
+            this.settingsBtn.UseVisualStyleBackColor = true;
+            // 
+            // reportsBtn
+            // 
+            this.reportsBtn.Location = new System.Drawing.Point(38, 245);
+            this.reportsBtn.Name = "reportsBtn";
+            this.reportsBtn.Size = new System.Drawing.Size(144, 23);
+            this.reportsBtn.TabIndex = 42;
+            this.reportsBtn.Text = "Reports";
+            this.reportsBtn.UseVisualStyleBackColor = true;
+            // 
+            // employeesPanelBtn
+            // 
+            this.employeesPanelBtn.Location = new System.Drawing.Point(38, 201);
+            this.employeesPanelBtn.Name = "employeesPanelBtn";
+            this.employeesPanelBtn.Size = new System.Drawing.Size(144, 23);
+            this.employeesPanelBtn.TabIndex = 41;
+            this.employeesPanelBtn.Text = "Employees Panel";
+            this.employeesPanelBtn.UseVisualStyleBackColor = true;
+            // 
+            // projectsPanelBtn
+            // 
+            this.projectsPanelBtn.Location = new System.Drawing.Point(38, 163);
+            this.projectsPanelBtn.Name = "projectsPanelBtn";
+            this.projectsPanelBtn.Size = new System.Drawing.Size(144, 23);
+            this.projectsPanelBtn.TabIndex = 40;
+            this.projectsPanelBtn.Text = "Projects Panel";
+            this.projectsPanelBtn.UseVisualStyleBackColor = true;
+            // 
             // Settings_User_Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Controls.Add(this.settingsBtn);
+            this.Controls.Add(this.reportsBtn);
+            this.Controls.Add(this.employeesPanelBtn);
+            this.Controls.Add(this.projectsPanelBtn);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -248,21 +256,15 @@
             this.Controls.Add(this.userNameTB);
             this.Controls.Add(this.lastNameTB);
             this.Controls.Add(this.firstNameTB);
-            this.Controls.Add(this.Tasks);
             this.Controls.Add(this.delUserBtn);
             this.Controls.Add(this.addUserBtn);
             this.Controls.Add(this.cancelChangesBtn);
             this.Controls.Add(this.saveChangesBtn);
             this.Controls.Add(this.changePassBtn);
             this.Controls.Add(this.usermgtDataGrid);
-            this.Controls.Add(this.OrganizationalInformation);
-            this.Controls.Add(this.UserManagement);
             this.Name = "Settings_User_Management";
             this.Text = "Settings_User_Management";
             ((System.ComponentModel.ISupportInitialize)(this.usermgtDataGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Tasks)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.OrganizationalInformation)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.UserManagement)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -276,9 +278,6 @@
         private System.Windows.Forms.Button cancelChangesBtn;
         private System.Windows.Forms.Button addUserBtn;
         private System.Windows.Forms.Button delUserBtn;
-        private System.Windows.Forms.PictureBox Tasks;
-        private System.Windows.Forms.PictureBox OrganizationalInformation;
-        private System.Windows.Forms.PictureBox UserManagement;
         private System.Windows.Forms.TextBox firstNameTB;
         private System.Windows.Forms.TextBox lastNameTB;
         private System.Windows.Forms.TextBox userNameTB;
@@ -287,5 +286,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button settingsBtn;
+        private System.Windows.Forms.Button reportsBtn;
+        private System.Windows.Forms.Button employeesPanelBtn;
+        private System.Windows.Forms.Button projectsPanelBtn;
     }
 }

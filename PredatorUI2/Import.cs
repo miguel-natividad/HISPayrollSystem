@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using System.Data.SqlClient;
+using MySql.Data;
+using MySql.Data.MySqlClient;
 using System.Windows.Documents;
 using System.Windows.Controls;
 using ADOX;
@@ -16,16 +19,16 @@ namespace PredatorUI2
 {
     public partial class Import : Form
     {
-      
-        string projectID = "";
 
+        string projectID = "";
+        public DataTable importedDT = new DataTable();
         public Import()
         {
             InitializeComponent();
-           
-            
+
+
         }
-       
+
 
         public string ProjectID
         {
@@ -71,8 +74,36 @@ namespace PredatorUI2
                     objSelectTable.Dispose();
                     if ((SelectedTable != string.Empty) && (SelectedTable != null))
                     {
-                        DataTable dt = GetDataTableExcel(txtFileName.Text, SelectedTable);
-                        dataGridView1.DataSource = dt.DefaultView;
+                        importedDT = GetDataTableExcel(txtFileName.Text, SelectedTable);
+                        dataGridView1.DataSource = importedDT;
+
+                        string projectName = dataGridView1.Columns[0].Name.ToString();
+                        string startDate = dataGridView1.Rows[0].Cells[1].Value.ToString();
+                        string endDate = dataGridView1.Rows[1].Cells[1].Value.ToString();
+                      
+
+                        List<string> fullnamesEmployess = new List<string>();
+
+                        MySqlConnection conn = new MySqlConnection(LogIn.login);
+                        conn.Open();
+                        MySqlCommand cmd = conn.CreateCommand();
+                        cmd.CommandText = "SELECT name_last, name_first FROM employee_table";
+                        MySqlDataReader reader = cmd.ExecuteReader();
+
+                        while (reader.Read())
+                        {
+                            string fullname = "";
+                            fullname += reader[0].ToString() + ", " + reader[1].ToString();
+                            fullnamesEmployess.Add(fullname);
+                        }
+
+                        reader.Close();
+
+                        foreach (string s in fullnamesEmployess)
+                        {
+                            MessageBox.Show(s);
+                        }
+
                     }
                 }
                 catch (Exception ex)
@@ -119,12 +150,16 @@ namespace PredatorUI2
         //manage employees button
         private void button2_Click(object sender, EventArgs e)
         {
-            
+
             Employee_Panel emppanel = new Employee_Panel();
             emppanel.ProjectID = this.ProjectID;
-          
+
             emppanel.Show();
         }
 
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

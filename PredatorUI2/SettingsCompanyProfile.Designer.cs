@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.UserNameTextBox = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.companyName = new System.Windows.Forms.TextBox();
+            this.abbreviationTB = new System.Windows.Forms.TextBox();
+            this.streetAddressTB = new System.Windows.Forms.TextBox();
+            this.cityTB = new System.Windows.Forms.TextBox();
+            this.provinceTB = new System.Windows.Forms.TextBox();
+            this.telNumTB = new System.Windows.Forms.TextBox();
+            this.cellphoneTB = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.ChangeButton = new System.Windows.Forms.Button();
             this.SaveButton = new System.Windows.Forms.Button();
@@ -47,83 +47,83 @@
             ((System.ComponentModel.ISupportInitialize)(this.UserManagement)).BeginInit();
             this.SuspendLayout();
             // 
-            // UserNameTextBox
+            // companyName
             // 
-            this.UserNameTextBox.BackColor = System.Drawing.Color.DimGray;
-            this.UserNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.UserNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserNameTextBox.ForeColor = System.Drawing.Color.White;
-            this.UserNameTextBox.Location = new System.Drawing.Point(410, 164);
-            this.UserNameTextBox.Name = "UserNameTextBox";
-            this.UserNameTextBox.Size = new System.Drawing.Size(255, 26);
-            this.UserNameTextBox.TabIndex = 5;
+            this.companyName.BackColor = System.Drawing.Color.DimGray;
+            this.companyName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.companyName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.companyName.ForeColor = System.Drawing.Color.White;
+            this.companyName.Location = new System.Drawing.Point(410, 164);
+            this.companyName.Name = "companyName";
+            this.companyName.Size = new System.Drawing.Size(255, 26);
+            this.companyName.TabIndex = 5;
             // 
-            // textBox1
+            // abbreviationTB
             // 
-            this.textBox1.BackColor = System.Drawing.Color.DimGray;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(817, 164);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(128, 26);
-            this.textBox1.TabIndex = 6;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.abbreviationTB.BackColor = System.Drawing.Color.DimGray;
+            this.abbreviationTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.abbreviationTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.abbreviationTB.ForeColor = System.Drawing.Color.White;
+            this.abbreviationTB.Location = new System.Drawing.Point(817, 164);
+            this.abbreviationTB.Name = "abbreviationTB";
+            this.abbreviationTB.Size = new System.Drawing.Size(128, 26);
+            this.abbreviationTB.TabIndex = 6;
+            this.abbreviationTB.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // textBox2
+            // streetAddressTB
             // 
-            this.textBox2.BackColor = System.Drawing.Color.DimGray;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.Color.White;
-            this.textBox2.Location = new System.Drawing.Point(463, 200);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(482, 26);
-            this.textBox2.TabIndex = 7;
+            this.streetAddressTB.BackColor = System.Drawing.Color.DimGray;
+            this.streetAddressTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.streetAddressTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.streetAddressTB.ForeColor = System.Drawing.Color.White;
+            this.streetAddressTB.Location = new System.Drawing.Point(463, 200);
+            this.streetAddressTB.Name = "streetAddressTB";
+            this.streetAddressTB.Size = new System.Drawing.Size(482, 26);
+            this.streetAddressTB.TabIndex = 7;
             // 
-            // textBox3
+            // cityTB
             // 
-            this.textBox3.BackColor = System.Drawing.Color.DimGray;
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.ForeColor = System.Drawing.Color.White;
-            this.textBox3.Location = new System.Drawing.Point(435, 238);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(230, 26);
-            this.textBox3.TabIndex = 8;
+            this.cityTB.BackColor = System.Drawing.Color.DimGray;
+            this.cityTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cityTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cityTB.ForeColor = System.Drawing.Color.White;
+            this.cityTB.Location = new System.Drawing.Point(435, 238);
+            this.cityTB.Name = "cityTB";
+            this.cityTB.Size = new System.Drawing.Size(230, 26);
+            this.cityTB.TabIndex = 8;
             // 
-            // textBox4
+            // provinceTB
             // 
-            this.textBox4.BackColor = System.Drawing.Color.DimGray;
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.ForeColor = System.Drawing.Color.White;
-            this.textBox4.Location = new System.Drawing.Point(358, 280);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(307, 26);
-            this.textBox4.TabIndex = 9;
+            this.provinceTB.BackColor = System.Drawing.Color.DimGray;
+            this.provinceTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.provinceTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.provinceTB.ForeColor = System.Drawing.Color.White;
+            this.provinceTB.Location = new System.Drawing.Point(358, 280);
+            this.provinceTB.Name = "provinceTB";
+            this.provinceTB.Size = new System.Drawing.Size(307, 26);
+            this.provinceTB.TabIndex = 9;
             // 
-            // textBox5
+            // telNumTB
             // 
-            this.textBox5.BackColor = System.Drawing.Color.DimGray;
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.ForeColor = System.Drawing.Color.White;
-            this.textBox5.Location = new System.Drawing.Point(401, 318);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(264, 26);
-            this.textBox5.TabIndex = 10;
+            this.telNumTB.BackColor = System.Drawing.Color.DimGray;
+            this.telNumTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.telNumTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.telNumTB.ForeColor = System.Drawing.Color.White;
+            this.telNumTB.Location = new System.Drawing.Point(401, 318);
+            this.telNumTB.Name = "telNumTB";
+            this.telNumTB.Size = new System.Drawing.Size(264, 26);
+            this.telNumTB.TabIndex = 10;
             // 
-            // textBox6
+            // cellphoneTB
             // 
-            this.textBox6.BackColor = System.Drawing.Color.DimGray;
-            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.ForeColor = System.Drawing.Color.White;
-            this.textBox6.Location = new System.Drawing.Point(401, 360);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(264, 26);
-            this.textBox6.TabIndex = 11;
+            this.cellphoneTB.BackColor = System.Drawing.Color.DimGray;
+            this.cellphoneTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cellphoneTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cellphoneTB.ForeColor = System.Drawing.Color.White;
+            this.cellphoneTB.Location = new System.Drawing.Point(401, 360);
+            this.cellphoneTB.Name = "cellphoneTB";
+            this.cellphoneTB.Size = new System.Drawing.Size(264, 26);
+            this.cellphoneTB.TabIndex = 11;
             // 
             // textBox7
             // 
@@ -215,13 +215,13 @@
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.ChangeButton);
             this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.UserNameTextBox);
+            this.Controls.Add(this.cellphoneTB);
+            this.Controls.Add(this.telNumTB);
+            this.Controls.Add(this.provinceTB);
+            this.Controls.Add(this.cityTB);
+            this.Controls.Add(this.streetAddressTB);
+            this.Controls.Add(this.abbreviationTB);
+            this.Controls.Add(this.companyName);
             this.Name = "SettingsCompanyProfile";
             this.Text = "Settings Company Profile";
             this.Load += new System.EventHandler(this.SettingsCompanyProfile_Load);
@@ -235,13 +235,13 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox UserNameTextBox;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox companyName;
+        private System.Windows.Forms.TextBox abbreviationTB;
+        private System.Windows.Forms.TextBox streetAddressTB;
+        private System.Windows.Forms.TextBox cityTB;
+        private System.Windows.Forms.TextBox provinceTB;
+        private System.Windows.Forms.TextBox telNumTB;
+        private System.Windows.Forms.TextBox cellphoneTB;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Button ChangeButton;
         private System.Windows.Forms.Button SaveButton;

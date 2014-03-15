@@ -284,19 +284,7 @@ namespace PredatorUI2
                 }
                 else
                 {
-                    if (IsValid(passwordTB.Text) == false)
-                    {
-                        string requirements = "";
-                        requirements += "Please satisfy the following conditions: \n";
-                        requirements += "At Least 5 Characters \n";
-                        requirements += "No spaces \n";
-                        requirements += "Contains at least 1 capital letter \n";
-                        requirements += "Contains at least 1 number \n";
-                        requirements += "Cannot be 'guest' or 'password' \n";
-                        MessageBox.Show(requirements);
-                    }
-                    else
-                    {
+                   
                         
 
                         //initializes strings to hold the new values
@@ -328,7 +316,7 @@ namespace PredatorUI2
                         lastNameTB.Clear();
                         passwordTB.Clear();
                         userNameTB.Clear();
-                    }
+                    
                 }
             }
             else
@@ -349,6 +337,7 @@ namespace PredatorUI2
                         requirements += "Contains at least 1 number \n";
                         requirements += "Cannot be 'guest' or 'password' \n";
                         MessageBox.Show(requirements);
+
                     }
                     else
                     {
@@ -409,7 +398,7 @@ namespace PredatorUI2
             }
 
             firstNameTB.Text = stringValues[0];
-            // passwordTB.Text = stringValues[1];
+            passwordTB.Text = "";
             lastNameTB.Text = stringValues[1];
             userNameTB.Text = stringValues[2];
 

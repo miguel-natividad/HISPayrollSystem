@@ -50,6 +50,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.workerTypeCB = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.categoryCB = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.employeeDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -271,6 +273,25 @@
             this.label8.TabIndex = 47;
             this.label8.Text = "Worker Type";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(646, 242);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(49, 13);
+            this.label9.TabIndex = 48;
+            this.label9.Text = "Category";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // categoryCB
+            // 
+            this.categoryCB.Enabled = false;
+            this.categoryCB.FormattingEnabled = true;
+            this.categoryCB.Location = new System.Drawing.Point(752, 239);
+            this.categoryCB.Name = "categoryCB";
+            this.categoryCB.Size = new System.Drawing.Size(121, 21);
+            this.categoryCB.TabIndex = 49;
+            // 
             // Employee_Panel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -278,6 +299,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Controls.Add(this.categoryCB);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.workerTypeCB);
             this.Controls.Add(this.label7);
@@ -331,5 +354,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox workerTypeCB;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox categoryCB;
     }
 }

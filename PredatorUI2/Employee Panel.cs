@@ -53,6 +53,11 @@ namespace PredatorUI2
             workerTypeCB.Items.Add("Regular");
             workerTypeCB.Items.Add("Office");
             workerTypeCB.Items.Add("Subcontractual");
+
+            categoryCB.Items.Add("Mason");
+            categoryCB.Items.Add("Carpenter");
+            categoryCB.Items.Add("Welder");
+
         }
         public void loadDataGrid()
         {
@@ -61,7 +66,7 @@ namespace PredatorUI2
             conn.Open();
             MySqlCommand cmd = conn.CreateCommand();
           
-            cmd.CommandText = "SELECT name_last AS 'Last Name' , name_first AS 'First Name', name_mi AS 'Middle Initial', employee_position AS 'Position', employee_type_ID AS 'Employee Type' FROM employee_table WHERE project_ID = @project_ID";
+            cmd.CommandText = "SELECT name_last AS 'Last Name' , name_first AS 'First Name', name_mi AS 'Middle Initial', employee_position AS 'Position', employee_type_ID AS 'Employee Type', employee_cat AS 'Employee Category' FROM employee_table WHERE project_ID = @project_ID";
             cmd.Parameters.AddWithValue("@project_ID", projectID);
             MySqlDataReader reader = cmd.ExecuteReader();
            
@@ -142,77 +147,98 @@ namespace PredatorUI2
 
         private void addButton_Click(object sender, EventArgs e)
         {
+            bool errorFound = false;
+
             if (firstNameTB.Text == "" || lastNameTB.Text == "" || middleInitialTB.Text == "" ||positionTB.Text == "" )
             {
                 MessageBox.Show("Please fill out all fields");
+                errorFound = true;
             }
-            else
-            {
-                if (workerTypeCB.Text == "Regular" || workerTypeCB.Text == "Office")
+                // if first name , last name , middle initial and position text boxes are filled
+          if (workerTypeCB.Text == "Regular" || workerTypeCB.Text == "Office")
                 {
-                    if (accountNumTB.Text == "" || currentBalTB.Text == "")
+                    if (workerTypeCB.Text == "Regular")
+                    {
+                        if (categoryCB.Text == "")
+                        {
+                            MessageBox.Show("Please fill out worker category field");
+                            errorFound = true;
+                        }
+                    }
+                    
+                     if (accountNumTB.Text == "" || currentBalTB.Text == "")
                     {
                         MessageBox.Show("Please fill out Account Number and Worker Type fields");
+                         errorFound = true;
+                       
                     }
-                    else
+               }
+
+            if (errorFound == false)
+            {
+                // if you selected regular OR office worker type....
+                if (workerTypeCB.Text == "Regular" || workerTypeCB.Text == "Office")
+                {
+                    getNextEmployeeID();
+
+                    MySqlConnection conn = new MySqlConnection(LogIn.login);
+                    conn.Open();
+                    MySqlCommand cmd = conn.CreateCommand();
+
+                    cmd.CommandText = "INSERT INTO employee_table(employee_ID, name_last, name_first, name_mi, employee_position, employee_type_ID, project_ID, employee_cat) VALUES (@employee_ID, @name_last, @name_first, @name_mi, @employee_position, @employee_type_ID, @project_ID, @employee_cat)";
+
+                    //  MessageBox.Show("Before inserting into database: " + employeeIDquery);
+                    cmd.Parameters.AddWithValue("@employee_ID", employeeIDquery);
+                    cmd.Parameters.AddWithValue("@name_last", lastNameTB.Text);
+                    cmd.Parameters.AddWithValue("@name_first", firstNameTB.Text);
+                    cmd.Parameters.AddWithValue("@name_mi", middleInitialTB.Text);
+                    cmd.Parameters.AddWithValue("@employee_position", positionTB.Text);
+                    if (workerTypeCB.Text == "Regular")
                     {
-                        getNextEmployeeID();
-
-                        MySqlConnection conn = new MySqlConnection(LogIn.login);
-                        conn.Open();
-                        MySqlCommand cmd = conn.CreateCommand();
-
-                        cmd.CommandText = "INSERT INTO employee_table(employee_ID, name_last, name_first, name_mi, employee_position, employee_type_ID, project_ID) VALUES (@employee_ID, @name_last, @name_first, @name_mi, @employee_position, @employee_type_ID, @project_ID)";
-                        //  MessageBox.Show("Before inserting into database: " + employeeIDquery);
-                        cmd.Parameters.AddWithValue("@employee_ID", employeeIDquery);
-                        cmd.Parameters.AddWithValue("@name_last", lastNameTB.Text);
-                        cmd.Parameters.AddWithValue("@name_first", firstNameTB.Text);
-                        cmd.Parameters.AddWithValue("@name_mi", middleInitialTB.Text);
-                        cmd.Parameters.AddWithValue("@employee_position", positionTB.Text);
-                        if (workerTypeCB.Text == "Regular")
-                        {
-                            cmd.Parameters.AddWithValue("@employee_type_ID", "R");
-
-                        }
-                        else if (workerTypeCB.Text == "Office")
-                        {
-                            cmd.Parameters.AddWithValue("@employee_type_ID", "O");
-                        }
-                        cmd.Parameters.AddWithValue("@project_ID", this.projectID);
-                        cmd.ExecuteNonQuery();
-
-                        cmd = conn.CreateCommand();
-
-                        if (workerTypeCB.Text == "Regular")
-                        {
-                            cmd.CommandText = "INSERT INTO worker_regular(employee_ID, acct_number, cash_advance_balance) VALUES (@employee_ID, @acct_number, @cash_advance_balance)";
-                            cmd.Parameters.AddWithValue("@employee_ID", employeeIDquery);
-                            cmd.Parameters.AddWithValue("@acct_number", accountNumTB.Text);
-                            cmd.Parameters.AddWithValue("@cash_advance_balance", currentBalTB.Text);
-                           // cmd.Parameters.AddWithValue("employee_type_ID", "R");
-                        }
-                        else if (workerTypeCB.Text == "Office")
-                        {
-                            cmd.CommandText = "INSERT INTO worker_office(employee_ID, acct_number, cash_advance_balance) VALUES (@employee_ID, @acct_number, @cash_advance_balance)";
-                            cmd.Parameters.AddWithValue("@employee_ID", employeeIDquery);
-                            cmd.Parameters.AddWithValue("@acct_number", accountNumTB.Text);
-                            cmd.Parameters.AddWithValue("@cash_advance_balance", currentBalTB.Text);
-                           //cmd.Parameters.AddWithValue("employee_type_ID", "O");
-                        }
-                        cmd.ExecuteNonQuery();
-                        conn.Close();
-
-                        accountNumTB.Text = "";
-                        companyNameTB.Text = "";
-                        currentBalTB.Text = "";
-                        firstNameTB.Text = "";
-                        lastNameTB.Text = "";
-                        middleInitialTB.Text = "";
-                        positionTB.Text = "";
+                        cmd.Parameters.AddWithValue("@employee_type_ID", "R");
+                        cmd.Parameters.AddWithValue("@employee_cat", categoryCB.Text);
 
                     }
+                    else if (workerTypeCB.Text == "Office")
+                    {
+                        cmd.Parameters.AddWithValue("@employee_type_ID", "O");
+                        cmd.Parameters.AddWithValue("@employee_cat", "Office");
+                    }
+                    cmd.Parameters.AddWithValue("@project_ID", this.projectID);
+                    cmd.ExecuteNonQuery();
+
+                    cmd = conn.CreateCommand();
+
+                    if (workerTypeCB.Text == "Regular")
+                    {
+                        cmd.CommandText = "INSERT INTO worker_regular(employee_ID, acct_number, cash_advance_balance) VALUES (@employee_ID, @acct_number, @cash_advance_balance)";
+                        cmd.Parameters.AddWithValue("@employee_ID", employeeIDquery);
+                        cmd.Parameters.AddWithValue("@acct_number", accountNumTB.Text);
+                        cmd.Parameters.AddWithValue("@cash_advance_balance", currentBalTB.Text);
+                        // cmd.Parameters.AddWithValue("employee_type_ID", "R");
+                    }
+                    else if (workerTypeCB.Text == "Office")
+                    {
+                        cmd.CommandText = "INSERT INTO worker_office(employee_ID, acct_number, cash_advance_balance) VALUES (@employee_ID, @acct_number, @cash_advance_balance)";
+                        cmd.Parameters.AddWithValue("@employee_ID", employeeIDquery);
+                        cmd.Parameters.AddWithValue("@acct_number", accountNumTB.Text);
+                        cmd.Parameters.AddWithValue("@cash_advance_balance", currentBalTB.Text);
+                        //cmd.Parameters.AddWithValue("employee_type_ID", "O");
+                    }
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+
+                    accountNumTB.Text = "";
+                    companyNameTB.Text = "";
+                    currentBalTB.Text = "";
+                    firstNameTB.Text = "";
+                    lastNameTB.Text = "";
+                    middleInitialTB.Text = "";
+                    positionTB.Text = "";
+
                 }
-                else if (workerTypeCB.Text == "Subcontractual")
+                
+                 else if (workerTypeCB.Text == "Subcontractual")
                 {
                     if (companyNameTB.Text == "")
                     {
@@ -226,7 +252,7 @@ namespace PredatorUI2
                         conn.Open();
                         MySqlCommand cmd = conn.CreateCommand();
 
-                        cmd.CommandText = "INSERT INTO employee_table(employee_ID, name_last, name_first, name_mi, employee_position, employee_type_ID, project_ID) VALUES (@employee_ID, @name_last, @name_first, @name_mi, @employee_position, @employee_type_ID, @project_ID)";
+                        cmd.CommandText = "INSERT INTO employee_table(employee_ID, name_last, name_first, name_mi, employee_position, employee_type_ID, project_ID, employee_cat) VALUES (@employee_ID, @name_last, @name_first, @name_mi, @employee_position, @employee_type_ID, @project_ID, @employee_cat)";
                         //  MessageBox.Show("Before inserting into database: " + employeeIDquery);
                         cmd.Parameters.AddWithValue("@employee_ID", employeeIDquery);
                         cmd.Parameters.AddWithValue("@name_last", lastNameTB.Text);
@@ -236,6 +262,7 @@ namespace PredatorUI2
                        
                         cmd.Parameters.AddWithValue("@employee_type_ID", "S");
                         cmd.Parameters.AddWithValue("@project_ID", this.projectID);
+                        cmd.Parameters.AddWithValue("@employee_cat", "Subcon");
                         cmd.ExecuteNonQuery();
 
                         cmd = conn.CreateCommand();
@@ -268,11 +295,14 @@ namespace PredatorUI2
 
         private void save_button_Click(object sender, EventArgs e)
         {
+          
             MySqlConnection conn = new MySqlConnection(LogIn.login);
             conn.Open();
             MySqlCommand cmd = conn.CreateCommand();
+
+
+            cmd.CommandText = "UPDATE employee_table SET name_last = @name_last, name_first = @name_first, name_mi = @name_mi, employee_position = @employee_position, employee_type_ID = @employee_type_ID,  employee_cat = @employee_cat WHERE employee_ID = @employee_ID";
           
-                cmd.CommandText = "UPDATE employee_table SET name_last = @name_last, name_first = @name_first, name_mi = @name_mi, employee_position = @employee_position, employee_type_ID = @employee_type_ID WHERE project_ID = @project_ID";
                 cmd.Parameters.AddWithValue("@name_last", lastNameTB.Text);
                 cmd.Parameters.AddWithValue("@name_first", firstNameTB.Text);
                 cmd.Parameters.AddWithValue("@name_mi", middleInitialTB.Text);
@@ -280,20 +310,26 @@ namespace PredatorUI2
 
                 if (workerTypeCB.Text == "Regular")
                 {
-                    cmd.Parameters.AddWithValue("employee_type_ID", "R");
+                    cmd.Parameters.AddWithValue("@employee_type_ID", "R");
+                    cmd.Parameters.AddWithValue("@employee_cat", categoryCB.Text);
                 }
                 else if (workerTypeCB.Text == "Office")
                 {
-                    cmd.Parameters.AddWithValue("employee_type_ID", "O");
+                    cmd.Parameters.AddWithValue("@employee_type_ID", "O");
+                    cmd.Parameters.AddWithValue("@employee_cat", "Office");
                 }
                 else if (workerTypeCB.Text == "Subcontractual")
                 {
-                    cmd.Parameters.AddWithValue("employee_type_ID", "S");
+                    cmd.Parameters.AddWithValue("@employee_type_ID", "S");
+                    cmd.Parameters.AddWithValue("@employee_cat", "Subcon");
                 }
-                cmd.Parameters.AddWithValue("project_ID", projectID);
+             // cmd.Parameters.AddWithValue("project_ID", projectID);
+                cmd.Parameters.AddWithValue("@employee_ID", currentSelectedEmployeeID);
                 cmd.ExecuteNonQuery();
 
-                cmd = conn.CreateCommand();
+                MessageBox.Show("Employee updated in employee_table");
+            
+            cmd = conn.CreateCommand();
               
                 if (workerTypeCB.Text == "Regular")
                 {
@@ -321,7 +357,9 @@ namespace PredatorUI2
                 conn.Close();
                 MessageBox.Show("Edit Successful");
                 loadDataGrid();
-        }
+}
+        
+
 
         private void workerTypeCB_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -330,12 +368,24 @@ namespace PredatorUI2
                 companyNameTB.Visible = false;
                 accountNumTB.Visible = true;
                 currentBalTB.Visible = true;
+                if (workerTypeCB.Text == "Regular")
+                {
+                    categoryCB.Enabled = true;
+
+                }
+                else
+                {
+                    categoryCB.Enabled = false;
+                }
+
             }
             else
             {
                 companyNameTB.Visible = true;
                 accountNumTB.Visible = false;
                 currentBalTB.Visible = false;
+
+                categoryCB.Enabled = false;
             }
         }
 
@@ -352,7 +402,33 @@ namespace PredatorUI2
                  MySqlConnection conn = new MySqlConnection(LogIn.login);
                 conn.Open();
                 MySqlCommand cmd = conn.CreateCommand();
-               
+
+                if (workerTypeCB.Text == "Office")
+                {
+                    cmd.CommandText = "DELETE FROM worker_office WHERE employee_ID = @employee_ID";
+                    
+
+                }
+                else if (workerTypeCB.Text == "Regular")
+                {
+                    cmd.CommandText = "DELETE FROM worker_regular WHERE employee_ID = @employee_ID";
+
+                }
+                else if (workerTypeCB.Text == "Subcontractual")
+                {
+                    cmd.CommandText = "DELETE FROM worker_subcon WHERE employee_ID = @employee_ID";
+                }
+                cmd.Parameters.AddWithValue("@employee_ID", currentSelectedEmployeeID);
+                cmd.ExecuteNonQuery();
+
+
+
+                cmd = conn.CreateCommand();
+                cmd.CommandText = "DELETE FROM employee_table WHERE employee_ID = @employee_ID";
+                cmd.Parameters.AddWithValue("@employee_ID", currentSelectedEmployeeID);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                loadDataGrid();
             }
         }
 
@@ -390,16 +466,19 @@ namespace PredatorUI2
                 workerTypeCB.Text = "Subcontractual";
             }
 
+            categoryCB.Text = stringValues[5].ToString();
 
             //gets the employee ID of the currently selected row's entity 
             MySqlConnection conn = new MySqlConnection(LogIn.login);
             conn.Open();
             MySqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT employee_ID FROM employee_table WHERE name_last = @name_last AND name_first = @name_first AND name_mi = @name_mi";
+            cmd.CommandText = "SELECT employee_ID FROM employee_table WHERE name_last = @name_last AND name_first = @name_first AND name_mi = @name_mi AND employee_position = @employee_position AND employee_cat = @employee_cat";
             cmd.Parameters.AddWithValue(@"name_last", lastNameTB.Text);
             cmd.Parameters.AddWithValue(@"name_first", firstNameTB.Text);
             cmd.Parameters.AddWithValue(@"name_mi", middleInitialTB.Text);
          //   cmd.Parameters.AddWithValue("@project_ID", projectID);
+            cmd.Parameters.AddWithValue(@"employee_position", positionTB.Text);
+            cmd.Parameters.AddWithValue(@"employee_cat", categoryCB.Text);
             MySqlDataReader reader = cmd.ExecuteReader();
 
             while (reader.Read())
