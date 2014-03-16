@@ -368,7 +368,7 @@ namespace PredatorUI2
                                             cmd2.CommandText = "SELECT ADDTIME(afternoon_out, '12:00:00') FROM entry_timesheet WHERE afternoon_out < '12:00:00' AND TSE_ID = @TSE_ID";
                                             cmd2.Parameters.AddWithValue("@TSE_ID", timesheetEntryIDquery);
                                             MySqlDataReader reader2 = cmd2.ExecuteReader();
-                                            MessageBox.Show(timesheetEntryIDquery);
+                                           // MessageBox.Show(timesheetEntryIDquery);
                                             string correctAfternoonOutTime = "";
                                             while (reader2.Read())
                                             {
@@ -394,7 +394,7 @@ namespace PredatorUI2
                                         {
                                             totalHoursWorked = reader[0].ToString();
                                         }
-                                        MessageBox.Show(totalHoursWorked);
+                                        //MessageBox.Show(totalHoursWorked);
                                         reader.Close();
 
                                         //updates the totalHours worked column with the computed Value 
