@@ -331,7 +331,7 @@ namespace PredatorUI2
 
                                    
                                     
-
+                                    //insert the different days of this found - employee's attendance into entry_timesheet
                                     for (int sk = 1; sk <= 6; sk++)
                                     {
                                             cmd = conn.CreateCommand();
@@ -361,7 +361,50 @@ namespace PredatorUI2
 
                                             cmd.ExecuteNonQuery();
 
-                                          
+                                        //retrieves afternoon_out so that we can convert it into military time, which is more mysql acceptable
+                                            MySqlConnection conn2 = new MySqlConnection(LogIn.login);
+                                            conn2.Open();
+                                            MySqlCommand cmd2 = conn2.CreateCommand();
+                                            cmd2.CommandText = "SELECT ADDTIME(afternoon_out, '12:00:00') FROM entry_timesheet WHERE afternoon_out < '12:00:00' AND TSE_ID = @TSE_ID";
+                                            cmd2.Parameters.AddWithValue("@TSE_ID", timesheetEntryIDquery);
+                                            MySqlDataReader reader2 = cmd2.ExecuteReader();
+                                            MessageBox.Show(timesheetEntryIDquery);
+                                            string correctAfternoonOutTime = "";
+                                            while (reader2.Read())
+                                            {
+                                                correctAfternoonOutTime = reader2[0].ToString();
+                                            }
+
+
+                                        //updates afternoon_out with the new value (military time)
+                                            cmd = conn.CreateCommand();
+                                            cmd.CommandText = "UPDATE entry_timesheet SET afternoon_out = @afternoon_out WHERE entry_timesheet.TSE_ID = @TSE_ID";
+                                            cmd.Parameters.AddWithValue("@afternoon_out", correctAfternoonOutTime);   
+                                        cmd.Parameters.AddWithValue("@TSE_ID", timesheetEntryIDquery);
+                                            cmd.ExecuteNonQuery();
+
+
+                                        //computes for totalHOurs worked
+                                            cmd = conn.CreateCommand();
+                                            cmd.CommandText = "SELECT TIME_FORMAT(TIMEDIFF(morning_out, morning_in), '%k') + TIME_FORMAT(TIMEDIFF(afternoon_out, afternoon_in), '%k') FROM entry_timesheet  WHERE TSE_ID = @TSE_ID";
+                                             cmd.Parameters.AddWithValue("@TSE_ID", timesheetEntryIDquery);
+                                        reader = cmd.ExecuteReader();
+                                        string totalHoursWorked = "";
+                                        while (reader.Read())
+                                        {
+                                            totalHoursWorked = reader[0].ToString();
+                                        }
+                                        MessageBox.Show(totalHoursWorked);
+                                        reader.Close();
+
+                                        //updates the totalHours worked column with the computed Value 
+                                            cmd = conn.CreateCommand();
+                                            cmd.CommandText = "UPDATE entry_timesheet SET total_hours = @totalHours WHERE TSE_ID = @TSE_ID";
+                                            cmd.Parameters.AddWithValue("@totalHours", totalHoursWorked);
+                                        cmd.Parameters.AddWithValue("@TSE_ID", timesheetEntryIDquery);
+                                        cmd.ExecuteNonQuery();
+                                      
+
                                     }
                                 }
                             }
