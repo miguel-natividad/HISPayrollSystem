@@ -1,4 +1,4 @@
-﻿namespace PredatorUI2
+namespace PredatorUI2
 {
     partial class Projects_Panel
     {
@@ -47,6 +47,7 @@
             this.employeesPanelBtn = new System.Windows.Forms.Button();
             this.reportsBtn = new System.Windows.Forms.Button();
             this.settingsBtn = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.projectsDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,6 +92,7 @@
             this.statusComboBox.Name = "statusComboBox";
             this.statusComboBox.Size = new System.Drawing.Size(173, 21);
             this.statusComboBox.TabIndex = 23;
+            this.statusComboBox.SelectedIndexChanged += new System.EventHandler(this.statusComboBox_SelectedIndexChanged);
             // 
             // deleteProjectBtn
             // 
@@ -153,10 +155,10 @@
             // 
             this.projectsNameLabel.AutoSize = true;
             this.projectsNameLabel.BackColor = System.Drawing.Color.Transparent;
-            this.projectsNameLabel.Font = new System.Drawing.Font("TypoSlabserif-Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.projectsNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.projectsNameLabel.Location = new System.Drawing.Point(266, 156);
             this.projectsNameLabel.Name = "projectsNameLabel";
-            this.projectsNameLabel.Size = new System.Drawing.Size(115, 21);
+            this.projectsNameLabel.Size = new System.Drawing.Size(124, 24);
             this.projectsNameLabel.TabIndex = 30;
             this.projectsNameLabel.Text = "Project Name";
             // 
@@ -164,10 +166,10 @@
             // 
             this.projectLocationLabel.AutoSize = true;
             this.projectLocationLabel.BackColor = System.Drawing.Color.Transparent;
-            this.projectLocationLabel.Font = new System.Drawing.Font("TypoSlabserif-Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.projectLocationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.projectLocationLabel.Location = new System.Drawing.Point(266, 189);
             this.projectLocationLabel.Name = "projectLocationLabel";
-            this.projectLocationLabel.Size = new System.Drawing.Size(136, 21);
+            this.projectLocationLabel.Size = new System.Drawing.Size(144, 24);
             this.projectLocationLabel.TabIndex = 31;
             this.projectLocationLabel.Text = "Project Location";
             // 
@@ -175,10 +177,10 @@
             // 
             this.projectStatusLabel.AutoSize = true;
             this.projectStatusLabel.BackColor = System.Drawing.Color.Transparent;
-            this.projectStatusLabel.Font = new System.Drawing.Font("TypoSlabserif-Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.projectStatusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.projectStatusLabel.Location = new System.Drawing.Point(266, 223);
             this.projectStatusLabel.Name = "projectStatusLabel";
-            this.projectStatusLabel.Size = new System.Drawing.Size(117, 21);
+            this.projectStatusLabel.Size = new System.Drawing.Size(123, 24);
             this.projectStatusLabel.TabIndex = 32;
             this.projectStatusLabel.Text = "Project Status";
             // 
@@ -186,10 +188,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("TypoSlabserif-Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(266, 263);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(162, 21);
+            this.label1.Size = new System.Drawing.Size(172, 24);
             this.label1.TabIndex = 33;
             this.label1.Text = "Lodging Allowance";
             // 
@@ -249,16 +251,27 @@
             this.reportsBtn.TabIndex = 38;
             this.reportsBtn.Text = "Reports";
             this.reportsBtn.UseVisualStyleBackColor = true;
+            this.reportsBtn.Click += new System.EventHandler(this.reportsBtn_Click);
             // 
             // settingsBtn
             // 
-            this.settingsBtn.Location = new System.Drawing.Point(47, 279);
+            this.settingsBtn.Location = new System.Drawing.Point(47, 313);
             this.settingsBtn.Name = "settingsBtn";
             this.settingsBtn.Size = new System.Drawing.Size(144, 23);
             this.settingsBtn.TabIndex = 39;
             this.settingsBtn.Text = "Settings";
             this.settingsBtn.UseVisualStyleBackColor = true;
             this.settingsBtn.Click += new System.EventHandler(this.settingsBtn_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(47, 266);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(144, 23);
+            this.button1.TabIndex = 40;
+            this.button1.Text = "Salary Rate";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // Projects_Panel
             // 
@@ -267,6 +280,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.settingsBtn);
             this.Controls.Add(this.reportsBtn);
             this.Controls.Add(this.employeesPanelBtn);
@@ -313,5 +327,6 @@
         private System.Windows.Forms.Button employeesPanelBtn;
         private System.Windows.Forms.Button reportsBtn;
         private System.Windows.Forms.Button settingsBtn;
+        private System.Windows.Forms.Button button1;
     }
 }

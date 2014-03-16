@@ -15,16 +15,5 @@ namespace PredatorUI2
         {
             InitializeComponent();
         }
-
-        private void FCBankReport_Load(object sender, EventArgs e)
-        {
-
-            this.reportViewer1.RefreshReport();
-        }
-
-        private void reportViewer1_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

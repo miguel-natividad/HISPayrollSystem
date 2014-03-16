@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -342,6 +342,22 @@ namespace PredatorUI2
         {
             Settings_User_Management settingsUser = new Settings_User_Management();
             settingsUser.Show();
+        }
+
+        private void statusComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Salary_Rates_Panel srp = new Salary_Rates_Panel();
+            srp.Show();
+        }
+
+        private void reportsBtn_Click(object sender, EventArgs e)
+        {
+
         }
 
       
