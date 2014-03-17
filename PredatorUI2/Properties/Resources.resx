@@ -124,9 +124,6 @@
   <data name="ReportsButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ReportsButton.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="WhiteChangeButton.psd" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\WhiteChangeButton.psd.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="WhiteCancelChangesButton.psd" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WhiteCancelChangesButton.psd.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -139,17 +136,14 @@
   <data name="WhiteChangePasswordButton.psd" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WhiteChangePasswordButton.psd.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="OrganizationalInformation3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\OrganizationalInformation3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Salary Rates Panel.psd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Salary Rates Panel.psd.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="UserManagement" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UserManagement.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="OrganizationalInformation4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\OrganizationalInformation4.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Bank Report" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Bank Report.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BlackChangeButton.psd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BlackChangeButton.psd.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="FullScreenTemplate.psd" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FullScreenTemplate.psd.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -166,6 +160,9 @@
   <data name="WhiteZoomOutButton.psd" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WhiteZoomOutButton.psd.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Loading Page3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Loading Page3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Salary Report" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Salary Report.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -175,17 +172,23 @@
   <data name="WhiteCloseProjectButton.psd" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WhiteCloseProjectButton.psd.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="WhiteSaveButton.psd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WhiteSaveButton.psd.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ProjectsButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ProjectsButton.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Salary Rates Panel.psd" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Salary Rates Panel.psd.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Timesheet Report.psd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Timesheet Report.psd.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="WhiteSaveChangesButton.psd" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WhiteSaveChangesButton.psd.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Timesheet Report.psd" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Timesheet Report.psd.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SettingsButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SettingsButton.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Employee.psd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Employee.psd.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Settings User Management.psd" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Settings User Management.psd.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -205,8 +208,8 @@
   <data name="Settings Company Profile Template" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Settings Company Profile Template.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BlackChangeButton.psd" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BlackChangeButton.psd.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Bank Report" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bank Report.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="WhiteZoomInButton.psd" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WhiteZoomInButton.psd.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -214,23 +217,23 @@
   <data name="EmployeesButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\EmployeesButton.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Employee.psd" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Employee.psd.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="OrganizationalInformation2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\OrganizationalInformation2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Settings Company Profile BG.psd" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Settings Company Profile BG.psd.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="OrganizationalInformation3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OrganizationalInformation3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="WhiteAddButton.psd" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WhiteAddButton.psd.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="WhiteSaveButton.psd" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\WhiteSaveButton.psd.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="OrganizationalInformation4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OrganizationalInformation4.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Loading Page3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Loading Page3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="WhiteChangeButton.psd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WhiteChangeButton.psd.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="WhiteDeleteButton.psd" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WhiteDeleteButton.psd.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -241,7 +244,7 @@
   <data name="WhiteEditButton.psd" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WhiteEditButton.psd.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SettingsButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SettingsButton.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DatabaseSettingsButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DatabaseSettingsButton.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

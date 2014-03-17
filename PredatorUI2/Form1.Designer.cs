@@ -36,7 +36,7 @@
             this.UserNameTextBox = new System.Windows.Forms.TextBox();
             this.PasswordTextBox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.dbsettings = new System.Windows.Forms.Button();
+            this.projectsBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.UsernameLabelImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -46,7 +46,7 @@
             this.LogInButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("LogInButton.BackgroundImage")));
             this.LogInButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.LogInButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LogInButton.Location = new System.Drawing.Point(498, 432);
+            this.LogInButton.Location = new System.Drawing.Point(514, 432);
             this.LogInButton.Name = "LogInButton";
             this.LogInButton.Size = new System.Drawing.Size(100, 30);
             this.LogInButton.TabIndex = 0;
@@ -58,7 +58,7 @@
             this.ExitButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ExitButton.BackgroundImage")));
             this.ExitButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ExitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ExitButton.Location = new System.Drawing.Point(654, 432);
+            this.ExitButton.Location = new System.Drawing.Point(631, 432);
             this.ExitButton.Name = "ExitButton";
             this.ExitButton.Size = new System.Drawing.Size(100, 30);
             this.ExitButton.TabIndex = 1;
@@ -119,15 +119,20 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // dbsettings
+            // projectsBtn
             // 
-            this.dbsettings.Location = new System.Drawing.Point(804, 434);
-            this.dbsettings.Name = "dbsettings";
-            this.dbsettings.Size = new System.Drawing.Size(75, 26);
-            this.dbsettings.TabIndex = 7;
-            this.dbsettings.Text = "dbsettings";
-            this.dbsettings.UseVisualStyleBackColor = true;
-            this.dbsettings.Click += new System.EventHandler(this.button2_Click);
+            this.projectsBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.projectsBtn.BackgroundImage = global::PredatorUI2.Properties.Resources.DatabaseSettingsButton;
+            this.projectsBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.projectsBtn.FlatAppearance.BorderSize = 0;
+            this.projectsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.projectsBtn.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.projectsBtn.Location = new System.Drawing.Point(737, 432);
+            this.projectsBtn.Name = "projectsBtn";
+            this.projectsBtn.Size = new System.Drawing.Size(28, 28);
+            this.projectsBtn.TabIndex = 8;
+            this.projectsBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.projectsBtn.UseVisualStyleBackColor = true;
             // 
             // LogIn
             // 
@@ -136,7 +141,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1264, 681);
-            this.Controls.Add(this.dbsettings);
+            this.Controls.Add(this.projectsBtn);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.PasswordTextBox);
             this.Controls.Add(this.UserNameTextBox);
@@ -146,7 +151,6 @@
             this.Controls.Add(this.LogInButton);
             this.Name = "LogIn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "LogIn";
             this.Load += new System.EventHandler(this.LogIn_Load);
             ((System.ComponentModel.ISupportInitialize)(this.UsernameLabelImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -164,7 +168,7 @@
         private System.Windows.Forms.TextBox UserNameTextBox;
         private System.Windows.Forms.TextBox PasswordTextBox;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button dbsettings;
+        private System.Windows.Forms.Button projectsBtn;
 
     }
 }

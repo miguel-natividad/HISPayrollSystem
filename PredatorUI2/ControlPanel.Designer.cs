@@ -120,10 +120,10 @@
             this.timeLabel.AutoSize = true;
             this.timeLabel.BackColor = System.Drawing.Color.Transparent;
             this.timeLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.timeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeLabel.Font = new System.Drawing.Font("TypoSlabserif-Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timeLabel.Location = new System.Drawing.Point(28, 647);
             this.timeLabel.Name = "timeLabel";
-            this.timeLabel.Size = new System.Drawing.Size(70, 25);
+            this.timeLabel.Size = new System.Drawing.Size(62, 24);
             this.timeLabel.TabIndex = 12;
             this.timeLabel.Text = "label1";
             // 
