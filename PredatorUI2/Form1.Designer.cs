@@ -121,11 +121,11 @@
             // 
             // dbsettings
             // 
-            this.dbsettings.Location = new System.Drawing.Point(805, 418);
+            this.dbsettings.Location = new System.Drawing.Point(804, 434);
             this.dbsettings.Name = "dbsettings";
             this.dbsettings.Size = new System.Drawing.Size(75, 26);
             this.dbsettings.TabIndex = 7;
-            this.dbsettings.Text = "button2";
+            this.dbsettings.Text = "dbsettings";
             this.dbsettings.UseVisualStyleBackColor = true;
             this.dbsettings.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -147,6 +147,7 @@
             this.Name = "LogIn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LogIn";
+            this.Load += new System.EventHandler(this.LogIn_Load);
             ((System.ComponentModel.ISupportInitialize)(this.UsernameLabelImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

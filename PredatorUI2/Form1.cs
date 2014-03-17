@@ -97,6 +97,16 @@ using MySql.Data.MySqlClient;
             a.ShowDialog();
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LogIn_Load(object sender, EventArgs e)
+        {
+
+        }
+
         
 
      
