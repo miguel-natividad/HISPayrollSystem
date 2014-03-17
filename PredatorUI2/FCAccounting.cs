@@ -18,8 +18,16 @@ namespace PredatorUI2
 
         private void FCAccounting_Load(object sender, EventArgs e)
         {
+            
+            // TODO: This line of code loads data into the 'his_payrollDataSet.DataTable1' table. You can move, or remove it, as needed.
+            this.dataTable1TableAdapter.Fill(this.his_payrollDataSet.DataTable1);
 
             this.reportViewer1.RefreshReport();
+        }
+
+        private void reportViewer1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

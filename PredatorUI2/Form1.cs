@@ -126,13 +126,10 @@ using MySql.Data.MySqlClient;
         private void button1_Click(object sender, EventArgs e)
 
         {
-<<<<<<< HEAD
+
             FCAccounting a = new FCAccounting();
             a.ShowDialog();
-=======
-            Form2 a = new Form2();
-            a.ShowDialog();
->>>>>>> 24a176ae22f89a55fb7eea638d8464418527a5be
+
         }
 
         private void button2_Click(object sender, EventArgs e)
