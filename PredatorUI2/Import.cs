@@ -321,20 +321,10 @@ namespace PredatorUI2
                 month = reader[1].ToString();
                 year = reader[2].ToString();
             }
-            //  MessageBox.Show(weeknum);
-            // MessageBox.Show(month);
-            // MessageBox.Show(year);
+           
 
             reader.Close();
-            /**DataTable query = new DataTable();
-            query.Load(reader);
-            dataGridView1.DataSource = query;
-            reader.Close();
-
-            weeknum = dataGridView1.Rows[0].Cells[0].Value.ToString();
-            month = dataGridView1.Rows[0].Cells[1].Value.ToString();
-            year = dataGridView1.Rows[0].Cells[2].Value.ToString();*/
-
+           
             //updating  period_table the computed values of WEEKNUM, MONTH, YEAR
             cmd = conn.CreateCommand();
             cmd.CommandText = "UPDATE period_table SET week_num = @week_num, month = @month, year = @year WHERE period_ID = @period_ID";
@@ -359,6 +349,7 @@ namespace PredatorUI2
                 string fullname = "";
                 fullname += reader[0].ToString() + ", " + reader[1].ToString() + ", " + reader[2].ToString();
                 fullnamesEmployess.Add(fullname);
+              
             }
 
 
@@ -417,24 +408,133 @@ namespace PredatorUI2
 
                             cmd.ExecuteNonQuery();
 
-                            //retrieves afternoon_out so that we can convert it into military time, which is more mysql acceptable
-                            MySqlConnection conn2 = new MySqlConnection(LogIn.login);
-                            conn2.Open();
-                            MySqlCommand cmd2 = conn2.CreateCommand();
-                            cmd2.CommandText = "SELECT ADDTIME(afternoon_out, '12:00:00') FROM entry_timesheet WHERE afternoon_out < '12:00:00' AND TSE_ID = @TSE_ID";
-                            cmd2.Parameters.AddWithValue("@TSE_ID", timesheetEntryIDquery);
-                            MySqlDataReader reader2 = cmd2.ExecuteReader();
-                            // MessageBox.Show(timesheetEntryIDquery);
+
+                            string temporaryMorningIn = dataGridView1.Rows[k + sk].Cells[1].Value.ToString();
+                            string temporaryMorningOut = dataGridView1.Rows[k + sk].Cells[2].Value.ToString();
+                            string temporaryAfternoonIn = dataGridView1.Rows[k + sk].Cells[3].Value.ToString();
+                            string temporaryAfternoonOut = dataGridView1.Rows[k + sk].Cells[4].Value.ToString();
+
+                            string correctMorningInTime = "";
                             string correctAfternoonOutTime = "";
-                            while (reader2.Read())
+                            string correctMorningOutTime = "";
+                            string correctAfternoonInTime = "";
+
+
+                            if (temporaryMorningIn.Contains("PM") == true && temporaryMorningIn.Contains("12") == false)
                             {
-                                correctAfternoonOutTime = reader2[0].ToString();
+                                //retrieves afternoon_out so that we can convert it into military time, which is more mysql acceptable
+                                MySqlConnection conn2 = new MySqlConnection(LogIn.login);
+                                conn2.Open();
+                                MySqlCommand cmd2 = conn2.CreateCommand();
+                                cmd2.CommandText = "SELECT ADDTIME(morning_in, '12:00:00') FROM entry_timesheet WHERE morning_in < '12:00:00' AND TSE_ID = @TSE_ID";
+                                cmd2.Parameters.AddWithValue("@TSE_ID", timesheetEntryIDquery);
+                                MySqlDataReader reader2 = cmd2.ExecuteReader();
+                                // MessageBox.Show(timesheetEntryIDquery);
+
+
+                                while (reader2.Read())
+                                {
+                                  correctMorningInTime   = reader2[0].ToString();
+
+                                }
+
+                                reader2.Close();
+
                             }
 
 
+                            if (temporaryMorningOut.Contains("PM") == true && temporaryMorningOut.Contains("12") == false)
+                            {
+                                //retrieves afternoon_out so that we can convert it into military time, which is more mysql acceptable
+                                MySqlConnection conn2 = new MySqlConnection(LogIn.login);
+                                conn2.Open();
+                                MySqlCommand cmd2 = conn2.CreateCommand();
+                                cmd2.CommandText = "SELECT ADDTIME(morning_out, '12:00:00') FROM entry_timesheet WHERE morning_out < '12:00:00' AND TSE_ID = @TSE_ID";
+                                cmd2.Parameters.AddWithValue("@TSE_ID", timesheetEntryIDquery);
+                                MySqlDataReader reader2 = cmd2.ExecuteReader();
+                                // MessageBox.Show(timesheetEntryIDquery);
+
+
+                                while (reader2.Read())
+                                {
+                                    correctMorningOutTime = reader2[0].ToString();
+
+                                }
+
+                                reader2.Close();
+
+                            }
+
+                            if (temporaryAfternoonIn.Contains("PM") == true && temporaryAfternoonIn.Contains("12") == false)
+                            {
+                                MySqlConnection conn2 = new MySqlConnection(LogIn.login);
+                                conn2.Open();
+                                MySqlCommand cmd2 = conn2.CreateCommand();
+                                cmd2.CommandText = "SELECT ADDTIME(afternoon_in, '12:00:00') FROM entry_timesheet WHERE afternoon_in < '12:00:00' AND TSE_ID = @TSE_ID";
+                                cmd2.Parameters.AddWithValue("@TSE_ID", timesheetEntryIDquery);
+                                MySqlDataReader reader2 = cmd2.ExecuteReader();
+                                // MessageBox.Show(timesheetEntryIDquery);
+
+
+                                while (reader2.Read())
+                                {
+                                    correctAfternoonInTime = reader2[0].ToString();
+
+                                }
+
+                                reader2.Close();
+                            }
+
+                            if (temporaryAfternoonOut.Contains("PM") == true && temporaryAfternoonOut.Contains("12") == false)
+                            {
+                                MySqlConnection conn2 = new MySqlConnection(LogIn.login);
+                                conn2.Open();
+                                MySqlCommand cmd2 = conn2.CreateCommand();
+                                cmd2.CommandText = "SELECT ADDTIME(afternoon_out, '12:00:00') FROM entry_timesheet WHERE afternoon_out < '12:00:00' AND TSE_ID = @TSE_ID";
+                                cmd2.Parameters.AddWithValue("@TSE_ID", timesheetEntryIDquery);
+                                MySqlDataReader reader2 = cmd2.ExecuteReader();
+                                // MessageBox.Show(timesheetEntryIDquery);
+
+
+                                while (reader2.Read())
+                                {
+                                    correctAfternoonOutTime = reader2[0].ToString();
+
+                                }
+
+                                reader2.Close();
+                            }
+
+                            if (correctMorningInTime == "")
+                            {
+                                correctMorningInTime = dataGridView1.Rows[k + sk].Cells[1].Value.ToString();
+                            }
+
+                            if (correctMorningOutTime == "")
+                            {
+                                correctMorningOutTime = dataGridView1.Rows[k + sk].Cells[2].Value.ToString();
+                            }
+
+                            if (correctAfternoonInTime == "")
+                            {
+                                correctAfternoonInTime = dataGridView1.Rows[k + sk].Cells[3].Value.ToString();
+                            }
+
+                            if (correctAfternoonOutTime == "")
+                            {
+                                correctAfternoonOutTime = dataGridView1.Rows[k + sk].Cells[4].Value.ToString();
+                            }
+
+                            MessageBox.Show("Correct Morning In: " + correctMorningInTime);
+                            MessageBox.Show("Correct Morning Out: " + correctMorningOutTime);
+                            MessageBox.Show("Correct Afternoon In: " + correctAfternoonInTime);
+                            MessageBox.Show("Correct Afternoon Out: " + correctAfternoonOutTime);
+
                             //updates afternoon_out with the new value (military time)
                             cmd = conn.CreateCommand();
-                            cmd.CommandText = "UPDATE entry_timesheet SET afternoon_out = @afternoon_out WHERE entry_timesheet.TSE_ID = @TSE_ID";
+                            cmd.CommandText = "UPDATE entry_timesheet SET morning_out = @morning_out, afternoon_in = @afternoon_in, afternoon_out = @afternoon_out WHERE entry_timesheet.TSE_ID = @TSE_ID";
+                            cmd.Parameters.AddWithValue("@morning_out", correctMorningOutTime);
+                            cmd.Parameters.AddWithValue("@afternoon_in", correctAfternoonInTime);
                             cmd.Parameters.AddWithValue("@afternoon_out", correctAfternoonOutTime);
                             cmd.Parameters.AddWithValue("@TSE_ID", timesheetEntryIDquery);
                             cmd.ExecuteNonQuery();
@@ -442,7 +542,7 @@ namespace PredatorUI2
 
                             //computes for totalHOurs worked
                             cmd = conn.CreateCommand();
-                            cmd.CommandText = "SELECT TIME_FORMAT(TIMEDIFF(morning_out, morning_in), '%k') + TIME_FORMAT(TIMEDIFF(afternoon_out, afternoon_in), '%k') FROM entry_timesheet  WHERE TSE_ID = @TSE_ID";
+                            cmd.CommandText = "SELECT TIME_FORMAT(TIMEDIFF(morning_out, morning_in), '%k') + TIME_FORMAT(TIMEDIFF(afternoon_out, afternoon_in), '%k') + TIME_FORMAT(TIMEDIFF(ot_out, ot_in), '%k')  FROM entry_timesheet  WHERE TSE_ID = @TSE_ID";
                             cmd.Parameters.AddWithValue("@TSE_ID", timesheetEntryIDquery);
                             reader = cmd.ExecuteReader();
                             string totalHoursWorked = "";
@@ -453,12 +553,43 @@ namespace PredatorUI2
                             //MessageBox.Show(totalHoursWorked);
                             reader.Close();
 
+                            int numericalTotalHours = int.Parse(totalHoursWorked);
+
+                            
+
                             //updates the totalHours worked column with the computed Value 
                             cmd = conn.CreateCommand();
                             cmd.CommandText = "UPDATE entry_timesheet SET total_hours = @totalHours WHERE TSE_ID = @TSE_ID";
                             cmd.Parameters.AddWithValue("@totalHours", totalHoursWorked);
                             cmd.Parameters.AddWithValue("@TSE_ID", timesheetEntryIDquery);
                             cmd.ExecuteNonQuery();
+
+                            if (numericalTotalHours == 8)
+                            {
+                                cmd = conn.CreateCommand();
+                                cmd.CommandText = "UPDATE entry_timesheet SET undertime = 0, overtime = 0 WHERE TSE_ID = @TSE_ID";
+                               
+                                cmd.Parameters.AddWithValue("@TSE_ID", timesheetEntryIDquery);
+                                cmd.ExecuteNonQuery();
+                            }
+                            else if (numericalTotalHours > 8)
+                            {
+                                int overTime = numericalTotalHours - 8;
+                                cmd = conn.CreateCommand();
+                                cmd.CommandText = "UPDATE entry_timesheet SET undertime = 0, overtime = @overtime WHERE TSE_ID = @TSE_ID";
+                                cmd.Parameters.AddWithValue("@overtime",overTime );
+                                cmd.Parameters.AddWithValue("@TSE_ID", timesheetEntryIDquery);
+                                cmd.ExecuteNonQuery();
+                            }
+                            else if (numericalTotalHours < 8)
+                            {
+                                int underTime = 8 - numericalTotalHours;
+                                cmd = conn.CreateCommand();
+                                cmd.CommandText = "UPDATE entry_timesheet SET overtime = 0, undertime = @undertime WHERE TSE_ID = @TSE_ID";
+                                cmd.Parameters.AddWithValue("@undertime", underTime);
+                                cmd.Parameters.AddWithValue("@TSE_ID", timesheetEntryIDquery);
+                                cmd.ExecuteNonQuery();
+                            }
 
 
                         }
@@ -475,7 +606,7 @@ namespace PredatorUI2
              {
                  MessageBox.Show(s);
              }*/
-            MessageBox.Show("import complete");
+            MessageBox.Show("IMPORT complete");
         }
 
         

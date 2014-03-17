@@ -166,10 +166,6 @@ C:\Users\Stu\Desktop\ME Files\3\3-2\MIS122\SAD_Project\HISPayrollSystem\Predator
 C:\Users\Stu\Desktop\ME Files\3\3-2\MIS122\SAD_Project\HISPayrollSystem\PredatorUI2\bin\Debug\Telerik.ReportViewer.Silverlight.xml
 C:\Users\Stu\Desktop\ME Files\3\3-2\MIS122\SAD_Project\HISPayrollSystem\PredatorUI2\obj\x86\Debug\PredatorUI2.csprojResolveAssemblyReference.cache
 C:\Users\jourdan\Desktop\HIS_SYSTEM\HISPayrollSystem\PredatorUI2\bin\Debug\PredatorUI2.exe.config
-C:\Users\jourdan\Desktop\HIS_SYSTEM\HISPayrollSystem\PredatorUI2\obj\x86\Debug\Interop.ADOX.dll
-C:\Users\jourdan\Desktop\HIS_SYSTEM\HISPayrollSystem\PredatorUI2\obj\x86\Debug\PredatorUI2.csproj.ResolveComReference.cache
-C:\Users\jourdan\Desktop\HIS_SYSTEM\HISPayrollSystem\PredatorUI2\obj\x86\Debug\PredatorUI2.exe
-C:\Users\jourdan\Desktop\HIS_SYSTEM\HISPayrollSystem\PredatorUI2\obj\x86\Debug\PredatorUI2.pdb
 C:\Users\jourdan\Desktop\HIS_SYSTEM\HISPayrollSystem\PredatorUI2\bin\Debug\PredatorUI2.exe
 C:\Users\jourdan\Desktop\HIS_SYSTEM\HISPayrollSystem\PredatorUI2\bin\Debug\PredatorUI2.pdb
 C:\Users\jourdan\Desktop\HIS_SYSTEM\HISPayrollSystem\PredatorUI2\bin\Debug\ClosedXML.dll
@@ -184,9 +180,8 @@ C:\Users\jourdan\Desktop\HIS_SYSTEM\HISPayrollSystem\PredatorUI2\bin\Debug\Close
 C:\Users\jourdan\Desktop\HIS_SYSTEM\HISPayrollSystem\PredatorUI2\bin\Debug\EntityFramework.xml
 C:\Users\jourdan\Desktop\HIS_SYSTEM\HISPayrollSystem\PredatorUI2\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\jourdan\Desktop\HIS_SYSTEM\HISPayrollSystem\PredatorUI2\bin\Debug\Excel.pdb
-C:\Users\jourdan\Desktop\HIS_SYSTEM\HISPayrollSystem\PredatorUI2\bin\Debug\Telerik.ReportViewer.Silverlight.pdb
-C:\Users\jourdan\Desktop\HIS_SYSTEM\HISPayrollSystem\PredatorUI2\bin\Debug\Telerik.ReportViewer.Silverlight.xml
-C:\Users\jourdan\Desktop\HIS_SYSTEM\HISPayrollSystem\PredatorUI2\obj\x86\Debug\PredatorUI2.csprojResolveAssemblyReference.cache
+C:\Users\jourdan\Desktop\HIS_SYSTEM\HISPayrollSystem\PredatorUI2\obj\x86\Debug\Interop.ADOX.dll
+C:\Users\jourdan\Desktop\HIS_SYSTEM\HISPayrollSystem\PredatorUI2\obj\x86\Debug\PredatorUI2.csproj.ResolveComReference.cache
 C:\Users\jourdan\Desktop\HIS_SYSTEM\HISPayrollSystem\PredatorUI2\obj\x86\Debug\PredatorUI2.AccountingReport.resources
 C:\Users\jourdan\Desktop\HIS_SYSTEM\HISPayrollSystem\PredatorUI2\obj\x86\Debug\PredatorUI2.BankReport.resources
 C:\Users\jourdan\Desktop\HIS_SYSTEM\HISPayrollSystem\PredatorUI2\obj\x86\Debug\PredatorUI2.ChangePassForm.resources
@@ -218,3 +213,6 @@ C:\Users\jourdan\Desktop\HIS_SYSTEM\HISPayrollSystem\PredatorUI2\obj\x86\Debug\P
 C:\Users\jourdan\Desktop\HIS_SYSTEM\HISPayrollSystem\PredatorUI2\obj\x86\Debug\PredatorUI2.csproj.GenerateResource.Cache
 C:\Users\jourdan\Desktop\HIS_SYSTEM\HISPayrollSystem\PredatorUI2\obj\x86\Debug\RdlCompile.cache
 C:\Users\jourdan\Desktop\HIS_SYSTEM\HISPayrollSystem\PredatorUI2\obj\x86\Debug\RdlCompile.compiled
+C:\Users\jourdan\Desktop\HIS_SYSTEM\HISPayrollSystem\PredatorUI2\obj\x86\Debug\PredatorUI2.exe
+C:\Users\jourdan\Desktop\HIS_SYSTEM\HISPayrollSystem\PredatorUI2\obj\x86\Debug\PredatorUI2.pdb
+C:\Users\jourdan\Desktop\HIS_SYSTEM\HISPayrollSystem\PredatorUI2\obj\x86\Debug\PredatorUI2.csprojResolveAssemblyReference.cache
