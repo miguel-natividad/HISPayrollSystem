@@ -15,7 +15,7 @@ using MySql.Data.MySqlClient;
     public partial class LogIn : Form
     {
         //creates a static string that contains login credentials for mySQL that can be accessed in any class
-        public static string login = "server=localhost;database=his_payroll;uid=root;password=c7h1e6n9g3;";
+        public static string login = "server=localhost;database=his_payroll;uid=root;password=root;";
        
 
         public LogIn()
@@ -93,8 +93,8 @@ using MySql.Data.MySqlClient;
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Import newImp = new Import();
-            newImp.Show();
+            Form2 a = new Form2();
+            a.ShowDialog();
         }
 
         
