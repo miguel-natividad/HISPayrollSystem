@@ -33,6 +33,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.hScrollBar1 = new System.Windows.Forms.HScrollBar();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.SuspendLayout();
             // 
             // button2
@@ -82,6 +83,14 @@
             this.hScrollBar1.Size = new System.Drawing.Size(767, 17);
             this.hScrollBar1.TabIndex = 44;
             // 
+            // reportViewer1
+            // 
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "PredatorUI2.AR.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(101, 48);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.Size = new System.Drawing.Size(764, 545);
+            this.reportViewer1.TabIndex = 49;
+            // 
             // FCAccounting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -89,6 +98,7 @@
             this.BackgroundImage = global::PredatorUI2.Properties.Resources.FullScreenTemplate1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button4);
@@ -96,6 +106,7 @@
             this.Controls.Add(this.hScrollBar1);
             this.Name = "FCAccounting";
             this.Text = "FCAccounting";
+            this.Load += new System.EventHandler(this.FCAccounting_Load);
             this.ResumeLayout(false);
 
         }
@@ -107,5 +118,6 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.VScrollBar vScrollBar1;
         private System.Windows.Forms.HScrollBar hScrollBar1;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
     }
 }

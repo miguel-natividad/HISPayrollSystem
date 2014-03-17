@@ -15,5 +15,11 @@ namespace PredatorUI2
         {
             InitializeComponent();
         }
+
+        private void FCAccounting_Load(object sender, EventArgs e)
+        {
+
+            this.reportViewer1.RefreshReport();
+        }
     }
 }

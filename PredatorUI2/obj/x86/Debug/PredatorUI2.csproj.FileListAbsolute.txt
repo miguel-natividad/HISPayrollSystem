@@ -127,7 +127,6 @@ C:\Users\Stu\Desktop\ME Files\3\3-2\MIS122\SAD_Project\HISPayrollSystem\Predator
 C:\Users\Stu\Desktop\ME Files\3\3-2\MIS122\SAD_Project\HISPayrollSystem\PredatorUI2\obj\x86\Debug\PredatorUI2.FCSalaryReport.resources
 C:\Users\Stu\Desktop\ME Files\3\3-2\MIS122\SAD_Project\HISPayrollSystem\PredatorUI2\obj\x86\Debug\PredatorUI2.FCTimesheet.resources
 C:\Users\Stu\Desktop\ME Files\3\3-2\MIS122\SAD_Project\HISPayrollSystem\PredatorUI2\obj\x86\Debug\PredatorUI2.LogIn.resources
-C:\Users\Stu\Desktop\ME Files\3\3-2\MIS122\SAD_Project\HISPayrollSystem\PredatorUI2\obj\x86\Debug\PredatorUI2.Form2.resources
 C:\Users\Stu\Desktop\ME Files\3\3-2\MIS122\SAD_Project\HISPayrollSystem\PredatorUI2\obj\x86\Debug\PredatorUI2.FullScreenTemplate.resources
 C:\Users\Stu\Desktop\ME Files\3\3-2\MIS122\SAD_Project\HISPayrollSystem\PredatorUI2\obj\x86\Debug\PredatorUI2.Import.resources
 C:\Users\Stu\Desktop\ME Files\3\3-2\MIS122\SAD_Project\HISPayrollSystem\PredatorUI2\obj\x86\Debug\PredatorUI2.LoadingPage.resources
@@ -165,3 +164,4 @@ C:\Users\Stu\Desktop\ME Files\3\3-2\MIS122\SAD_Project\HISPayrollSystem\Predator
 C:\Users\Stu\Desktop\ME Files\3\3-2\MIS122\SAD_Project\HISPayrollSystem\PredatorUI2\bin\Debug\Telerik.ReportViewer.Silverlight.pdb
 C:\Users\Stu\Desktop\ME Files\3\3-2\MIS122\SAD_Project\HISPayrollSystem\PredatorUI2\bin\Debug\Telerik.ReportViewer.Silverlight.xml
 C:\Users\Stu\Desktop\ME Files\3\3-2\MIS122\SAD_Project\HISPayrollSystem\PredatorUI2\obj\x86\Debug\PredatorUI2.csprojResolveAssemblyReference.cache
+C:\Users\Stu\Desktop\ME Files\3\3-2\MIS122\SAD_Project\HISPayrollSystem\PredatorUI2\obj\x86\Debug\PredatorUI2.CompanyBankReport.resources
