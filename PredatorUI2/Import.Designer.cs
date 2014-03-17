@@ -42,6 +42,7 @@
             this.calculateBtn = new System.Windows.Forms.Button();
             this.curSalarySummaryBtn = new System.Windows.Forms.Button();
             this.manageEmployeesBtn = new System.Windows.Forms.Button();
+            this.saveChangesBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -162,12 +163,23 @@
             this.manageEmployeesBtn.UseVisualStyleBackColor = true;
             this.manageEmployeesBtn.Click += new System.EventHandler(this.button2_Click);
             // 
+            // saveChangesBtn
+            // 
+            this.saveChangesBtn.Location = new System.Drawing.Point(325, 454);
+            this.saveChangesBtn.Name = "saveChangesBtn";
+            this.saveChangesBtn.Size = new System.Drawing.Size(140, 23);
+            this.saveChangesBtn.TabIndex = 38;
+            this.saveChangesBtn.Text = "Save Changes";
+            this.saveChangesBtn.UseVisualStyleBackColor = true;
+            this.saveChangesBtn.Click += new System.EventHandler(this.saveChangesBtn_Click);
+            // 
             // Import
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Controls.Add(this.saveChangesBtn);
             this.Controls.Add(this.manageEmployeesBtn);
             this.Controls.Add(this.curSalarySummaryBtn);
             this.Controls.Add(this.calculateBtn);
@@ -204,6 +216,7 @@
         private System.Windows.Forms.Button calculateBtn;
         private System.Windows.Forms.Button curSalarySummaryBtn;
         private System.Windows.Forms.Button manageEmployeesBtn;
+        private System.Windows.Forms.Button saveChangesBtn;
     }
 }
 

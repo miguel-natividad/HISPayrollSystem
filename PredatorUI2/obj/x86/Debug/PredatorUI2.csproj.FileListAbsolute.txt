@@ -103,3 +103,11 @@ C:\Users\CHENG\Desktop\HIS\PredatorUI2\obj\x86\Debug\PredatorUI2.TimesheetReport
 C:\Users\CHENG\Desktop\HIS\PredatorUI2\obj\x86\Debug\PredatorUI2.TimesheetTime.resources
 C:\Users\CHENG\Desktop\HIS\PredatorUI2\obj\x86\Debug\PredatorUI2.ViewEmployees.resources
 C:\Users\CHENG\Desktop\HIS\PredatorUI2\obj\x86\Debug\PredatorUI2.csproj.GenerateResource.Cache
+C:\Users\jourdan\Desktop\HIS SYSTEM\HISPayrollSystem\PredatorUI2\bin\Debug\PredatorUI2.exe.config
+C:\Users\jourdan\Desktop\HIS SYSTEM\HISPayrollSystem\PredatorUI2\obj\x86\Debug\Interop.ADOX.dll
+C:\Users\jourdan\Desktop\HIS SYSTEM\HISPayrollSystem\PredatorUI2\obj\x86\Debug\Interop.ComCtl2.dll
+C:\Users\jourdan\Desktop\HIS SYSTEM\HISPayrollSystem\PredatorUI2\obj\x86\Debug\Interop.ComctlLib.dll
+C:\Users\jourdan\Desktop\HIS SYSTEM\HISPayrollSystem\PredatorUI2\obj\x86\Debug\Interop.MSComctlLib.dll
+C:\Users\jourdan\Desktop\HIS SYSTEM\HISPayrollSystem\PredatorUI2\obj\x86\Debug\PredatorUI2.csproj.ResolveComReference.cache
+C:\Users\jourdan\Desktop\HIS SYSTEM\HISPayrollSystem\PredatorUI2\obj\x86\Debug\PredatorUI2.exe
+C:\Users\jourdan\Desktop\HIS SYSTEM\HISPayrollSystem\PredatorUI2\obj\x86\Debug\PredatorUI2.pdb

@@ -215,211 +215,7 @@ namespace PredatorUI2
                         importedDT = GetDataTableExcel(txtFileName.Text, SelectedTable);
                         dataGridView1.DataSource = importedDT;
 
-                        //gets the Project Name and the start and end dates of the imported biometric file
-                        string projectName = dataGridView1.Columns[0].Name.ToString();
-                        //MessageBox.Show(projectName);
-                        string startDate = dataGridView1.Rows[0].Cells[1].Value.ToString();
-                        string endDate = dataGridView1.Rows[1].Cells[1].Value.ToString();
-
-                        //converts the date in the imported biometric file to a mysql accepted format
-                        string[] startDateBroken = startDate.Split('/');
-                        string correctlyFormattedStart = "";
-                        correctlyFormattedStart += startDateBroken[2] + "-" + startDateBroken[0] + "-" + startDateBroken[1];
-
-
-                        string[] endDateBroken = endDate.Split('/');
-                        string correctlyFormattedEnd = "";
-                        correctlyFormattedEnd += endDateBroken[2] + "-" + endDateBroken[0] + "-" + endDateBroken[1];
-
-
-
-
-                        //gets the next period ID 
-                        getNextPeriodID();
-
-                        //insert into period_table PERIOD ID, START_DATE, END_DATE based on imported biometric file
-                        MySqlConnection conn = new MySqlConnection(LogIn.login);
-                        conn.Open();
-                        MySqlCommand cmd = conn.CreateCommand();
-                        cmd.CommandText = "INSERT INTO period_table(period_ID, start_date, end_date) VALUES (@period_id, @start_date, @end_date)";
-                        cmd.Parameters.AddWithValue("@period_id", periodIDquery);
-                        cmd.Parameters.AddWithValue("@start_date", correctlyFormattedStart);
-                        cmd.Parameters.AddWithValue("@end_date", correctlyFormattedEnd);
-                        cmd.ExecuteNonQuery();
-
-
-                        //to compute for weeknum, month and year USING MYSQL 
-
-
-                        cmd = conn.CreateCommand();
-                        cmd.CommandText = "SELECT DATE_FORMAT(start_date, '%v') AS 'NUM', DATE_FORMAT(end_date, '%M') AS 'MONTH', DATE_FORMAT(end_date, '%Y')AS 'YEAR' FROM period_table WHERE period_id = @period_id";
-                        cmd.Parameters.AddWithValue("@period_id", periodIDquery);
-                        MySqlDataReader reader = cmd.ExecuteReader();
-                        string weeknum = "";
-                        string month = "";
-                        string year = "";
-
-                        while (reader.Read())
-                        {
-                            weeknum = reader[0].ToString();
-                            month = reader[1].ToString();
-                            year = reader[2].ToString();
-                        }
-                      //  MessageBox.Show(weeknum);
-                       // MessageBox.Show(month);
-                       // MessageBox.Show(year);
-
-                        reader.Close();
-                        /**DataTable query = new DataTable();
-                        query.Load(reader);
-                        dataGridView1.DataSource = query;
-                        reader.Close();
-
-                        weeknum = dataGridView1.Rows[0].Cells[0].Value.ToString();
-                        month = dataGridView1.Rows[0].Cells[1].Value.ToString();
-                        year = dataGridView1.Rows[0].Cells[2].Value.ToString();*/
-
-                        //updating  period_table the computed values of WEEKNUM, MONTH, YEAR
-                        cmd = conn.CreateCommand();
-                        cmd.CommandText = "UPDATE period_table SET week_num = @week_num, month = @month, year = @year WHERE period_ID = @period_ID";
-                        cmd.Parameters.AddWithValue("@week_num", weeknum);
-                        cmd.Parameters.AddWithValue("@month", month);
-                        cmd.Parameters.AddWithValue("@year", year);
-                        cmd.Parameters.AddWithValue("@period_id", periodIDquery);
-                        cmd.ExecuteNonQuery();
-                        //MessageBox.Show("Updated");
-
-
-                        //gets a list of employees
-                        List<string> fullnamesEmployess = new List<string>();
-
-                        cmd = conn.CreateCommand();
-                        cmd.CommandText = "SELECT name_last, name_first, employee_ID FROM employee_table WHERE employee_table.project_ID =(SELECT project_ID FROM projects_table WHERE project_name =@project_name)";
-                        cmd.Parameters.AddWithValue("@project_name", projectName);
-                        reader = cmd.ExecuteReader();
-
-                        while (reader.Read())
-                        {
-                            string fullname = "";
-                            fullname += reader[0].ToString() + ", " + reader[1].ToString() + ", " + reader[2].ToString();
-                            fullnamesEmployess.Add(fullname);
-                        }
-
                        
-
-                        reader.Close();
-
-                        //checks if member is found in the imported biometric file
-                        bool memberFound = false;
-
-                     
-
-                        for (int k = 0; k < dataGridView1.Rows.Count - 1; k++)
-                        {
-                            foreach (string s in fullnamesEmployess)
-                            {
-                                string[] value = s.Split(',');
-                                string onlythefullname = "";
-                                string employee_ID = value[2];
-                                onlythefullname += value[0] + "," + value[1];
-                                
-                          
-                                if (dataGridView1.Rows[k].Cells[0].Value.ToString().Equals(onlythefullname.ToUpper(), StringComparison.OrdinalIgnoreCase))
-                                {
-                                    //MessageBox.Show("Employee found: " + dataGridView1.Rows[k].Cells[0].Value.ToString());
-                                    memberFound = true;
-
-                                   
-                                    
-                                    //insert the different days of this found - employee's attendance into entry_timesheet
-                                    for (int sk = 1; sk <= 6; sk++)
-                                    {
-                                            cmd = conn.CreateCommand();
-                                            cmd.CommandText = "INSERT INTO entry_timesheet(TSE_ID, date, morning_in, morning_out, afternoon_in, afternoon_out, ot_in, ot_out, period_ID, project_ID, employee_ID) VALUES (@TSE_ID, @date, @morning_in, @morning_out, @afternoon_in, @afternoon_out, @ot_in, @ot_out, @period_ID, @project_ID, @employee_ID)";
-                                            //gets the next ID for Time Sheet Entry table
-                                            getNextTimeSheetEntryID();
-                                            cmd.Parameters.AddWithValue("@TSE_ID", timesheetEntryIDquery);
-
-                                            string dateEntryWithoutDay = dataGridView1.Rows[k + sk].Cells[0].Value.ToString();
-                                            string[] justDate = dateEntryWithoutDay.Split(' ');
-                                            string[] individualDateElements = justDate[0].Split('/');
-                                            string finaldateEntry = "";
-                                            finaldateEntry += individualDateElements[2] + "-" + individualDateElements[0] + "-" + individualDateElements[1];
-                                            //MessageBox.Show(finaldateEntry);
-                                            cmd.Parameters.AddWithValue("@date", finaldateEntry);
-                                            cmd.Parameters.AddWithValue("@morning_in", dataGridView1.Rows[k + sk].Cells[1].Value.ToString());
-                                            cmd.Parameters.AddWithValue("@morning_out", dataGridView1.Rows[k + sk].Cells[2].Value.ToString());
-                                            cmd.Parameters.AddWithValue("@afternoon_in", dataGridView1.Rows[k + sk].Cells[3].Value.ToString());
-                                            cmd.Parameters.AddWithValue("@afternoon_out", dataGridView1.Rows[k + sk].Cells[4].Value.ToString());
-                                            cmd.Parameters.AddWithValue("@ot_in", dataGridView1.Rows[k + sk].Cells[5].Value.ToString());
-                                            cmd.Parameters.AddWithValue("@ot_out", dataGridView1.Rows[k + sk].Cells[6].Value.ToString());
-                                            cmd.Parameters.AddWithValue("@period_ID", periodIDquery);
-                                            cmd.Parameters.AddWithValue("@project_ID", projectID);
-                                            //  MessageBox.Show(projectID);
-                                            cmd.Parameters.AddWithValue("@employee_ID", employee_ID);
-                                            // MessageBox.Show(employee_ID);
-
-                                            cmd.ExecuteNonQuery();
-
-                                        //retrieves afternoon_out so that we can convert it into military time, which is more mysql acceptable
-                                            MySqlConnection conn2 = new MySqlConnection(LogIn.login);
-                                            conn2.Open();
-                                            MySqlCommand cmd2 = conn2.CreateCommand();
-                                            cmd2.CommandText = "SELECT ADDTIME(afternoon_out, '12:00:00') FROM entry_timesheet WHERE afternoon_out < '12:00:00' AND TSE_ID = @TSE_ID";
-                                            cmd2.Parameters.AddWithValue("@TSE_ID", timesheetEntryIDquery);
-                                            MySqlDataReader reader2 = cmd2.ExecuteReader();
-                                           // MessageBox.Show(timesheetEntryIDquery);
-                                            string correctAfternoonOutTime = "";
-                                            while (reader2.Read())
-                                            {
-                                                correctAfternoonOutTime = reader2[0].ToString();
-                                            }
-
-
-                                        //updates afternoon_out with the new value (military time)
-                                            cmd = conn.CreateCommand();
-                                            cmd.CommandText = "UPDATE entry_timesheet SET afternoon_out = @afternoon_out WHERE entry_timesheet.TSE_ID = @TSE_ID";
-                                            cmd.Parameters.AddWithValue("@afternoon_out", correctAfternoonOutTime);   
-                                        cmd.Parameters.AddWithValue("@TSE_ID", timesheetEntryIDquery);
-                                            cmd.ExecuteNonQuery();
-
-
-                                        //computes for totalHOurs worked
-                                            cmd = conn.CreateCommand();
-                                            cmd.CommandText = "SELECT TIME_FORMAT(TIMEDIFF(morning_out, morning_in), '%k') + TIME_FORMAT(TIMEDIFF(afternoon_out, afternoon_in), '%k') FROM entry_timesheet  WHERE TSE_ID = @TSE_ID";
-                                             cmd.Parameters.AddWithValue("@TSE_ID", timesheetEntryIDquery);
-                                        reader = cmd.ExecuteReader();
-                                        string totalHoursWorked = "";
-                                        while (reader.Read())
-                                        {
-                                            totalHoursWorked = reader[0].ToString();
-                                        }
-                                        //MessageBox.Show(totalHoursWorked);
-                                        reader.Close();
-
-                                        //updates the totalHours worked column with the computed Value 
-                                            cmd = conn.CreateCommand();
-                                            cmd.CommandText = "UPDATE entry_timesheet SET total_hours = @totalHours WHERE TSE_ID = @TSE_ID";
-                                            cmd.Parameters.AddWithValue("@totalHours", totalHoursWorked);
-                                        cmd.Parameters.AddWithValue("@TSE_ID", timesheetEntryIDquery);
-                                        cmd.ExecuteNonQuery();
-                                      
-
-                                    }
-                                }
-                            }
-                        }
-
-                        if (memberFound == false)
-                        {
-                            MessageBox.Show("No such member found");
-                        }
-
-                        /** foreach (string s in fullnamesEmployess)
-                         {
-                             MessageBox.Show(s);
-                         }*/
-                        MessageBox.Show("import complete");
                     }
                 }
                 catch (Exception ex)
@@ -471,6 +267,215 @@ namespace PredatorUI2
             emppanel.ProjectID = this.ProjectID;
 
             emppanel.Show();
+        }
+
+        private void saveChangesBtn_Click(object sender, EventArgs e)
+        {
+            //gets the Project Name and the start and end dates of the imported biometric file
+            string projectName = dataGridView1.Columns[0].Name.ToString();
+            //MessageBox.Show(projectName);
+            string startDate = dataGridView1.Rows[0].Cells[1].Value.ToString();
+            string endDate = dataGridView1.Rows[1].Cells[1].Value.ToString();
+
+            //converts the date in the imported biometric file to a mysql accepted format
+            string[] startDateBroken = startDate.Split('/');
+            string correctlyFormattedStart = "";
+            correctlyFormattedStart += startDateBroken[2] + "-" + startDateBroken[0] + "-" + startDateBroken[1];
+
+
+            string[] endDateBroken = endDate.Split('/');
+            string correctlyFormattedEnd = "";
+            correctlyFormattedEnd += endDateBroken[2] + "-" + endDateBroken[0] + "-" + endDateBroken[1];
+
+
+
+
+            //gets the next period ID 
+            getNextPeriodID();
+
+            //insert into period_table PERIOD ID, START_DATE, END_DATE based on imported biometric file
+            MySqlConnection conn = new MySqlConnection(LogIn.login);
+            conn.Open();
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "INSERT INTO period_table(period_ID, start_date, end_date) VALUES (@period_id, @start_date, @end_date)";
+            cmd.Parameters.AddWithValue("@period_id", periodIDquery);
+            cmd.Parameters.AddWithValue("@start_date", correctlyFormattedStart);
+            cmd.Parameters.AddWithValue("@end_date", correctlyFormattedEnd);
+            cmd.ExecuteNonQuery();
+
+
+            //to compute for weeknum, month and year USING MYSQL 
+
+
+            cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT DATE_FORMAT(start_date, '%v') AS 'NUM', DATE_FORMAT(end_date, '%M') AS 'MONTH', DATE_FORMAT(end_date, '%Y')AS 'YEAR' FROM period_table WHERE period_id = @period_id";
+            cmd.Parameters.AddWithValue("@period_id", periodIDquery);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            string weeknum = "";
+            string month = "";
+            string year = "";
+
+            while (reader.Read())
+            {
+                weeknum = reader[0].ToString();
+                month = reader[1].ToString();
+                year = reader[2].ToString();
+            }
+            //  MessageBox.Show(weeknum);
+            // MessageBox.Show(month);
+            // MessageBox.Show(year);
+
+            reader.Close();
+            /**DataTable query = new DataTable();
+            query.Load(reader);
+            dataGridView1.DataSource = query;
+            reader.Close();
+
+            weeknum = dataGridView1.Rows[0].Cells[0].Value.ToString();
+            month = dataGridView1.Rows[0].Cells[1].Value.ToString();
+            year = dataGridView1.Rows[0].Cells[2].Value.ToString();*/
+
+            //updating  period_table the computed values of WEEKNUM, MONTH, YEAR
+            cmd = conn.CreateCommand();
+            cmd.CommandText = "UPDATE period_table SET week_num = @week_num, month = @month, year = @year WHERE period_ID = @period_ID";
+            cmd.Parameters.AddWithValue("@week_num", weeknum);
+            cmd.Parameters.AddWithValue("@month", month);
+            cmd.Parameters.AddWithValue("@year", year);
+            cmd.Parameters.AddWithValue("@period_id", periodIDquery);
+            cmd.ExecuteNonQuery();
+            //MessageBox.Show("Updated");
+
+
+            //gets a list of employees
+            List<string> fullnamesEmployess = new List<string>();
+
+            cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT name_last, name_first, employee_ID FROM employee_table WHERE employee_table.project_ID =(SELECT project_ID FROM projects_table WHERE project_name =@project_name)";
+            cmd.Parameters.AddWithValue("@project_name", projectName);
+            reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                string fullname = "";
+                fullname += reader[0].ToString() + ", " + reader[1].ToString() + ", " + reader[2].ToString();
+                fullnamesEmployess.Add(fullname);
+            }
+
+
+
+            reader.Close();
+
+            //checks if member is found in the imported biometric file
+            bool memberFound = false;
+
+
+
+            for (int k = 0; k < dataGridView1.Rows.Count - 1; k++)
+            {
+                foreach (string s in fullnamesEmployess)
+                {
+                    string[] value = s.Split(',');
+                    string onlythefullname = "";
+                    string employee_ID = value[2];
+                    onlythefullname += value[0] + "," + value[1];
+
+
+                    if (dataGridView1.Rows[k].Cells[0].Value.ToString().Equals(onlythefullname.ToUpper(), StringComparison.OrdinalIgnoreCase))
+                    {
+                        //MessageBox.Show("Employee found: " + dataGridView1.Rows[k].Cells[0].Value.ToString());
+                        memberFound = true;
+
+
+
+                        //insert the different days of this found - employee's attendance into entry_timesheet
+                        for (int sk = 1; sk <= 6; sk++)
+                        {
+                            cmd = conn.CreateCommand();
+                            cmd.CommandText = "INSERT INTO entry_timesheet(TSE_ID, date, morning_in, morning_out, afternoon_in, afternoon_out, ot_in, ot_out, period_ID, project_ID, employee_ID) VALUES (@TSE_ID, @date, @morning_in, @morning_out, @afternoon_in, @afternoon_out, @ot_in, @ot_out, @period_ID, @project_ID, @employee_ID)";
+                            //gets the next ID for Time Sheet Entry table
+                            getNextTimeSheetEntryID();
+                            cmd.Parameters.AddWithValue("@TSE_ID", timesheetEntryIDquery);
+
+                            string dateEntryWithoutDay = dataGridView1.Rows[k + sk].Cells[0].Value.ToString();
+                            string[] justDate = dateEntryWithoutDay.Split(' ');
+                            string[] individualDateElements = justDate[0].Split('/');
+                            string finaldateEntry = "";
+                            finaldateEntry += individualDateElements[2] + "-" + individualDateElements[0] + "-" + individualDateElements[1];
+                            //MessageBox.Show(finaldateEntry);
+                            cmd.Parameters.AddWithValue("@date", finaldateEntry);
+                            cmd.Parameters.AddWithValue("@morning_in", dataGridView1.Rows[k + sk].Cells[1].Value.ToString());
+                            cmd.Parameters.AddWithValue("@morning_out", dataGridView1.Rows[k + sk].Cells[2].Value.ToString());
+                            cmd.Parameters.AddWithValue("@afternoon_in", dataGridView1.Rows[k + sk].Cells[3].Value.ToString());
+                            cmd.Parameters.AddWithValue("@afternoon_out", dataGridView1.Rows[k + sk].Cells[4].Value.ToString());
+                            cmd.Parameters.AddWithValue("@ot_in", dataGridView1.Rows[k + sk].Cells[5].Value.ToString());
+                            cmd.Parameters.AddWithValue("@ot_out", dataGridView1.Rows[k + sk].Cells[6].Value.ToString());
+                            cmd.Parameters.AddWithValue("@period_ID", periodIDquery);
+                            cmd.Parameters.AddWithValue("@project_ID", projectID);
+                            //  MessageBox.Show(projectID);
+                            cmd.Parameters.AddWithValue("@employee_ID", employee_ID);
+                            // MessageBox.Show(employee_ID);
+
+                            cmd.ExecuteNonQuery();
+
+                            //retrieves afternoon_out so that we can convert it into military time, which is more mysql acceptable
+                            MySqlConnection conn2 = new MySqlConnection(LogIn.login);
+                            conn2.Open();
+                            MySqlCommand cmd2 = conn2.CreateCommand();
+                            cmd2.CommandText = "SELECT ADDTIME(afternoon_out, '12:00:00') FROM entry_timesheet WHERE afternoon_out < '12:00:00' AND TSE_ID = @TSE_ID";
+                            cmd2.Parameters.AddWithValue("@TSE_ID", timesheetEntryIDquery);
+                            MySqlDataReader reader2 = cmd2.ExecuteReader();
+                            // MessageBox.Show(timesheetEntryIDquery);
+                            string correctAfternoonOutTime = "";
+                            while (reader2.Read())
+                            {
+                                correctAfternoonOutTime = reader2[0].ToString();
+                            }
+
+
+                            //updates afternoon_out with the new value (military time)
+                            cmd = conn.CreateCommand();
+                            cmd.CommandText = "UPDATE entry_timesheet SET afternoon_out = @afternoon_out WHERE entry_timesheet.TSE_ID = @TSE_ID";
+                            cmd.Parameters.AddWithValue("@afternoon_out", correctAfternoonOutTime);
+                            cmd.Parameters.AddWithValue("@TSE_ID", timesheetEntryIDquery);
+                            cmd.ExecuteNonQuery();
+
+
+                            //computes for totalHOurs worked
+                            cmd = conn.CreateCommand();
+                            cmd.CommandText = "SELECT TIME_FORMAT(TIMEDIFF(morning_out, morning_in), '%k') + TIME_FORMAT(TIMEDIFF(afternoon_out, afternoon_in), '%k') FROM entry_timesheet  WHERE TSE_ID = @TSE_ID";
+                            cmd.Parameters.AddWithValue("@TSE_ID", timesheetEntryIDquery);
+                            reader = cmd.ExecuteReader();
+                            string totalHoursWorked = "";
+                            while (reader.Read())
+                            {
+                                totalHoursWorked = reader[0].ToString();
+                            }
+                            //MessageBox.Show(totalHoursWorked);
+                            reader.Close();
+
+                            //updates the totalHours worked column with the computed Value 
+                            cmd = conn.CreateCommand();
+                            cmd.CommandText = "UPDATE entry_timesheet SET total_hours = @totalHours WHERE TSE_ID = @TSE_ID";
+                            cmd.Parameters.AddWithValue("@totalHours", totalHoursWorked);
+                            cmd.Parameters.AddWithValue("@TSE_ID", timesheetEntryIDquery);
+                            cmd.ExecuteNonQuery();
+
+
+                        }
+                    }
+                }
+            }
+
+            if (memberFound == false)
+            {
+                MessageBox.Show("No such member found");
+            }
+
+            /** foreach (string s in fullnamesEmployess)
+             {
+                 MessageBox.Show(s);
+             }*/
+            MessageBox.Show("import complete");
         }
 
         
