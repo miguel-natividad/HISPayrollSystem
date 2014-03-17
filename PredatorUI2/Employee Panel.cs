@@ -54,10 +54,17 @@ namespace PredatorUI2
             workerTypeCB.Items.Add("Office");
             workerTypeCB.Items.Add("Subcontractual");
 
-            categoryCB.Items.Add("Mason");
-            categoryCB.Items.Add("Carpenter");
-            categoryCB.Items.Add("Welder");
+            MySqlConnection conn = new MySqlConnection(LogIn.login);
+            conn.Open();
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT employee_cat FROM salary_rate";
+            MySqlDataReader reader = cmd.ExecuteReader();
 
+            while (reader.Read())
+            {
+                categoryCB.Items.Add(reader[0].ToString());
+            }
+            
         }
         public void loadDataGrid()
         {
