@@ -45,8 +45,8 @@ namespace PredatorUI2
             this.manageSalaryBtn = new System.Windows.Forms.Button();
             this.projectsPanelBtn = new System.Windows.Forms.Button();
             this.employeesPanelBtn = new System.Windows.Forms.Button();
-            this.reportsBtn = new System.Windows.Forms.Button();
-            this.settingsBtn = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.projectsDataGrid)).BeginInit();
             this.SuspendLayout();
@@ -99,7 +99,7 @@ namespace PredatorUI2
             this.deleteProjectBtn.BackColor = System.Drawing.Color.Transparent;
             this.deleteProjectBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.deleteProjectBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deleteProjectBtn.Font = new System.Drawing.Font("Lucida Fax", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteProjectBtn.Font = new System.Drawing.Font("TypoSlabserif-Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deleteProjectBtn.Location = new System.Drawing.Point(452, 512);
             this.deleteProjectBtn.Name = "deleteProjectBtn";
             this.deleteProjectBtn.Size = new System.Drawing.Size(165, 35);
@@ -114,7 +114,7 @@ namespace PredatorUI2
             this.editProjectBtn.BackColor = System.Drawing.Color.Transparent;
             this.editProjectBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.editProjectBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editProjectBtn.Font = new System.Drawing.Font("Lucida Fax", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editProjectBtn.Font = new System.Drawing.Font("TypoSlabserif-Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editProjectBtn.Location = new System.Drawing.Point(623, 313);
             this.editProjectBtn.Name = "editProjectBtn";
             this.editProjectBtn.Size = new System.Drawing.Size(178, 35);
@@ -128,7 +128,7 @@ namespace PredatorUI2
             this.CancelChangesButton.BackColor = System.Drawing.Color.Transparent;
             this.CancelChangesButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelChangesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CancelChangesButton.Font = new System.Drawing.Font("Lucida Fax", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CancelChangesButton.Font = new System.Drawing.Font("TypoSlabserif-Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CancelChangesButton.Location = new System.Drawing.Point(807, 313);
             this.CancelChangesButton.Name = "CancelChangesButton";
             this.CancelChangesButton.Size = new System.Drawing.Size(165, 34);
@@ -142,7 +142,7 @@ namespace PredatorUI2
             this.CreateProjectButton.BackColor = System.Drawing.Color.Transparent;
             this.CreateProjectButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CreateProjectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CreateProjectButton.Font = new System.Drawing.Font("Lucida Fax", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CreateProjectButton.Font = new System.Drawing.Font("TypoSlabserif-Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CreateProjectButton.Location = new System.Drawing.Point(444, 314);
             this.CreateProjectButton.Name = "CreateProjectButton";
             this.CreateProjectButton.Size = new System.Drawing.Size(173, 34);
@@ -155,10 +155,10 @@ namespace PredatorUI2
             // 
             this.projectsNameLabel.AutoSize = true;
             this.projectsNameLabel.BackColor = System.Drawing.Color.Transparent;
-            this.projectsNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.projectsNameLabel.Font = new System.Drawing.Font("TypoSlabserif-Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.projectsNameLabel.Location = new System.Drawing.Point(266, 156);
             this.projectsNameLabel.Name = "projectsNameLabel";
-            this.projectsNameLabel.Size = new System.Drawing.Size(124, 24);
+            this.projectsNameLabel.Size = new System.Drawing.Size(115, 21);
             this.projectsNameLabel.TabIndex = 30;
             this.projectsNameLabel.Text = "Project Name";
             // 
@@ -166,10 +166,10 @@ namespace PredatorUI2
             // 
             this.projectLocationLabel.AutoSize = true;
             this.projectLocationLabel.BackColor = System.Drawing.Color.Transparent;
-            this.projectLocationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.projectLocationLabel.Font = new System.Drawing.Font("TypoSlabserif-Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.projectLocationLabel.Location = new System.Drawing.Point(266, 189);
             this.projectLocationLabel.Name = "projectLocationLabel";
-            this.projectLocationLabel.Size = new System.Drawing.Size(144, 24);
+            this.projectLocationLabel.Size = new System.Drawing.Size(136, 21);
             this.projectLocationLabel.TabIndex = 31;
             this.projectLocationLabel.Text = "Project Location";
             // 
@@ -177,10 +177,10 @@ namespace PredatorUI2
             // 
             this.projectStatusLabel.AutoSize = true;
             this.projectStatusLabel.BackColor = System.Drawing.Color.Transparent;
-            this.projectStatusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.projectStatusLabel.Font = new System.Drawing.Font("TypoSlabserif-Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.projectStatusLabel.Location = new System.Drawing.Point(266, 223);
             this.projectStatusLabel.Name = "projectStatusLabel";
-            this.projectStatusLabel.Size = new System.Drawing.Size(123, 24);
+            this.projectStatusLabel.Size = new System.Drawing.Size(117, 21);
             this.projectStatusLabel.TabIndex = 32;
             this.projectStatusLabel.Text = "Project Status";
             // 
@@ -188,10 +188,10 @@ namespace PredatorUI2
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("TypoSlabserif-Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(266, 263);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(172, 24);
+            this.label1.Size = new System.Drawing.Size(162, 21);
             this.label1.TabIndex = 33;
             this.label1.Text = "Lodging Allowance";
             // 
@@ -199,11 +199,11 @@ namespace PredatorUI2
             // 
             this.lodgingAllowTB.BackColor = System.Drawing.Color.DimGray;
             this.lodgingAllowTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lodgingAllowTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lodgingAllowTB.Font = new System.Drawing.Font("TypoSlabserif-Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lodgingAllowTB.ForeColor = System.Drawing.Color.White;
             this.lodgingAllowTB.Location = new System.Drawing.Point(474, 258);
             this.lodgingAllowTB.Name = "lodgingAllowTB";
-            this.lodgingAllowTB.Size = new System.Drawing.Size(173, 26);
+            this.lodgingAllowTB.Size = new System.Drawing.Size(173, 27);
             this.lodgingAllowTB.TabIndex = 34;
             this.lodgingAllowTB.Text = "0.00";
             this.lodgingAllowTB.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -214,7 +214,7 @@ namespace PredatorUI2
             this.manageSalaryBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.manageSalaryBtn.Enabled = false;
             this.manageSalaryBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.manageSalaryBtn.Font = new System.Drawing.Font("Lucida Fax", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.manageSalaryBtn.Font = new System.Drawing.Font("TypoSlabserif-Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.manageSalaryBtn.Location = new System.Drawing.Point(807, 512);
             this.manageSalaryBtn.Name = "manageSalaryBtn";
             this.manageSalaryBtn.Size = new System.Drawing.Size(173, 35);
@@ -225,9 +225,12 @@ namespace PredatorUI2
             // 
             // projectsPanelBtn
             // 
-            this.projectsPanelBtn.Location = new System.Drawing.Point(47, 152);
+            this.projectsPanelBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.projectsPanelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.projectsPanelBtn.Font = new System.Drawing.Font("TypoSlabserif-Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.projectsPanelBtn.Location = new System.Drawing.Point(22, 137);
             this.projectsPanelBtn.Name = "projectsPanelBtn";
-            this.projectsPanelBtn.Size = new System.Drawing.Size(144, 23);
+            this.projectsPanelBtn.Size = new System.Drawing.Size(200, 40);
             this.projectsPanelBtn.TabIndex = 36;
             this.projectsPanelBtn.Text = "Projects Panel";
             this.projectsPanelBtn.UseVisualStyleBackColor = true;
@@ -235,43 +238,48 @@ namespace PredatorUI2
             // 
             // employeesPanelBtn
             // 
-            this.employeesPanelBtn.Location = new System.Drawing.Point(47, 190);
+            this.employeesPanelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.employeesPanelBtn.Font = new System.Drawing.Font("TypoSlabserif-Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.employeesPanelBtn.Location = new System.Drawing.Point(22, 183);
             this.employeesPanelBtn.Name = "employeesPanelBtn";
-            this.employeesPanelBtn.Size = new System.Drawing.Size(144, 23);
+            this.employeesPanelBtn.Size = new System.Drawing.Size(200, 40);
             this.employeesPanelBtn.TabIndex = 37;
             this.employeesPanelBtn.Text = "Employees Panel";
             this.employeesPanelBtn.UseVisualStyleBackColor = true;
             this.employeesPanelBtn.Click += new System.EventHandler(this.employeesPanelBtn_Click);
             // 
-            // reportsBtn
+            // button2
             // 
-            this.reportsBtn.Location = new System.Drawing.Point(47, 234);
-            this.reportsBtn.Name = "reportsBtn";
-            this.reportsBtn.Size = new System.Drawing.Size(144, 23);
-            this.reportsBtn.TabIndex = 38;
-            this.reportsBtn.Text = "Reports";
-            this.reportsBtn.UseVisualStyleBackColor = true;
-            this.reportsBtn.Click += new System.EventHandler(this.reportsBtn_Click);
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("TypoSlabserif-Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(22, 229);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(200, 40);
+            this.button2.TabIndex = 41;
+            this.button2.Text = "Reports";
+            this.button2.UseVisualStyleBackColor = true;
             // 
-            // settingsBtn
+            // button3
             // 
-            this.settingsBtn.Location = new System.Drawing.Point(47, 313);
-            this.settingsBtn.Name = "settingsBtn";
-            this.settingsBtn.Size = new System.Drawing.Size(144, 23);
-            this.settingsBtn.TabIndex = 39;
-            this.settingsBtn.Text = "Settings";
-            this.settingsBtn.UseVisualStyleBackColor = true;
-            this.settingsBtn.Click += new System.EventHandler(this.settingsBtn_Click);
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("TypoSlabserif-Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(22, 275);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(200, 40);
+            this.button3.TabIndex = 42;
+            this.button3.Text = "Salary Rate";
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(47, 266);
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("TypoSlabserif-Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(22, 321);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(144, 23);
-            this.button1.TabIndex = 40;
-            this.button1.Text = "Salary Rate";
+            this.button1.Size = new System.Drawing.Size(200, 40);
+            this.button1.TabIndex = 43;
+            this.button1.Text = "Settings";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // Projects_Panel
             // 
@@ -281,8 +289,8 @@ namespace PredatorUI2
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(984, 661);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.settingsBtn);
-            this.Controls.Add(this.reportsBtn);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.employeesPanelBtn);
             this.Controls.Add(this.projectsPanelBtn);
             this.Controls.Add(this.manageSalaryBtn);
@@ -325,8 +333,8 @@ namespace PredatorUI2
         private System.Windows.Forms.Button manageSalaryBtn;
         private System.Windows.Forms.Button projectsPanelBtn;
         private System.Windows.Forms.Button employeesPanelBtn;
-        private System.Windows.Forms.Button reportsBtn;
-        private System.Windows.Forms.Button settingsBtn;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
     }
 }

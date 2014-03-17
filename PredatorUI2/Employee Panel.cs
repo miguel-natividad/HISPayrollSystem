@@ -337,7 +337,7 @@ namespace PredatorUI2
                 MessageBox.Show("Employee updated in employee_table");
             
             cmd = conn.CreateCommand();
-              
+              /**
                 if (workerTypeCB.Text == "Regular")
                 {
                     cmd.CommandText = "UPDATE worker_regular SET acct_number = @acct_number, cash_advance_balance = @cash_advance_balance WHERE employee_ID = @employee_ID";
@@ -361,7 +361,8 @@ namespace PredatorUI2
                 }
 
                 cmd.ExecuteNonQuery();
-                conn.Close();
+                conn.Close();*/
+
                 MessageBox.Show("Edit Successful");
                 loadDataGrid();
 }
