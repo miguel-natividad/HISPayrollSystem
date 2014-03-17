@@ -146,6 +146,12 @@ using MySql.Data.MySqlClient;
 
         }
 
+        private void projectsBtn_Click(object sender, EventArgs e)
+        {
+            DBsettings db = new DBsettings();
+            db.ShowDialog();
+        }
+
         
 
      

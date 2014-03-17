@@ -134,6 +134,7 @@
             this.currentTimeSheet.TabIndex = 34;
             this.currentTimeSheet.Text = "Current Time Sheet";
             this.currentTimeSheet.UseVisualStyleBackColor = true;
+            this.currentTimeSheet.Click += new System.EventHandler(this.currentTimeSheet_Click);
             // 
             // calculateBtn
             // 

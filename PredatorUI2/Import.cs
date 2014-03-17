@@ -121,7 +121,7 @@ namespace PredatorUI2
                 }
                 timesheetEntryIDquery += newNum.ToString();
 
-                MessageBox.Show("The new project has been assigned with the Time Sheet Entry ID: " + timesheetEntryIDquery);
+               // MessageBox.Show("The new project has been assigned with the Time Sheet Entry ID: " + timesheetEntryIDquery);
 
             }
             else
@@ -187,7 +187,7 @@ namespace PredatorUI2
                 }
                 periodIDquery += newNum.ToString();
 
-                MessageBox.Show("The new project has been assigned with the period ID: " + periodIDquery);
+              //  MessageBox.Show("The new project has been assigned with the period ID: " + periodIDquery);
 
             }
             else
@@ -525,10 +525,10 @@ namespace PredatorUI2
                                 correctAfternoonOutTime = dataGridView1.Rows[k + sk].Cells[4].Value.ToString();
                             }
 
-                            MessageBox.Show("Correct Morning In: " + correctMorningInTime);
+                           /** MessageBox.Show("Correct Morning In: " + correctMorningInTime);
                             MessageBox.Show("Correct Morning Out: " + correctMorningOutTime);
                             MessageBox.Show("Correct Afternoon In: " + correctAfternoonInTime);
-                            MessageBox.Show("Correct Afternoon Out: " + correctAfternoonOutTime);
+                            MessageBox.Show("Correct Afternoon Out: " + correctAfternoonOutTime);*/
 
                             //updates afternoon_out with the new value (military time)
                             cmd = conn.CreateCommand();
@@ -606,7 +606,24 @@ namespace PredatorUI2
              {
                  MessageBox.Show(s);
              }*/
+
             MessageBox.Show("IMPORT complete");
+        }
+
+        private void currentTimeSheet_Click(object sender, EventArgs e)
+        {
+            MySqlConnection conn = new MySqlConnection(LogIn.login);
+            conn.Open();
+            MySqlCommand cmd = conn.CreateCommand();
+            string query = "SELECT UPPER(CONCAT(employee_table.name_last, ', ',employee_table.name_first,' ', .employee_table.name_mi)) AS 'NAME',  projects_table.project_name AS 'PROJECT NAME', entry_timesheet.`date` AS 'DATE', entry_timesheet.morning_in AS 'Morning In', entry_timesheet.morning_out AS 'Morning Out',  entry_timesheet.afternoon_in AS 'Afternoon In', entry_timesheet.afternoon_out AS 'Afternoon Out', entry_timesheet.ot_in AS 'Overtime In', entry_timesheet.ot_out AS 'Overtime Out',entry_timesheet.total_hours AS 'Total Hours', entry_timesheet.undertime AS 'Under Time', entry_timesheet.overtime AS 'Over Time' FROM his_payroll.entry_timesheet entry_timesheet CROSS JOIN his_payroll.employee_table employee_table INNER JOIN his_payroll.projects_table projects_table ON (employee_table.project_ID = projects_table.project_ID)  WHERE entry_timesheet.period_ID = 'P-0000000002' AND entry_timesheet.project_ID = employee_table.project_ID";
+            cmd.CommandText = query;
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            DataTable currentTimeSheetDt = new DataTable();
+            currentTimeSheetDt.Load(reader);
+
+            dataGridView1.DataSource = currentTimeSheetDt;
+          
         }
 
         

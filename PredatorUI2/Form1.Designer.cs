@@ -133,6 +133,7 @@
             this.projectsBtn.TabIndex = 8;
             this.projectsBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.projectsBtn.UseVisualStyleBackColor = true;
+            this.projectsBtn.Click += new System.EventHandler(this.projectsBtn_Click);
             // 
             // LogIn
             // 
