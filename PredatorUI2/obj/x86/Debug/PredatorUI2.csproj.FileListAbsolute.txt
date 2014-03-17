@@ -103,6 +103,7 @@ C:\Users\CHENG\Desktop\HIS\PredatorUI2\obj\x86\Debug\PredatorUI2.TimesheetReport
 C:\Users\CHENG\Desktop\HIS\PredatorUI2\obj\x86\Debug\PredatorUI2.TimesheetTime.resources
 C:\Users\CHENG\Desktop\HIS\PredatorUI2\obj\x86\Debug\PredatorUI2.ViewEmployees.resources
 C:\Users\CHENG\Desktop\HIS\PredatorUI2\obj\x86\Debug\PredatorUI2.csproj.GenerateResource.Cache
+<<<<<<< Updated upstream
 C:\Users\jourdan\Desktop\HIS SYSTEM\HISPayrollSystem\PredatorUI2\bin\Debug\PredatorUI2.exe.config
 C:\Users\jourdan\Desktop\HIS SYSTEM\HISPayrollSystem\PredatorUI2\obj\x86\Debug\Interop.ADOX.dll
 C:\Users\jourdan\Desktop\HIS SYSTEM\HISPayrollSystem\PredatorUI2\obj\x86\Debug\Interop.ComCtl2.dll
@@ -111,3 +112,11 @@ C:\Users\jourdan\Desktop\HIS SYSTEM\HISPayrollSystem\PredatorUI2\obj\x86\Debug\I
 C:\Users\jourdan\Desktop\HIS SYSTEM\HISPayrollSystem\PredatorUI2\obj\x86\Debug\PredatorUI2.csproj.ResolveComReference.cache
 C:\Users\jourdan\Desktop\HIS SYSTEM\HISPayrollSystem\PredatorUI2\obj\x86\Debug\PredatorUI2.exe
 C:\Users\jourdan\Desktop\HIS SYSTEM\HISPayrollSystem\PredatorUI2\obj\x86\Debug\PredatorUI2.pdb
+=======
+C:\Users\Stu\Desktop\ME Files\3\3-2\MIS122\SAD_Project\HISPayrollSystem\PredatorUI2\bin\Debug\PredatorUI2.exe.config
+C:\Users\Stu\Desktop\ME Files\3\3-2\MIS122\SAD_Project\HISPayrollSystem\PredatorUI2\obj\x86\Debug\Interop.ADOX.dll
+C:\Users\Stu\Desktop\ME Files\3\3-2\MIS122\SAD_Project\HISPayrollSystem\PredatorUI2\obj\x86\Debug\Interop.MSComctlLib.dll
+C:\Users\Stu\Desktop\ME Files\3\3-2\MIS122\SAD_Project\HISPayrollSystem\PredatorUI2\obj\x86\Debug\PredatorUI2.csproj.ResolveComReference.cache
+C:\Users\Stu\Desktop\ME Files\3\3-2\MIS122\SAD_Project\HISPayrollSystem\PredatorUI2\obj\x86\Debug\PredatorUI2.exe
+C:\Users\Stu\Desktop\ME Files\3\3-2\MIS122\SAD_Project\HISPayrollSystem\PredatorUI2\obj\x86\Debug\PredatorUI2.pdb
+>>>>>>> Stashed changes
