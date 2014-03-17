@@ -36,6 +36,8 @@
             this.tb_user = new System.Windows.Forms.TextBox();
             this.tb_pass = new System.Windows.Forms.TextBox();
             this.tb_dbname = new System.Windows.Forms.TextBox();
+            this.b_ok = new System.Windows.Forms.Button();
+            this.b_cancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // l_server
@@ -102,11 +104,32 @@
             this.tb_dbname.Size = new System.Drawing.Size(100, 20);
             this.tb_dbname.TabIndex = 7;
             // 
+            // b_ok
+            // 
+            this.b_ok.Location = new System.Drawing.Point(35, 227);
+            this.b_ok.Name = "b_ok";
+            this.b_ok.Size = new System.Drawing.Size(75, 23);
+            this.b_ok.TabIndex = 8;
+            this.b_ok.Text = "Ok";
+            this.b_ok.UseVisualStyleBackColor = true;
+            this.b_ok.Click += new System.EventHandler(this.b_ok_Click);
+            // 
+            // b_cancel
+            // 
+            this.b_cancel.Location = new System.Drawing.Point(384, 227);
+            this.b_cancel.Name = "b_cancel";
+            this.b_cancel.Size = new System.Drawing.Size(75, 23);
+            this.b_cancel.TabIndex = 9;
+            this.b_cancel.Text = "Cancel";
+            this.b_cancel.UseVisualStyleBackColor = true;
+            // 
             // DBsettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(501, 262);
+            this.Controls.Add(this.b_cancel);
+            this.Controls.Add(this.b_ok);
             this.Controls.Add(this.tb_dbname);
             this.Controls.Add(this.tb_pass);
             this.Controls.Add(this.tb_user);
@@ -117,6 +140,7 @@
             this.Controls.Add(this.l_server);
             this.Name = "DBsettings";
             this.Text = "DBsettings";
+            this.Load += new System.EventHandler(this.DBsettings_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,5 +156,7 @@
         private System.Windows.Forms.TextBox tb_user;
         private System.Windows.Forms.TextBox tb_pass;
         private System.Windows.Forms.TextBox tb_dbname;
+        private System.Windows.Forms.Button b_ok;
+        private System.Windows.Forms.Button b_cancel;
     }
 }

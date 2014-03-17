@@ -14,8 +14,8 @@ using MySql.Data.MySqlClient;
 {
     public partial class LogIn : Form
     {
-        //creates a static string that contains login credentials for mySQL that can be accessed in any class
-        public static string login = "server=localhost;database=his_payroll;uid=root;password=root;";
+
+        public static string login;
        
 
         public LogIn()
@@ -24,10 +24,25 @@ using MySql.Data.MySqlClient;
             
         }
 
+      
+
+
+        public String DBset()
+        {
+            string server = DBsettings.dbserver;
+            string username = DBsettings.dbuser;
+            string pwd = DBsettings.dbpass;
+            string db = DBsettings.dbname;
+
+            login = "server=" + server +";database=" + db + ";uid=" + username + ";password=" + pwd + ";";
+
+            return login;
+        }
+
         private void LogInButton_Click(object sender, EventArgs e)
         {
            //This part will get the User Name and Password data from the MYSQL database
-            MySqlConnection conn = new MySqlConnection(login);
+            MySqlConnection conn = new MySqlConnection(DBset());
             conn.Open();
             MySqlCommand cmd = conn.CreateCommand();
             cmd.CommandText = "SELECT username, password FROM user_accounts_table WHERE username = @username";
@@ -99,7 +114,13 @@ using MySql.Data.MySqlClient;
 
         private void button2_Click(object sender, EventArgs e)
         {
+           /** DBsettings db = new DBsettings();
+            db.ShowDialog();*/
 
+            using (DBsettings dbSettings = new DBsettings())
+            {
+                dbSettings.ShowDialog(this);
+            }
         }
 
         private void LogIn_Load(object sender, EventArgs e)
