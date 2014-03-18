@@ -28,11 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.hScrollBar1 = new System.Windows.Forms.HScrollBar();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.his_payrollDataSet = new PredatorUI2.his_payrollDataSet();
+            this.dataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataTable1TableAdapter = new PredatorUI2.his_payrollDataSetTableAdapters.DataTable1TableAdapter();
+            this.projects_tableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.projects_tableTableAdapter = new PredatorUI2.his_payrollDataSetTableAdapters.projects_tableTableAdapter();
+            this.entry_salary_reportBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.entry_salary_reportTableAdapter = new PredatorUI2.his_payrollDataSetTableAdapters.entry_salary_reportTableAdapter();
+            this.employee_tableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.employee_tableTableAdapter = new PredatorUI2.his_payrollDataSetTableAdapters.employee_tableTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.his_payrollDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projects_tableBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.entry_salary_reportBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employee_tableBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // button2
@@ -82,6 +101,65 @@
             this.hScrollBar1.Size = new System.Drawing.Size(767, 17);
             this.hScrollBar1.TabIndex = 44;
             // 
+            // reportViewer1
+            // 
+            reportDataSource1.Name = "DataSet1";
+            reportDataSource1.Value = this.dataTable1BindingSource;
+            reportDataSource2.Name = "DataSet2";
+            reportDataSource2.Value = this.dataTable1BindingSource;
+            reportDataSource3.Name = "DataSet3";
+            reportDataSource3.Value = this.dataTable1BindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource3);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "PredatorUI2.AR.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(101, 48);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.Size = new System.Drawing.Size(764, 545);
+            this.reportViewer1.TabIndex = 49;
+            this.reportViewer1.Load += new System.EventHandler(this.reportViewer1_Load);
+            // 
+            // his_payrollDataSet
+            // 
+            this.his_payrollDataSet.DataSetName = "his_payrollDataSet";
+            this.his_payrollDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dataTable1BindingSource
+            // 
+            this.dataTable1BindingSource.DataMember = "DataTable1";
+            this.dataTable1BindingSource.DataSource = this.his_payrollDataSet;
+            // 
+            // dataTable1TableAdapter
+            // 
+            this.dataTable1TableAdapter.ClearBeforeFill = true;
+            // 
+            // projects_tableBindingSource
+            // 
+            this.projects_tableBindingSource.DataMember = "projects_table";
+            this.projects_tableBindingSource.DataSource = this.his_payrollDataSet;
+            // 
+            // projects_tableTableAdapter
+            // 
+            this.projects_tableTableAdapter.ClearBeforeFill = true;
+            // 
+            // entry_salary_reportBindingSource
+            // 
+            this.entry_salary_reportBindingSource.DataMember = "entry_salary_report";
+            this.entry_salary_reportBindingSource.DataSource = this.his_payrollDataSet;
+            // 
+            // entry_salary_reportTableAdapter
+            // 
+            this.entry_salary_reportTableAdapter.ClearBeforeFill = true;
+            // 
+            // employee_tableBindingSource
+            // 
+            this.employee_tableBindingSource.DataMember = "employee_table";
+            this.employee_tableBindingSource.DataSource = this.his_payrollDataSet;
+            // 
+            // employee_tableTableAdapter
+            // 
+            this.employee_tableTableAdapter.ClearBeforeFill = true;
+            // 
             // FCAccounting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -89,6 +167,7 @@
             this.BackgroundImage = global::PredatorUI2.Properties.Resources.FullScreenTemplate1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button4);
@@ -96,6 +175,12 @@
             this.Controls.Add(this.hScrollBar1);
             this.Name = "FCAccounting";
             this.Text = "FCAccounting";
+            this.Load += new System.EventHandler(this.FCAccounting_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.his_payrollDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projects_tableBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.entry_salary_reportBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employee_tableBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -107,5 +192,15 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.VScrollBar vScrollBar1;
         private System.Windows.Forms.HScrollBar hScrollBar1;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private his_payrollDataSet his_payrollDataSet;
+        private System.Windows.Forms.BindingSource dataTable1BindingSource;
+        private his_payrollDataSetTableAdapters.DataTable1TableAdapter dataTable1TableAdapter;
+        private System.Windows.Forms.BindingSource projects_tableBindingSource;
+        private System.Windows.Forms.BindingSource entry_salary_reportBindingSource;
+        private System.Windows.Forms.BindingSource employee_tableBindingSource;
+        private his_payrollDataSetTableAdapters.projects_tableTableAdapter projects_tableTableAdapter;
+        private his_payrollDataSetTableAdapters.entry_salary_reportTableAdapter entry_salary_reportTableAdapter;
+        private his_payrollDataSetTableAdapters.employee_tableTableAdapter employee_tableTableAdapter;
     }
 }

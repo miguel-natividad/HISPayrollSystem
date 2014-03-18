@@ -54,6 +54,8 @@ namespace PredatorUI2 {
         
         private worker_subconDataTable tableworker_subcon;
         
+        private DataTable1DataTable tableDataTable1;
+        
         private global::System.Data.DataRelation relationemployee_fk2;
         
         private global::System.Data.DataRelation relationesr_fk;
@@ -79,6 +81,14 @@ namespace PredatorUI2 {
         private global::System.Data.DataRelation relationwr_fk;
         
         private global::System.Data.DataRelation relationws_fk;
+        
+        private global::System.Data.DataRelation relationae_fk;
+        
+        private global::System.Data.DataRelation relationemployee_fk;
+        
+        private global::System.Data.DataRelation relationesr_fk2;
+        
+        private global::System.Data.DataRelation relationet_fk2;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -152,6 +162,9 @@ namespace PredatorUI2 {
                 }
                 if ((ds.Tables["worker_subcon"] != null)) {
                     base.Tables.Add(new worker_subconDataTable(ds.Tables["worker_subcon"]));
+                }
+                if ((ds.Tables["DataTable1"] != null)) {
+                    base.Tables.Add(new DataTable1DataTable(ds.Tables["DataTable1"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -323,6 +336,16 @@ namespace PredatorUI2 {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public DataTable1DataTable DataTable1 {
+            get {
+                return this.tableDataTable1;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -432,6 +455,9 @@ namespace PredatorUI2 {
                 }
                 if ((ds.Tables["worker_subcon"] != null)) {
                     base.Tables.Add(new worker_subconDataTable(ds.Tables["worker_subcon"]));
+                }
+                if ((ds.Tables["DataTable1"] != null)) {
+                    base.Tables.Add(new DataTable1DataTable(ds.Tables["DataTable1"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -556,6 +582,12 @@ namespace PredatorUI2 {
                     this.tableworker_subcon.InitVars();
                 }
             }
+            this.tableDataTable1 = ((DataTable1DataTable)(base.Tables["DataTable1"]));
+            if ((initTable == true)) {
+                if ((this.tableDataTable1 != null)) {
+                    this.tableDataTable1.InitVars();
+                }
+            }
             this.relationemployee_fk2 = this.Relations["employee_fk2"];
             this.relationesr_fk = this.Relations["esr_fk"];
             this.relationesr_fk3 = this.Relations["esr_fk3"];
@@ -569,6 +601,10 @@ namespace PredatorUI2 {
             this.relationwo_fk = this.Relations["wo_fk"];
             this.relationwr_fk = this.Relations["wr_fk"];
             this.relationws_fk = this.Relations["ws_fk"];
+            this.relationae_fk = this.Relations["ae_fk"];
+            this.relationemployee_fk = this.Relations["employee_fk"];
+            this.relationesr_fk2 = this.Relations["esr_fk2"];
+            this.relationet_fk2 = this.Relations["et_fk2"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -609,6 +645,8 @@ namespace PredatorUI2 {
             base.Tables.Add(this.tableworker_regular);
             this.tableworker_subcon = new worker_subconDataTable();
             base.Tables.Add(this.tableworker_subcon);
+            this.tableDataTable1 = new DataTable1DataTable();
+            base.Tables.Add(this.tableDataTable1);
             this.relationemployee_fk2 = new global::System.Data.DataRelation("employee_fk2", new global::System.Data.DataColumn[] {
                         this.tablesalary_rate.employee_catColumn}, new global::System.Data.DataColumn[] {
                         this.tableemployee_table.employee_catColumn}, false);
@@ -661,6 +699,22 @@ namespace PredatorUI2 {
                         this.tableemployee_table.employee_IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableworker_subcon.employee_IDColumn}, false);
             this.Relations.Add(this.relationws_fk);
+            this.relationae_fk = new global::System.Data.DataRelation("ae_fk", new global::System.Data.DataColumn[] {
+                        this.tableprojects_table.project_IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableadd_entry_table.project_IDColumn}, false);
+            this.Relations.Add(this.relationae_fk);
+            this.relationemployee_fk = new global::System.Data.DataRelation("employee_fk", new global::System.Data.DataColumn[] {
+                        this.tableprojects_table.project_IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableemployee_table.project_IDColumn}, false);
+            this.Relations.Add(this.relationemployee_fk);
+            this.relationesr_fk2 = new global::System.Data.DataRelation("esr_fk2", new global::System.Data.DataColumn[] {
+                        this.tableprojects_table.project_IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableentry_salary_report.project_IDColumn}, false);
+            this.Relations.Add(this.relationesr_fk2);
+            this.relationet_fk2 = new global::System.Data.DataRelation("et_fk2", new global::System.Data.DataColumn[] {
+                        this.tableprojects_table.project_IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableentry_timesheet.project_IDColumn}, false);
+            this.Relations.Add(this.relationet_fk2);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -750,6 +804,12 @@ namespace PredatorUI2 {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeworker_subcon() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeDataTable1() {
             return false;
         }
         
@@ -853,6 +913,9 @@ namespace PredatorUI2 {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void worker_subconRowChangeEventHandler(object sender, worker_subconRowChangeEvent e);
         
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void DataTable1RowChangeEventHandler(object sender, DataTable1RowChangeEvent e);
+        
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
@@ -863,6 +926,14 @@ namespace PredatorUI2 {
             private global::System.Data.DataColumn columnproject_name;
             
             private global::System.Data.DataColumn columnproject_net_pay;
+            
+            private global::System.Data.DataColumn columnproject_ID;
+            
+            private global::System.Data.DataColumn columnproject_location;
+            
+            private global::System.Data.DataColumn columnproject_status;
+            
+            private global::System.Data.DataColumn columnproject_lodging;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -915,6 +986,38 @@ namespace PredatorUI2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn project_IDColumn {
+                get {
+                    return this.columnproject_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn project_locationColumn {
+                get {
+                    return this.columnproject_location;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn project_statusColumn {
+                get {
+                    return this.columnproject_status;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn project_lodgingColumn {
+                get {
+                    return this.columnproject_lodging;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -950,14 +1053,25 @@ namespace PredatorUI2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public projects_tableRow Addprojects_tableRow(string project_name, decimal project_net_pay) {
+            public projects_tableRow Addprojects_tableRow(string project_name, decimal project_net_pay, string project_ID, string project_location, string project_status, decimal project_lodging) {
                 projects_tableRow rowprojects_tableRow = ((projects_tableRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         project_name,
-                        project_net_pay};
+                        project_net_pay,
+                        project_ID,
+                        project_location,
+                        project_status,
+                        project_lodging};
                 rowprojects_tableRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowprojects_tableRow);
                 return rowprojects_tableRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public projects_tableRow FindByproject_ID(string project_ID) {
+                return ((projects_tableRow)(this.Rows.Find(new object[] {
+                            project_ID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -979,6 +1093,10 @@ namespace PredatorUI2 {
             internal void InitVars() {
                 this.columnproject_name = base.Columns["project_name"];
                 this.columnproject_net_pay = base.Columns["project_net_pay"];
+                this.columnproject_ID = base.Columns["project_ID"];
+                this.columnproject_location = base.Columns["project_location"];
+                this.columnproject_status = base.Columns["project_status"];
+                this.columnproject_lodging = base.Columns["project_lodging"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -988,9 +1106,27 @@ namespace PredatorUI2 {
                 base.Columns.Add(this.columnproject_name);
                 this.columnproject_net_pay = new global::System.Data.DataColumn("project_net_pay", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnproject_net_pay);
+                this.columnproject_ID = new global::System.Data.DataColumn("project_ID", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnproject_ID);
+                this.columnproject_location = new global::System.Data.DataColumn("project_location", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnproject_location);
+                this.columnproject_status = new global::System.Data.DataColumn("project_status", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnproject_status);
+                this.columnproject_lodging = new global::System.Data.DataColumn("project_lodging", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnproject_lodging);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnproject_ID}, true));
                 this.columnproject_name.AllowDBNull = false;
                 this.columnproject_name.MaxLength = 256;
                 this.columnproject_net_pay.AllowDBNull = false;
+                this.columnproject_ID.AllowDBNull = false;
+                this.columnproject_ID.Unique = true;
+                this.columnproject_ID.MaxLength = 14;
+                this.columnproject_location.AllowDBNull = false;
+                this.columnproject_location.MaxLength = 255;
+                this.columnproject_status.AllowDBNull = false;
+                this.columnproject_status.MaxLength = 10;
+                this.columnproject_lodging.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1254,7 +1390,7 @@ namespace PredatorUI2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public add_entry_tableRow Addadd_entry_tableRow(string AE_ID, string AE_name, decimal AE_rate, string rate_type, string employee_position, string project_ID) {
+            public add_entry_tableRow Addadd_entry_tableRow(string AE_ID, string AE_name, decimal AE_rate, string rate_type, string employee_position, projects_tableRow parentprojects_tableRowByae_fk) {
                 add_entry_tableRow rowadd_entry_tableRow = ((add_entry_tableRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         AE_ID,
@@ -1262,7 +1398,10 @@ namespace PredatorUI2 {
                         AE_rate,
                         rate_type,
                         employee_position,
-                        project_ID};
+                        null};
+                if ((parentprojects_tableRowByae_fk != null)) {
+                    columnValuesArray[5] = parentprojects_tableRowByae_fk[2];
+                }
                 rowadd_entry_tableRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowadd_entry_tableRow);
                 return rowadd_entry_tableRow;
@@ -2648,7 +2787,7 @@ namespace PredatorUI2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public employee_tableRow Addemployee_tableRow(string employee_ID, string name_last, string name_first, string name_mi, string employee_position, string employee_type_ID, string project_ID, salary_rateRow parentsalary_rateRowByemployee_fk2) {
+            public employee_tableRow Addemployee_tableRow(string employee_ID, string name_last, string name_first, string name_mi, string employee_position, string employee_type_ID, projects_tableRow parentprojects_tableRowByemployee_fk, salary_rateRow parentsalary_rateRowByemployee_fk2) {
                 employee_tableRow rowemployee_tableRow = ((employee_tableRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         employee_ID,
@@ -2657,8 +2796,11 @@ namespace PredatorUI2 {
                         name_mi,
                         employee_position,
                         employee_type_ID,
-                        project_ID,
+                        null,
                         null};
+                if ((parentprojects_tableRowByemployee_fk != null)) {
+                    columnValuesArray[6] = parentprojects_tableRowByemployee_fk[2];
+                }
                 if ((parentsalary_rateRowByemployee_fk2 != null)) {
                     columnValuesArray[7] = parentsalary_rateRowByemployee_fk2[0];
                 }
@@ -3123,7 +3265,7 @@ namespace PredatorUI2 {
                         decimal deduction_fixed, 
                         string payment_type, 
                         period_tableRow parentperiod_tableRowByesr_fk, 
-                        string project_ID, 
+                        projects_tableRow parentprojects_tableRowByesr_fk2, 
                         employee_tableRow parentemployee_tableRowByesr_fk3, 
                         add_entry_tableRow parentadd_entry_tableRowByesr_fk4, 
                         deduction_hdmfRow parentdeduction_hdmfRowByesr_fk5, 
@@ -3142,7 +3284,7 @@ namespace PredatorUI2 {
                         deduction_fixed,
                         payment_type,
                         null,
-                        project_ID,
+                        null,
                         null,
                         null,
                         null,
@@ -3151,6 +3293,9 @@ namespace PredatorUI2 {
                         null};
                 if ((parentperiod_tableRowByesr_fk != null)) {
                     columnValuesArray[9] = parentperiod_tableRowByesr_fk[0];
+                }
+                if ((parentprojects_tableRowByesr_fk2 != null)) {
+                    columnValuesArray[10] = parentprojects_tableRowByesr_fk2[2];
                 }
                 if ((parentemployee_tableRowByesr_fk3 != null)) {
                     columnValuesArray[11] = parentemployee_tableRowByesr_fk3[0];
@@ -3627,7 +3772,7 @@ namespace PredatorUI2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public entry_timesheetRow Addentry_timesheetRow(string TSE_ID, System.DateTime date, System.TimeSpan morning_in, System.TimeSpan morning_out, System.TimeSpan afternoon_in, System.TimeSpan afternoon_out, System.TimeSpan ot_in, System.TimeSpan ot_out, decimal total_hours, decimal undertime, decimal overtime, period_tableRow parentperiod_tableRowByet_fk, string project_ID, employee_tableRow parentemployee_tableRowByet_fk3) {
+            public entry_timesheetRow Addentry_timesheetRow(string TSE_ID, System.DateTime date, System.TimeSpan morning_in, System.TimeSpan morning_out, System.TimeSpan afternoon_in, System.TimeSpan afternoon_out, System.TimeSpan ot_in, System.TimeSpan ot_out, decimal total_hours, decimal undertime, decimal overtime, period_tableRow parentperiod_tableRowByet_fk, projects_tableRow parentprojects_tableRowByet_fk2, employee_tableRow parentemployee_tableRowByet_fk3) {
                 entry_timesheetRow rowentry_timesheetRow = ((entry_timesheetRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         TSE_ID,
@@ -3642,10 +3787,13 @@ namespace PredatorUI2 {
                         undertime,
                         overtime,
                         null,
-                        project_ID,
+                        null,
                         null};
                 if ((parentperiod_tableRowByet_fk != null)) {
                     columnValuesArray[11] = parentperiod_tableRowByet_fk[0];
+                }
+                if ((parentprojects_tableRowByet_fk2 != null)) {
+                    columnValuesArray[12] = parentprojects_tableRowByet_fk2[2];
                 }
                 if ((parentemployee_tableRowByet_fk3 != null)) {
                     columnValuesArray[13] = parentemployee_tableRowByet_fk3[0];
@@ -5636,6 +5784,301 @@ namespace PredatorUI2 {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class DataTable1DataTable : global::System.Data.TypedTableBase<DataTable1Row> {
+            
+            private global::System.Data.DataColumn columnProjects;
+            
+            private global::System.Data.DataColumn columnCash;
+            
+            private global::System.Data.DataColumn columnATM;
+            
+            private global::System.Data.DataColumn columnTotal;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DataTable1DataTable() {
+                this.TableName = "DataTable1";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal DataTable1DataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected DataTable1DataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ProjectsColumn {
+                get {
+                    return this.columnProjects;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CashColumn {
+                get {
+                    return this.columnCash;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ATMColumn {
+                get {
+                    return this.columnATM;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TotalColumn {
+                get {
+                    return this.columnTotal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DataTable1Row this[int index] {
+                get {
+                    return ((DataTable1Row)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event DataTable1RowChangeEventHandler DataTable1RowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event DataTable1RowChangeEventHandler DataTable1RowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event DataTable1RowChangeEventHandler DataTable1RowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event DataTable1RowChangeEventHandler DataTable1RowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddDataTable1Row(DataTable1Row row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DataTable1Row AddDataTable1Row(string Projects, decimal Cash, string ATM, decimal Total) {
+                DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        Projects,
+                        Cash,
+                        ATM,
+                        Total};
+                rowDataTable1Row.ItemArray = columnValuesArray;
+                this.Rows.Add(rowDataTable1Row);
+                return rowDataTable1Row;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                DataTable1DataTable cln = ((DataTable1DataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new DataTable1DataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnProjects = base.Columns["Projects"];
+                this.columnCash = base.Columns["Cash"];
+                this.columnATM = base.Columns["ATM"];
+                this.columnTotal = base.Columns["Total"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnProjects = new global::System.Data.DataColumn("Projects", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProjects);
+                this.columnCash = new global::System.Data.DataColumn("Cash", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCash);
+                this.columnATM = new global::System.Data.DataColumn("ATM", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnATM);
+                this.columnTotal = new global::System.Data.DataColumn("Total", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotal);
+                this.columnProjects.AllowDBNull = false;
+                this.columnProjects.MaxLength = 255;
+                this.columnCash.AllowDBNull = false;
+                this.columnATM.AllowDBNull = false;
+                this.columnATM.MaxLength = 66;
+                this.columnTotal.AllowDBNull = false;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DataTable1Row NewDataTable1Row() {
+                return ((DataTable1Row)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new DataTable1Row(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(DataTable1Row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.DataTable1RowChanged != null)) {
+                    this.DataTable1RowChanged(this, new DataTable1RowChangeEvent(((DataTable1Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.DataTable1RowChanging != null)) {
+                    this.DataTable1RowChanging(this, new DataTable1RowChangeEvent(((DataTable1Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.DataTable1RowDeleted != null)) {
+                    this.DataTable1RowDeleted(this, new DataTable1RowChangeEvent(((DataTable1Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.DataTable1RowDeleting != null)) {
+                    this.DataTable1RowDeleting(this, new DataTable1RowChangeEvent(((DataTable1Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveDataTable1Row(DataTable1Row row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                his_payrollDataSet ds = new his_payrollDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "DataTable1DataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class projects_tableRow : global::System.Data.DataRow {
@@ -5668,6 +6111,94 @@ namespace PredatorUI2 {
                 }
                 set {
                     this[this.tableprojects_table.project_net_payColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string project_ID {
+                get {
+                    return ((string)(this[this.tableprojects_table.project_IDColumn]));
+                }
+                set {
+                    this[this.tableprojects_table.project_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string project_location {
+                get {
+                    return ((string)(this[this.tableprojects_table.project_locationColumn]));
+                }
+                set {
+                    this[this.tableprojects_table.project_locationColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string project_status {
+                get {
+                    return ((string)(this[this.tableprojects_table.project_statusColumn]));
+                }
+                set {
+                    this[this.tableprojects_table.project_statusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal project_lodging {
+                get {
+                    return ((decimal)(this[this.tableprojects_table.project_lodgingColumn]));
+                }
+                set {
+                    this[this.tableprojects_table.project_lodgingColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public add_entry_tableRow[] Getadd_entry_tableRows() {
+                if ((this.Table.ChildRelations["ae_fk"] == null)) {
+                    return new add_entry_tableRow[0];
+                }
+                else {
+                    return ((add_entry_tableRow[])(base.GetChildRows(this.Table.ChildRelations["ae_fk"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public employee_tableRow[] Getemployee_tableRows() {
+                if ((this.Table.ChildRelations["employee_fk"] == null)) {
+                    return new employee_tableRow[0];
+                }
+                else {
+                    return ((employee_tableRow[])(base.GetChildRows(this.Table.ChildRelations["employee_fk"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public entry_salary_reportRow[] Getentry_salary_reportRows() {
+                if ((this.Table.ChildRelations["esr_fk2"] == null)) {
+                    return new entry_salary_reportRow[0];
+                }
+                else {
+                    return ((entry_salary_reportRow[])(base.GetChildRows(this.Table.ChildRelations["esr_fk2"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public entry_timesheetRow[] Getentry_timesheetRows() {
+                if ((this.Table.ChildRelations["et_fk2"] == null)) {
+                    return new entry_timesheetRow[0];
+                }
+                else {
+                    return ((entry_timesheetRow[])(base.GetChildRows(this.Table.ChildRelations["et_fk2"])));
                 }
             }
         }
@@ -5749,6 +6280,17 @@ namespace PredatorUI2 {
                 }
                 set {
                     this[this.tableadd_entry_table.project_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public projects_tableRow projects_tableRow {
+                get {
+                    return ((projects_tableRow)(this.GetParentRow(this.Table.ParentRelations["ae_fk"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["ae_fk"]);
                 }
             }
             
@@ -6022,6 +6564,17 @@ namespace PredatorUI2 {
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["employee_fk2"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public projects_tableRow projects_tableRow {
+                get {
+                    return ((projects_tableRow)(this.GetParentRow(this.Table.ParentRelations["employee_fk"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["employee_fk"]);
                 }
             }
             
@@ -6366,6 +6919,17 @@ namespace PredatorUI2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public projects_tableRow projects_tableRow {
+                get {
+                    return ((projects_tableRow)(this.GetParentRow(this.Table.ParentRelations["esr_fk2"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["esr_fk2"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsAE_IDNull() {
                 return this.IsNull(this.tableentry_salary_report.AE_IDColumn);
             }
@@ -6584,6 +7148,17 @@ namespace PredatorUI2 {
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["et_fk3"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public projects_tableRow projects_tableRow {
+                get {
+                    return ((projects_tableRow)(this.GetParentRow(this.Table.ParentRelations["et_fk2"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["et_fk2"]);
                 }
             }
             
@@ -7019,6 +7594,65 @@ namespace PredatorUI2 {
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["ws_fk"]);
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class DataTable1Row : global::System.Data.DataRow {
+            
+            private DataTable1DataTable tableDataTable1;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal DataTable1Row(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableDataTable1 = ((DataTable1DataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Projects {
+                get {
+                    return ((string)(this[this.tableDataTable1.ProjectsColumn]));
+                }
+                set {
+                    this[this.tableDataTable1.ProjectsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Cash {
+                get {
+                    return ((decimal)(this[this.tableDataTable1.CashColumn]));
+                }
+                set {
+                    this[this.tableDataTable1.CashColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ATM {
+                get {
+                    return ((string)(this[this.tableDataTable1.ATMColumn]));
+                }
+                set {
+                    this[this.tableDataTable1.ATMColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Total {
+                get {
+                    return ((decimal)(this[this.tableDataTable1.TotalColumn]));
+                }
+                set {
+                    this[this.tableDataTable1.TotalColumn] = value;
                 }
             }
         }
@@ -7532,6 +8166,40 @@ namespace PredatorUI2 {
                 }
             }
         }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class DataTable1RowChangeEvent : global::System.EventArgs {
+            
+            private DataTable1Row eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DataTable1RowChangeEvent(DataTable1Row row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DataTable1Row Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
     }
 }
 namespace PredatorUI2.his_payrollDataSetTableAdapters {
@@ -7660,23 +8328,19 @@ namespace PredatorUI2.his_payrollDataSetTableAdapters {
             tableMapping.DataSetTable = "projects_table";
             tableMapping.ColumnMappings.Add("project_name", "project_name");
             tableMapping.ColumnMappings.Add("project_net_pay", "project_net_pay");
+            tableMapping.ColumnMappings.Add("project_ID", "project_ID");
+            tableMapping.ColumnMappings.Add("project_location", "project_location");
+            tableMapping.ColumnMappings.Add("project_status", "project_status");
+            tableMapping.ColumnMappings.Add("project_lodging", "project_lodging");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM `projects_table` WHERE ((`project_ID` = @p1) AND (`project_name` = @p" +
-                "2) AND (`project_location` = @p3) AND (`project_status` = @p4) AND (`project_lod" +
-                "ging` = @p5) AND (`project_net_pay` = @p6))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM `projects_table` WHERE ((`project_name` = @p1) AND (`project_net_pay`" +
+                " = @p2) AND (`project_ID` = @p3) AND (`project_location` = @p4) AND (`project_lo" +
+                "dging` = @p5) AND (`project_status` = @p6))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "project_ID";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p2";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
@@ -7684,11 +8348,19 @@ namespace PredatorUI2.his_payrollDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p2";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "project_net_pay";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p3";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "project_location";
+            param.SourceColumn = "project_ID";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -7696,7 +8368,7 @@ namespace PredatorUI2.his_payrollDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "project_status";
+            param.SourceColumn = "project_location";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -7709,16 +8381,16 @@ namespace PredatorUI2.his_payrollDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p6";
-            param.DbType = global::System.Data.DbType.Decimal;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "project_net_pay";
+            param.SourceColumn = "project_status";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `projects_table` (`project_ID`, `project_name`, `project_location`, `" +
-                "project_status`, `project_lodging`, `project_net_pay`) VALUES (@p1, @p2, @p3, @p" +
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `projects_table` (`project_name`, `project_net_pay`, `project_ID`, `p" +
+                "roject_location`, `project_lodging`, `project_status`) VALUES (@p1, @p2, @p3, @p" +
                 "4, @p5, @p6)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -7726,28 +8398,28 @@ namespace PredatorUI2.his_payrollDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "project_ID";
+            param.SourceColumn = "project_name";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p2";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
             param.IsNullable = true;
-            param.SourceColumn = "project_name";
+            param.SourceColumn = "project_net_pay";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p3";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "project_location";
+            param.SourceColumn = "project_ID";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p4";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "project_status";
+            param.SourceColumn = "project_location";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p5";
@@ -7758,42 +8430,42 @@ namespace PredatorUI2.his_payrollDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p6";
-            param.DbType = global::System.Data.DbType.Decimal;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "project_net_pay";
+            param.SourceColumn = "project_status";
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `projects_table` SET `project_ID` = @p1, `project_name` = @p2, `project_location` = @p3, `project_status` = @p4, `project_lodging` = @p5, `project_net_pay` = @p6 WHERE ((`project_ID` = @p7) AND (`project_name` = @p8) AND (`project_location` = @p9) AND (`project_status` = @p10) AND (`project_lodging` = @p11) AND (`project_net_pay` = @p12))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `projects_table` SET `project_name` = @p1, `project_net_pay` = @p2, `project_ID` = @p3, `project_location` = @p4, `project_lodging` = @p5, `project_status` = @p6 WHERE ((`project_name` = @p7) AND (`project_net_pay` = @p8) AND (`project_ID` = @p9) AND (`project_location` = @p10) AND (`project_lodging` = @p11) AND (`project_status` = @p12))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "project_ID";
+            param.SourceColumn = "project_name";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p2";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
             param.IsNullable = true;
-            param.SourceColumn = "project_name";
+            param.SourceColumn = "project_net_pay";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p3";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "project_location";
+            param.SourceColumn = "project_ID";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p4";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "project_status";
+            param.SourceColumn = "project_location";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p5";
@@ -7804,25 +8476,25 @@ namespace PredatorUI2.his_payrollDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p6";
-            param.DbType = global::System.Data.DbType.Decimal;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "project_net_pay";
+            param.SourceColumn = "project_status";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p7";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "project_ID";
+            param.SourceColumn = "project_name";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p8";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
             param.IsNullable = true;
-            param.SourceColumn = "project_name";
+            param.SourceColumn = "project_net_pay";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -7830,7 +8502,7 @@ namespace PredatorUI2.his_payrollDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "project_location";
+            param.SourceColumn = "project_ID";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -7838,7 +8510,7 @@ namespace PredatorUI2.his_payrollDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "project_status";
+            param.SourceColumn = "project_location";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -7851,10 +8523,10 @@ namespace PredatorUI2.his_payrollDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p12";
-            param.DbType = global::System.Data.DbType.Decimal;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "project_net_pay";
+            param.SourceColumn = "project_status";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
         }
@@ -7872,7 +8544,8 @@ namespace PredatorUI2.his_payrollDataSetTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT project_name, project_net_pay FROM projects_table";
+            this._commandCollection[0].CommandText = "SELECT project_name, project_net_pay, project_ID, project_location, project_lodgi" +
+                "ng, project_status FROM projects_table";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -7933,19 +8606,14 @@ namespace PredatorUI2.his_payrollDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string p1, string p2, string p3, string p4, decimal p5, decimal p6) {
+        public virtual int Delete(string p1, decimal p2, string p3, string p4, decimal p5, string p6) {
             if ((p1 == null)) {
                 throw new global::System.ArgumentNullException("p1");
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(p1));
             }
-            if ((p2 == null)) {
-                throw new global::System.ArgumentNullException("p2");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(p2));
-            }
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((decimal)(p2));
             if ((p3 == null)) {
                 throw new global::System.ArgumentNullException("p3");
             }
@@ -7959,7 +8627,12 @@ namespace PredatorUI2.his_payrollDataSetTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(p4));
             }
             this.Adapter.DeleteCommand.Parameters[4].Value = ((decimal)(p5));
-            this.Adapter.DeleteCommand.Parameters[5].Value = ((decimal)(p6));
+            if ((p6 == null)) {
+                throw new global::System.ArgumentNullException("p6");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(p6));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -7980,19 +8653,14 @@ namespace PredatorUI2.his_payrollDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string p1, string p2, string p3, string p4, decimal p5, decimal p6) {
+        public virtual int Insert(string p1, decimal p2, string p3, string p4, decimal p5, string p6) {
             if ((p1 == null)) {
                 throw new global::System.ArgumentNullException("p1");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((string)(p1));
             }
-            if ((p2 == null)) {
-                throw new global::System.ArgumentNullException("p2");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(p2));
-            }
+            this.Adapter.InsertCommand.Parameters[1].Value = ((decimal)(p2));
             if ((p3 == null)) {
                 throw new global::System.ArgumentNullException("p3");
             }
@@ -8006,7 +8674,12 @@ namespace PredatorUI2.his_payrollDataSetTableAdapters {
                 this.Adapter.InsertCommand.Parameters[3].Value = ((string)(p4));
             }
             this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(p5));
-            this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(p6));
+            if ((p6 == null)) {
+                throw new global::System.ArgumentNullException("p6");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(p6));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -8027,19 +8700,14 @@ namespace PredatorUI2.his_payrollDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string p1, string p2, string p3, string p4, decimal p5, decimal p6, string p7, string p8, string p9, string p10, decimal p11, decimal p12) {
+        public virtual int Update(string p1, decimal p2, string p3, string p4, decimal p5, string p6, string p7, decimal p8, string p9, string p10, decimal p11, string p12) {
             if ((p1 == null)) {
                 throw new global::System.ArgumentNullException("p1");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(p1));
             }
-            if ((p2 == null)) {
-                throw new global::System.ArgumentNullException("p2");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(p2));
-            }
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((decimal)(p2));
             if ((p3 == null)) {
                 throw new global::System.ArgumentNullException("p3");
             }
@@ -8053,19 +8721,19 @@ namespace PredatorUI2.his_payrollDataSetTableAdapters {
                 this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(p4));
             }
             this.Adapter.UpdateCommand.Parameters[4].Value = ((decimal)(p5));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(p6));
+            if ((p6 == null)) {
+                throw new global::System.ArgumentNullException("p6");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(p6));
+            }
             if ((p7 == null)) {
                 throw new global::System.ArgumentNullException("p7");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(p7));
             }
-            if ((p8 == null)) {
-                throw new global::System.ArgumentNullException("p8");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(p8));
-            }
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((decimal)(p8));
             if ((p9 == null)) {
                 throw new global::System.ArgumentNullException("p9");
             }
@@ -8079,7 +8747,12 @@ namespace PredatorUI2.his_payrollDataSetTableAdapters {
                 this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(p10));
             }
             this.Adapter.UpdateCommand.Parameters[10].Value = ((decimal)(p11));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((decimal)(p12));
+            if ((p12 == null)) {
+                throw new global::System.ArgumentNullException("p12");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(p12));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -8094,6 +8767,14 @@ namespace PredatorUI2.his_payrollDataSetTableAdapters {
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string p1, decimal p2, string p4, decimal p5, string p6, string p7, decimal p8, string p9, string p10, decimal p11, string p12) {
+            return this.Update(p1, p2, p9, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
     
@@ -15259,6 +15940,181 @@ namespace PredatorUI2.his_payrollDataSetTableAdapters {
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class DataTable1TableAdapter : global::System.ComponentModel.Component {
+        
+        private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
+        
+        private global::MySql.Data.MySqlClient.MySqlConnection _connection;
+        
+        private global::MySql.Data.MySqlClient.MySqlTransaction _transaction;
+        
+        private global::MySql.Data.MySqlClient.MySqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public DataTable1TableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::MySql.Data.MySqlClient.MySqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::MySql.Data.MySqlClient.MySqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::MySql.Data.MySqlClient.MySqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::MySql.Data.MySqlClient.MySqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::MySql.Data.MySqlClient.MySqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::MySql.Data.MySqlClient.MySqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "DataTable1";
+            tableMapping.ColumnMappings.Add("Projects", "Projects");
+            tableMapping.ColumnMappings.Add("Cash", "Cash");
+            tableMapping.ColumnMappings.Add("ATM", "ATM");
+            tableMapping.ColumnMappings.Add("Total", "Total");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
+            this._connection.ConnectionString = global::PredatorUI2.Properties.Settings.Default.his_payrollConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
+            this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = @"SELECT        projects_table.project_name AS Projects, entry_salary_report.total_net_pay AS Cash, 'projects_table.project_net_pay - entry_salary_report.total_net_pay' AS ATM, 
+                         projects_table.project_net_pay AS Total
+FROM            entry_salary_report INNER JOIN
+                         projects_table ON entry_salary_report.project_ID = projects_table.project_ID INNER JOIN
+                         employee_table ON entry_salary_report.employee_ID = employee_table.employee_ID AND projects_table.project_ID = employee_table.project_ID
+WHERE        (employee_table.employee_type_ID LIKE '""S""') AND (projects_table.project_status LIKE '""Ongoing""')";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(his_payrollDataSet.DataTable1DataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual his_payrollDataSet.DataTable1DataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            his_payrollDataSet.DataTable1DataTable dataTable = new his_payrollDataSet.DataTable1DataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -15673,6 +16529,15 @@ namespace PredatorUI2.his_payrollDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateUpdatedRows(his_payrollDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
+            if ((this._projects_tableTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.projects_table.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._projects_tableTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._salary_rateTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.salary_rate.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -15745,15 +16610,6 @@ namespace PredatorUI2.his_payrollDataSetTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._projects_tableTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.projects_table.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._projects_tableTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._entry_salary_reportTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.entry_salary_report.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -15818,6 +16674,14 @@ namespace PredatorUI2.his_payrollDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateInsertedRows(his_payrollDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
+            if ((this._projects_tableTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.projects_table.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._projects_tableTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._salary_rateTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.salary_rate.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -15879,14 +16743,6 @@ namespace PredatorUI2.his_payrollDataSetTableAdapters {
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._period_tableTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._projects_tableTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.projects_table.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._projects_tableTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -15996,14 +16852,6 @@ namespace PredatorUI2.his_payrollDataSetTableAdapters {
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._projects_tableTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.projects_table.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._projects_tableTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._period_tableTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.period_table.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -16065,6 +16913,14 @@ namespace PredatorUI2.his_payrollDataSetTableAdapters {
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._salary_rateTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._projects_tableTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.projects_table.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._projects_tableTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }

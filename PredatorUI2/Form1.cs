@@ -126,8 +126,10 @@ using MySql.Data.MySqlClient;
         private void button1_Click(object sender, EventArgs e)
 
         {
-            Form2 a = new Form2();
+
+            FCAccounting a = new FCAccounting();
             a.ShowDialog();
+
         }
 
         private void button2_Click(object sender, EventArgs e)
